@@ -1,3 +1,95 @@
-html, body {
-  margin: 20px;
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 1rem;
+  padding: 0px;
+  background-color: #f7f7f7;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+#mvc_tree {
+  overflow: hidden;
+  position: relative;
+  left: -0.733337px;
+  top: 0.766666px;
+  z-index: 0;
+}
+
+.node_design, 
+.node_tech {
+  cursor: pointer;
+  stroke-width: 4.7251461988304095;
+  stroke: #663c4d;
+}
+
+.node_design {
+  fill: #ffffff;
+}
+
+.node_txt,
+.node_txt_auth, 
+.year_line_txt {
+  text-anchor: middle;
+  font-size: 14px;
+  font-family: monospace;
+  cursor: pointer;
+  stroke: none;
+  fill: #000000;
+}
+
+.node_txt_auth {
+  font-style: italic;
+}
+
+.year_line_txt {
+  font-size: 12px;
+}
+
+.select_pattern {
+  height: 2rem;
+}
+
+.select_pattern select {
+  width: 6rem;
+}
+
+.overlay_checkbox {
+  border: 4px double #000;
+  cursor: pointer;
+  margin: 4px;
+  padding: 2px;
+  text-align: center;
+  max-width: 160px;
+}
+
+.overlay_enabled {
+  border-style: solid;
+}
+
+.tech_sig { 
+  fill: #FF96F7;
+}
+.tech_java { 
+  fill: #6AF4FF;
+}
+.tech_js { 
+  fill: #FFFD6A;
+}
+.tech_ms { 
+  fill: #7CC2FF;
+}
+.tech_php { 
+  fill: #a184a7;
+}
+.tech_python {
+  fill: #9BFFA4;
+}
+.tech_ruby { 
+  fill: #FF2E5C;
+}
+.tech_smalltalk { 
+  fill: #FF8F65;
 }

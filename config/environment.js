@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'mvc',
+    modulePrefix: 'mvctree',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

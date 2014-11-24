@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>
+      Click on each element to learn more about it. Also, you can use the checkboxes below to show or hide different overlays.
+    </p>
+
+    <h2>Overlays</h2>
+  </div>
+</div>
+
+{{checkbox-group}}
+
+<!-- Tree drawn with SVG -->
+<div class="row">
+  <div class="col-xs-12">
+    {{view 'svg'}}
+  </div>
+</div>
+
+<!-- List of all the nodes with their descriptions. -->
+{{#each node in allNodes}}
+  <div id="{{unbound node.id}}" class="text_box_info">
+    <div class="row">
+
+      <div class="col-xs-12">
+          <h3>{{node.year}} {{node.name}}</h3>
+      </div>
+
+      <!-- template -->
+      <div class="col-xs-12">
+          {{#if node.template}}
+            {{partial node.template}}
+          {{/if}}
+      </div>
+
+      <!-- TODO: can't pass arguments to the render helper :/ currentPatternId -->
+      {{#if node.definitions}}
+        {{definitions-showcase currPatternId=node.id
+                               currDefinitions=node.definitions
+                               allPatterns=model.patterns}}
+      {{/if}}
+
+    </div><!-- row -->
+  </div>
+{{/each}}
+

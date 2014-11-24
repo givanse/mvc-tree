@@ -1,0 +1,34 @@
+
+<!-- Debug grid -->
+{{#if view.treeConfig.showGrid}}
+  {{#each line in view.gridLines}}
+    <path d="{{unbound line}}" fill="none" stroke="#909090"></path>
+  {{/each}}
+{{/if}}
+
+<!-- Years lines -->
+{{#each line in view.yearLines}}
+  <text x="{{unbound line.x}}" y="{{unbound line.y}}" class="year_line_txt">
+    <tspan dy="4.233003616333008">
+      {{line.year}}
+    </tspan>
+  </text>
+  <path d="{{unbound line.path}}" stroke="#000000" fill="none"></path>
+{{/each}}
+
+<!-- Patterns -->
+{{#each elem in model.patterns}}
+  {{view 'svg-g' templateName='node-pattern'
+                 treeConfig=view.treeConfig
+                 elem=elem}}
+{{/each}}
+
+<!-- Technologies -->
+{{#each elem in model.techs}}
+  {{#each className in elem.classNames}}
+    {{view 'svg-g' templateName='node-technology' 
+                   treeConfig=view.treeConfig 
+                   elem=elem
+                   classNameTech=className}}
+  {{/each}}
+{{/each}}

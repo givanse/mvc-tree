@@ -1,0 +1,17 @@
+
+<!-- TODO: remove
+just to trigger the computed propertyin mixins/tree-node -->
+{{log view.x}} {{log view.y}}
+
+<ellipse class="node_tech" cx="{{unbound view.cx}}"
+                           cy="{{unbound view.cy}}" 
+                           rx="64" ry="24"></ellipse>
+
+<text class="node_txt" x="{{unbound view.cx}}" y="{{unbound view.y}}">
+  <tspan dy="24.8">
+    {{elem.name}}
+  </tspan>
+  <tspan x="{{unbound view.cx}}" dy="16.8">
+    {{elem.year}}
+  </tspan>
+</text>

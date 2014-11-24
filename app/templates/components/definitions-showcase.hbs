@@ -1,0 +1,30 @@
+
+<!-- definitions -->
+<div class="col-xs-12 col-md-6">
+  <div class='select_pattern'>
+    Pattern Elements
+  </div>
+  {{#each definition in currDefinitions}}
+    <p>
+      <b>{{definition.term}}</b>: {{definition.text}}
+    </p>
+  {{/each}}
+</div>
+
+
+<!-- definitions -->
+<div class="col-xs-12 col-md-6">
+  <div class='select_pattern'>
+    {{view 'select' content=availablePatterns
+                    value=selectedPatternId
+                    prompt='compare to'
+                    optionValuePath='content.id'
+                    optionLabelPath='content.name'}}
+  </div>
+
+  {{#each definition in selectedPattern.definitions}}
+    <p>
+      <b>{{definition.term}}</b>: {{definition.text}}
+    </p>
+  {{/each}}
+</div>

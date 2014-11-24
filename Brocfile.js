@@ -17,4 +17,15 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+// Bootstrap
+app.import({
+  development: 'vendor/bootstrap/css/bootstrap-theme.css',
+  production: 'vendor/bootstrap/css/bootstrap-theme.min.css'
+});
+
+app.import({
+  development: 'vendor/bootstrap/css/bootstrap.css',
+  production: 'vendor/bootstrap/css/bootstrap.min.css'
+});
+
 module.exports = app.toTree();
