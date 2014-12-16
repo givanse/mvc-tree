@@ -2,7 +2,6 @@
 var fixtureP = [
   { 
     "id": "pac",
-    "elementId": "pac",
     "name": "PAC",
     "year": "1987",
     "author": "J. Coutaz",
@@ -27,7 +26,6 @@ var fixtureP = [
 
   { 
     "id": "mvc_kp",
-    "elementId": "mvc_kp",
     "name": "MVC",
     "year": "1988",
     "author": "Krasner & Pope",
@@ -54,7 +52,6 @@ var fixtureP = [
 var fixtureT = [
   {
     id: 'swing',
-    elementId: 'swing',
     name: 'SWING',
     year: '1998',
     col: 0,
@@ -63,7 +60,6 @@ var fixtureT = [
   },
   {
     id: 'struts',
-    elementId: 'struts',
     name: 'Struts',
     year: '2000',
     col: 0,
