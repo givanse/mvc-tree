@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('definitions-set', 'DefinitionsSet', {
+moduleForModel('grid-node', 'GridNode', {
   // Specify the other units that are required for this test.
   needs: []
 });

@@ -2,9 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  allPatterns: null,
+
   availablePatterns: function() {
     var currPatternId = this.get('currPatternId'), 
         allPatterns = this.get('allPatterns');
+
+    if ( ! allPatterns ) {
+      return null;
+    }
 
     return allPatterns.filter(function(pattern) {
       return pattern.id === currPatternId ? false : true;

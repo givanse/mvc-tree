@@ -5,7 +5,7 @@ import {
 
 moduleForModel('definition', 'Definition', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:pattern']
 });
 
 test('it exists', function() {

@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('view:mvc-compare', 'MvcCompareView');
+moduleFor('view:overlay-checkbox', 'OverlayCheckboxView');
 
 // Replace this with your real tests.
 test('it exists', function() {

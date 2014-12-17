@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('view:mvc-tree', 'MvcTreeView');
+moduleFor('view:svg-g', 'SvgGView');
 
 // Replace this with your real tests.
 test('it exists', function() {
