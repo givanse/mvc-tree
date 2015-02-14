@@ -5,7 +5,7 @@ import {
 
 moduleForModel('definition', {
   // Specify the other units that are required for this test.
-  needs: ['model:pattern']
+  needs: ['model:node-dpattern']
 });
 
 test('it exists', function(assert) {

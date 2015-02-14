@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('pattern', 'Pattern', {
+moduleForModel('node-dpattern', {
   // Specify the other units that are required for this test.
   needs: []
 });

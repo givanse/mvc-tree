@@ -7,11 +7,11 @@ export function initialize(container/*, application */) {
   var store = container.lookup('store:main');
 
   fixtureP.forEach(function(item) {
-    store.push('pattern', item);
+    store.push('node-dpattern', item);
   });
 
   fixtureT.forEach(function(item) {
-    store.push('technology', item);
+    store.push('node-technology', item);
   });
 }
 

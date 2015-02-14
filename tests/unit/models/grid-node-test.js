@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('grid-node', 'GridNode', {
+moduleForModel('grid-node', {
   // Specify the other units that are required for this test.
   needs: []
 });

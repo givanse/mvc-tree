@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('technology', 'Technology', {
+moduleForModel('node-technology', {
   // Specify the other units that are required for this test.
   needs: []
 });

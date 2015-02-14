@@ -1,14 +1,17 @@
 <div class="row">
   <div class="col-xs-12">
-    <p>
-      Click on each element to learn more about it. Also, you can use the checkboxes below to show or hide different overlays.
-    </p>
+  <p>
+    Click on each tree element to learn more about it. 
+  </p>
 
-    <h2>Overlays</h2>
+  <p>
+    You can use this buttons to show or hide different overlays.
+  </p>
   </div>
-</div>
 
-{{checkbox-group}}
+  {{checkbox-group}}
+
+</div>
 
 <!-- Tree drawn with SVG -->
 <div class="row">
@@ -18,7 +21,7 @@
 </div>
 
 <!-- List of all the nodes with their descriptions. -->
-{{#each node in allNodes}}
+{{#each node in sortedNodes}}
   <div id="{{unbound node.id}}" class="text_box_info">
     <div class="row">
 

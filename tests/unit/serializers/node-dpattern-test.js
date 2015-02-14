@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('serializer:pattern', 'PatternSerializer', {
+moduleFor('serializer:node-dpattern', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });
