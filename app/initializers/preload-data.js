@@ -1,5 +1,7 @@
+import fixtureT from '../jsons/technologies';
+import fixtureP from '../jsons/dpatterns';
 
-// TODO: Fix deprecation
+// TODO: Fix deprecation in Ember 1.11
 // DEPRECATION: register should be called on the registry instead of the container
 // https://github.com/ember-cli/ember-cli/issues/3159
 
@@ -7,10 +9,12 @@ export function initialize(container/*, application */) {
   var store = container.lookup('store:main');
 
   fixtureP.forEach(function(item) {
+    item.template = 'dpatterns/' + item.id;
     store.push('node-dpattern', item);
   });
 
   fixtureT.forEach(function(item) {
+    item.template = 'technologies/' + item.id;
     store.push('node-technology', item);
   });
 }
@@ -20,73 +24,4 @@ export default {
   after: 'ember-data',
   initialize: initialize 
 };
-
-var fixtureP = [
-  { 
-    'id': 'pac',
-    'name': 'PAC',
-    'year': '1987',
-    'author': 'J. Coutaz',
-    'template': 'patterns/pac',
-    'col': '4',
-    'row': '2',
-    'definitions': [
-        {
-          'term': 'Presentation',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'Abstraction',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'Control',
-          'text': 'Lorem ipsum dolor sir amet'
-        }
-    ]
-  },
-
-  { 
-    'id': 'mvc_kp',
-    'name': 'MVC',
-    'year': '1988',
-    'author': 'Krasner & Pope',
-    'template': 'patterns/mvc-kp',
-    'col': '0',
-    'row': '3',
-    'definitions': [
-        {
-          'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'Controller',
-          'text': 'Lorem ipsum dolor sir amet'
-        }
-    ]
-  }
-];
-
-var fixtureT = [
-  {
-    id: 'swing',
-    name: 'SWING',
-    year: '1998',
-    col: 0,
-    row: 7,
-    classNames: ['tech_sig']
-  },
-  {
-    id: 'struts',
-    name: 'Struts',
-    year: '2000',
-    col: 0,
-    row: 9,
-    classNames: ['tech_sig', 'tech_java']
-  }
-];
 
