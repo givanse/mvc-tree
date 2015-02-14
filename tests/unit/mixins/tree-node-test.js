@@ -1,11 +1,12 @@
 import Ember from 'ember';
-import TreeNodeMixin from 'mvctree/mixins/tree-node';
+import TreeNodeMixin from '../../../mixins/tree-node';
+import { module, test } from 'qunit';
 
 module('TreeNodeMixin');
 
 // Replace this with your real tests.
-test('it works', function() {
+test('it works', function(assert) {
   var TreeNodeObject = Ember.Object.extend(TreeNodeMixin);
   var subject = TreeNodeObject.create();
-  ok(subject);
+  assert.ok(subject);
 });

@@ -1,4 +1,8 @@
 
+// TODO: Fix deprecation
+// DEPRECATION: register should be called on the registry instead of the container
+// https://github.com/ember-cli/ember-cli/issues/3159
+
 export function initialize(container/*, application */) {
   var store = container.lookup('store:main');
 
@@ -13,7 +17,7 @@ export function initialize(container/*, application */) {
 
 export default {
   name: 'preload-data',
-  after: 'store',
+  after: 'ember-data',
   initialize: initialize 
 };
 

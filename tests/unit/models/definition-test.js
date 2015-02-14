@@ -3,13 +3,13 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('definition', 'Definition', {
+moduleForModel('definition', {
   // Specify the other units that are required for this test.
   needs: ['model:pattern']
 });
 
-test('it exists', function() {
+test('it exists', function(assert) {
   var model = this.subject();
   // var store = this.store();
-  ok(!!model);
+  assert.ok(!!model);
 });

@@ -6,12 +6,12 @@ import {
 moduleFor('view:svg', 'SvgView');
 
 // Replace this with your real tests.
-test('it exists', function() {
+test('it exists', function(assert) {
   var view = this.subject();
-  ok(view);
+  assert.ok(view);
 });
 
-test('draw a grid', function() {
+test('draw a grid', function(assert) {
   var view = this.subject();
-  ok(view);
+  assert.ok(view);
 });

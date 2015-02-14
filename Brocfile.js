@@ -18,14 +18,13 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 // Bootstrap
-app.import({
-  development: 'vendor/bootstrap/css/bootstrap-theme.css',
-  production: 'vendor/bootstrap/css/bootstrap-theme.min.css'
-});
-
-app.import({
-  development: 'vendor/bootstrap/css/bootstrap.css',
-  production: 'vendor/bootstrap/css/bootstrap.min.css'
-});
+app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+app.import('bower_components/bootstrap/dist/css/bootstrap.css.map',
+           { destDir: 'assets' });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
+           { destDir: 'fonts' });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff',
+           { destDir: 'fonts' });
+app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 module.exports = app.toTree();
