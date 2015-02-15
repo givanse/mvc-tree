@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import { initialize } from '../../../initializers/preload-data';
 import { module, test } from 'qunit';
-import Pattern from 'mvctree/models/pattern';
-import Technology from 'mvctree/models/technology';
+import NodeDPattern from 'mvctree/models/node-dpattern';
+import NodeTechnology from 'mvctree/models/node-technology';
 
 var container, application;
 
@@ -13,8 +13,8 @@ module('PreloadDataInitializer', {
       container = application.__container__;
       application.deferReadiness();
 
-      container.register('model:pattern', Pattern);
-      container.register('model:technology', Technology);
+      container.register('model:node-dpattern', NodeDPattern);
+      container.register('model:node-technology', NodeTechnology);
     });
   }
 });

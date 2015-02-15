@@ -20,28 +20,40 @@ export default Ember.View.extend({
   width: '100%',
   height: '100%',
   preserveAspectRatio: 'xMinYMin',
+  viewBox: null,
 
   treeConfig: {
     showGrid: true,
 
-    paddingT: 12,
-    paddingR: 12,
+    paddingT: 6,
+    paddingR: 6,
     paddingB: 12,
-    paddingL: 12,
+    paddingL: 6,
 
-    colW: 130 + 24,
-    rowH: 64 + 24,
+    colW: 160 + 12,
+    rowH: 64 + 18,
 
     maxCols: 7,
     maxRows: 20,
 
-    viewBoxW: 1078,
-    viewBoxH: 1760
+    viewBoxW: null,
+    viewBoxH: null,
+
+    yearLineFontSize: 12 // see CSS rules .year_line_txt
   },
-  viewBox: '0 0 1078 1760',
+
+  calcViewBox: function() {
+    var tc = this.get('treeConfig');
+        tc.viewBoxW = tc.colW * tc.maxCols;
+        tc.viewBoxH = tc.rowH * tc.maxRows;
+    var viewBox = '0 0 ' + tc.viewBoxW + ' ' + tc.viewBoxH;
+
+    this.set('treeConfig', tc);
+    this.set('viewBox', viewBox);
+  }.observes('treeConfig').on('init'),
 
   gridLines: function() {
-    var tc = this.treeConfig,
+    var tc = this.get('treeConfig'),
         w = tc.viewBoxW,
         h = tc.viewBoxH,
         gridLines = [];
@@ -54,25 +66,25 @@ export default Ember.View.extend({
     }
 
     return gridLines;
-  }.property(),
+  }.property('treeConfig'),
 
   yearLines: function() {
-    var tc = this.treeConfig;
-
-    function buildYearLine(year, row) {
-      var x = tc.paddingL, 
-          y = row * tc.rowH,
-          xLine = x + tc.paddingL;
-      return {year: year, x: x, y: y,
-              path: 'M'+xLine+' '+y+' H' + tc.viewBoxW};
-    }
+    var tc = this.get('treeConfig');
 
     return [
-      buildYearLine(1980, 2),
-      buildYearLine(1990, 5),
-      buildYearLine(2000, 9),
-      buildYearLine(2010, 13)
+      this._buildYearLine(1980, 2, tc),
+      this._buildYearLine(1990, 5, tc),
+      this._buildYearLine(2000, 9, tc),
+      this._buildYearLine(2010, 13, tc)
     ];
-  }.property()
+  }.property('treeConfig'),
 
+  _buildYearLine: function(year, row, tc) {
+    var x = tc.yearLineFontSize * 2, 
+        y = row * tc.rowH,
+        xLine = tc.yearLineFontSize * 4;
+
+    return {year: year, x: x, y: y,
+            path: 'M'+xLine+' '+y+' H' + tc.viewBoxW};
+  }
 });
