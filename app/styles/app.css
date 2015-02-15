@@ -48,14 +48,6 @@ body {
   font-size: 12px;
 }
 
-.select_pattern {
-  height: 2rem;
-}
-
-.select_pattern select {
-  width: 6rem;
-}
-
 .overlay_checkbox {
   border: 4px double #000;
   cursor: pointer;
@@ -93,3 +85,43 @@ body {
 .tech_smalltalk { 
   fill: #FF8F65;
 }
+
+.button_top {
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+/* mvc_tree */
+
+.mvc_tree_wrapper_scroll {
+  overflow-x: scroll;
+}
+
+.mvc_tree_wrapper {
+  width: 350%;
+}
+
+@media (min-width: 360px) {
+  .mvc_tree_wrapper {
+    width: 300%;
+  }
+}
+
+@media (min-width: 480px) {
+  .mvc_tree_wrapper {
+    width: 200%;
+  }
+}
+
+@media (min-width: 769px) {
+  .mvc_tree_wrapper {
+    width: 150%;
+  }
+}
+
+@media (min-width: 900px) {
+  .mvc_tree_wrapper {
+    width: 100%;
+  }
+}
+

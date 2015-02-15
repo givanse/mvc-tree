@@ -1,49 +1,49 @@
-<div class="row">
-  <div class="col-xs-12">
-  <p>
-    Click on each tree element to learn more about it. 
-  </p>
 
-  <p>
-    You can use this buttons to show or hide different overlays.
-  </p>
+<div class="container">
+  <div class="row">
+    {{checkbox-group}}
   </div>
-
-  {{checkbox-group}}
-
 </div>
 
 <!-- Tree drawn with SVG -->
-<div class="row">
-  <div class="col-xs-12">
+<div class="mvc_tree_wrapper_scroll">
+  <div class="mvc_tree_wrapper">
     {{view 'svg'}}
   </div>
 </div>
 
-<!-- List of all the nodes with their descriptions. -->
-{{#each node in sortedNodes}}
-  <div id="{{unbound node.id}}" class="text_box_info">
-    <div class="row">
+<div class="container">
+  <!-- List of all the nodes with their descriptions. -->
+  {{#each node in sortedNodes}}
+    <div id="{{unbound node.id}}" class="row text_box_info">
+      
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <!-- title -->
+            <h3 class="panel-title">{{node.year}} {{node.name}}</h3>
 
-      <div class="col-xs-12">
-          <h3>{{node.year}} {{node.name}}</h3>
-      </div>
+            <div class="pull-right button_top">
+              <a href="#top">
+                <span class="glyphicon glyphicon-triangle-top"
+                      aria-hidden="true"></span>
+              </a>
+            </div>
+          </div><!-- panel-heading -->
 
-      <!-- template -->
-      <div class="col-xs-12">
-          {{#if node.template}}
-            {{partial node.template}}
-          {{/if}}
-      </div>
+          <div class="panel-body">
+            <!-- template -->
+              {{partial node.template}}
+            
 
-      <!-- TODO: can't pass arguments to the render helper :/ currentPatternId -->
-      {{#if node.definitions}}
-        {{definitions-showcase currPatternId=node.id
-                               currDefinitions=node.definitions
-                               allPatterns=model.patterns}}
-      {{/if}}
-
+            {{#if node.definitions}}
+              {{definitions-showcase currPatternId=node.id
+                                     currDefinitions=node.definitions
+                                     allPatterns=model.dpatterns}}
+            {{/if}}
+          </div><!-- panel-body -->
+        </div><!-- panel -->
+    
     </div><!-- row -->
-  </div>
-{{/each}}
+  {{/each}}
+</div>
 

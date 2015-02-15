@@ -24,21 +24,21 @@ export default Ember.View.extend({
   treeConfig: {
     showGrid: true,
 
-    paddingL: 12,
-    paddingR: 12,
     paddingT: 12,
+    paddingR: 12,
     paddingB: 12,
+    paddingL: 12,
 
     colW: 130 + 24,
-    rowH: 64 + 20,
+    rowH: 64 + 24,
 
     maxCols: 7,
     maxRows: 20,
 
-    viewBoxW: 800,
-    viewBoxH: 1600
+    viewBoxW: 1078,
+    viewBoxH: 1760
   },
-  viewBox: '0 0 800 1600',
+  viewBox: '0 0 1078 1760',
 
   gridLines: function() {
     var tc = this.treeConfig,
@@ -69,7 +69,7 @@ export default Ember.View.extend({
 
     return [
       buildYearLine(1980, 2),
-      buildYearLine(1990, 4),
+      buildYearLine(1990, 5),
       buildYearLine(2000, 9),
       buildYearLine(2010, 13)
     ];

@@ -13,9 +13,14 @@ export default Ember.Component.extend({
     }
 
     return allPatterns.filter(function(pattern) {
-      return pattern.id === currPatternId ? false : true;
-    }).toArray();
-  }.property(),
+      if ( pattern.id === currPatternId ||
+           ! pattern.get('definitions') ) {
+        return false;
+      }
+
+      return true;
+    }).sortBy('name').toArray();
+  }.property('allPatterns'),
 
   selectedPatternId: null,
 

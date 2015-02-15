@@ -2,7 +2,8 @@ import Ember from 'ember';
 import TreeNode from '../mixins/tree-node';
 
 /*
-  The main objective of this SVG group is to make it easier to handle click events.
+  The main objective of this SVG group is to make it easier 
+  to handle click events.
 */
 export default Ember.View.extend(TreeNode, {
   tagName: 'g',
@@ -15,7 +16,7 @@ export default Ember.View.extend(TreeNode, {
     //TODO: cache selector
     Ember.$('html, body').animate({
       scrollTop: Ember.$('#' + elemId).offset().top
-    }, 300);
+    }, 700);
 
     //TODO: revisit hashbang anchor support in Ember
     window.location.hash = elemId;

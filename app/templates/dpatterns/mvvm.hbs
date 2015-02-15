@@ -1,0 +1,57 @@
+        <p>
+        Described by John Gossman from Microsoft in his blog post:
+        <a href="http://blogs.msdn.com/b/johngossman/archive/2005/10/08/478683.aspx">
+          Introduction to Model/View/ViewModel pattern for building WPF apps
+        </a>. From the beginning it was compared to Presentation Model and later, in 2008, 
+        <a href="http://blogs.msdn.com/b/johngossman/archive/2008/05/28/presentationmodel-and-wpf.aspx">
+          J. Gossman posted
+        </a>:
+        <blockquote>
+        My opinion at this point is the Model-View-ViewModel pattern is a WPF-specific version of the PresentationModel pattern.
+        </blockquote>
+        </p>
+        <p>
+          An interesting observation made about MVVM is that it maps quite well to PAC.
+          You can read about that in:
+          <a href="http://blogs.msdn.com/b/johngossman/archive/2005/10/09/478894.aspx">
+            100 Model/View/ViewModels of Mt. Fuji
+          </a>
+        </p>
+
+        <p>
+        MVVM Key features:
+        <ul>
+          <li>
+            Data binding gives you boilerplate synchronization code.
+          </li>
+          <li>
+            The ViewModel is easier to unit test compared to code-behind or event-driven code.
+            <blockquote>
+              <p>
+              The ViewModel, though it sounds View-ish is really more Model-ish, and that means you can test it without awkward UI automation and interaction.
+              </p>
+              <footer>
+                <a href="http://blogs.msdn.com/b/johngossman/archive/2006/03/04/543695.aspx">
+                  Advantages and disadvantages of M-V-VM
+                </a>
+              </footer>
+            </blockquote>
+          </li>
+        </ul>
+        </p>
+
+        <p>
+        MVVM Issues:
+        <ul>
+          <li>
+            Declarative data binding can be harder to debug.
+          </li>
+          <li>
+            In very large apps, data binding can result in considerable memory consumption.
+          </li>
+          <li>
+            It can be overkill for simple UIs.
+          </li>
+        </ul>
+        </p>
+

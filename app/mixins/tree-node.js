@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
+/*
+  Provides convinient methods that convert col,row positions to x,y coordinates
+  for the SVG root.
+*/
 export default Ember.Mixin.create({
 
   x: function() {
