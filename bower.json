@@ -14,5 +14,8 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "bootstrap": "~3.3.2"
+  },
+  "devDependencies": {
+    "jquery.isinview": "~0.4.1"
   }
 }

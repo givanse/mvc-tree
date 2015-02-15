@@ -6,15 +6,22 @@ import TreeNode from '../mixins/tree-node';
   to handle click events.
 */
 export default Ember.View.extend(TreeNode, {
+
+  _classNames: function() {
+    // warning: we are overriding the classNames property
+    this.set('classNames', ['ember-view', 'g_' + this.get('elem.id')]);
+  }.on('init'),
+
   tagName: 'g',
 
   classNameBindings: ['classNameTech'],
 
+  _$html_body: Ember.$('html, body'),
+
   click: function() {
     var elemId = this.get('elem.id');
 
-    //TODO: cache selector
-    Ember.$('html, body').animate({
+    this._$html_body.animate({
       scrollTop: Ember.$('#' + elemId).offset().top
     }, 700);
 

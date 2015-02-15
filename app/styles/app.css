@@ -99,6 +99,8 @@ body {
 
 .mvc_tree_wrapper {
   width: 350%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 @media (min-width: 360px) {
