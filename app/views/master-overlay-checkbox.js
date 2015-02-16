@@ -19,7 +19,10 @@ export default Ember.ContainerView.extend({
     var chksList = this.get('checkboxes'),
         _this = this;
     chksList.forEach(function(chkHash) {
-      _this.pushObject( OverlayCheckbox.create( chkHash ) );
+      // TODO: https://github.com/emberjs/ember.js/issues/9833
+      // tests are failing when run together, individual runs are fine
+      var view = _this.createChildView(OverlayCheckbox, chkHash);
+      _this.pushObject( view );
     });
   }.on('init'),
 
@@ -57,8 +60,8 @@ export default Ember.ContainerView.extend({
     },
 
     removeOvrEnabClass: function() {
-      $( '#' + this.get('masterCheckbox.elementId') )
-       .removeClass('overlay_enabled');
+      Ember.$( '#' + this.get('masterCheckbox.elementId') )
+           .removeClass('overlay_enabled');
     }
   }
 
