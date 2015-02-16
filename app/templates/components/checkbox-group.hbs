@@ -1,14 +1,8 @@
 
-<div class="row">
-  <div class="col-xs-6 col-sm-2">
-    {{view 'overlay-checkbox' name='All' isMaster=true}}
-  </div>
+{{view 'overlay-checkbox' name='All' isMaster=true}}
  
- {{#each d in checkboxesDataList}}
-   <div class="col-xs-6 col-sm-2">
-     {{view 'overlay-checkbox' name=d.name 
-                               overlayClassName=d.className 
-                               checked=d.checked}}
-   </div>
- {{/each}}
-</div>
+{{#each d in checkboxesDataList}}
+  {{view 'overlay-checkbox' name=d.name 
+                            overlayClassName=d.className 
+                            checked=d.checked}}
+{{/each}}

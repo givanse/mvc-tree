@@ -48,16 +48,27 @@ body {
 }
 
 .overlay_checkbox {
-  border: 4px double #000;
+  background-color: #fff;
+  border: 4px double #337AB7;
   cursor: pointer;
   margin: 4px;
   padding: 2px;
   text-align: center;
   max-width: 160px;
+  overflow: hidden;
 }
 
+.overlay_checkbox:hover, 
 .overlay_enabled {
   border-style: solid;
+}
+
+.overlay_checkbox:hover{
+  border-color: #663C4D;
+} 
+
+.overlay_enabled:hover {
+  border-color: #337AB7;
 }
 
 .tech_sig { 
@@ -100,6 +111,8 @@ body {
   width: 350%;
   max-width: 1280px;
   margin: 0 auto;
+  border: 4px solid #D9EDF7;
+  border-radius: 8px;
 }
 
 @media (min-width: 360px) {
@@ -125,4 +138,50 @@ body {
     width: 100%;
   }
 }
+
+/* Tabbed Drawer start */
+
+.tabbed_drawer {
+  position: fixed;
+  top: 20%;
+  z-index: 10;
+  right: 0px;
+}
+
+.td_tab {
+  text-align: center;
+  border: 1px solid #000;
+  border-width: 1px 0px 1px 1px;
+  border-radius: 4px 0px 0px 4px;
+  border-right-color: #e3e3e3;
+  float: left;
+  background-color: #D9EDF7;
+  cursor: pointer;
+  position: relative;
+  top: 1rem;
+  z-index: 9;
+  font-size: 1.3rem;
+  padding: 1rem 0;
+}
+
+.td_drawer {
+  border: 1px solid #000;
+  border-width: 1px 0 1px 1px;
+  border-radius: 4px 0 0 4px;
+  margin-left: -1px;
+  position: relative;
+  z-index: 8;
+  float: left;
+  background-color: #D9EDF7;
+  min-height: 200px;
+  padding: 0.3rem;
+  overflow: hidden;
+  width: 0px;
+}
+
+.is-drawer-shown .td_drawer {
+  width: inherit;
+}
+
+/* Tabbed Drawer end*/
 

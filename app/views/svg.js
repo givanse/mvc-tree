@@ -23,7 +23,7 @@ export default Ember.View.extend({
   viewBox: null,
 
   treeConfig: {
-    showGrid: true,
+    showGrid: false,
 
     paddingT: 6,
     paddingR: 6,
