@@ -30,7 +30,7 @@ export default Ember.View.extend({
     paddingB: 12,
     paddingL: 6,
 
-    colW: 160 + 12,
+    colW: 170 + 12,
     rowH: 64 + 18,
 
     maxCols: 7,

@@ -5,7 +5,6 @@ html {
 body {
   margin: 1rem;
   padding: 0px;
-  background-color: #f7f7f7;
   font-size: 1rem;
   line-height: 2rem;
 }
@@ -21,7 +20,7 @@ body {
 .node_design, 
 .node_tech {
   cursor: pointer;
-  stroke-width: 4.7251461988304095;
+  stroke-width: 2.7251461988304095;
   stroke: #663c4d;
 }
 
@@ -62,28 +61,28 @@ body {
 }
 
 .tech_sig { 
-  fill: #FF96F7;
+  fill: #DCB1D9;
 }
 .tech_java { 
-  fill: #6AF4FF;
+  fill: #C4FBFF;
 }
 .tech_js { 
-  fill: #FFFD6A;
+  fill: #FFFEC2;
 }
 .tech_ms { 
-  fill: #7CC2FF;
+  fill: #9ED2F4;
 }
 .tech_php { 
-  fill: #a184a7;
+  fill: #9694B4;
 }
 .tech_python {
   fill: #9BFFA4;
 }
 .tech_ruby { 
-  fill: #FF2E5C;
+  fill: #D67373;
 }
 .tech_smalltalk { 
-  fill: #FF8F65;
+  fill: #FFB675;
 }
 
 .button_top {

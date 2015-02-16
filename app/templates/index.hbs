@@ -12,12 +12,15 @@
   </div>
 </div>
 
+<br>
+
 <div class="container">
   <!-- List of all the nodes with their descriptions. -->
   {{#each node in sortedNodes}}
     <div id="{{unbound node.id}}" class="row text_box_info">
       
-        <div class="panel panel-primary">
+        <div class="panel {{if node.author 'panel-primary' 'panel-info'}}">
+
           <div class="panel-heading">
             <!-- title -->
             <h3 class="panel-title">{{node.year}} {{node.name}}</h3>

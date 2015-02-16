@@ -174,7 +174,7 @@ export default [
     'id': 'data-binding',
     'name': 'Data Binding',
     'year': '1995',
-    'author': '',
+    'author': 'unknown',
     'col': '6',
     'row': '6',
     'definitions': null 
@@ -226,7 +226,7 @@ export default [
     'id': 'mvw',
     'name': 'MVW',
     'year': '2012',
-    'author': '',
+    'author': 'unknown',
     'col': '5',
     'row': '19',
     'definitions': [
