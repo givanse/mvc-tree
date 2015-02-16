@@ -1,8 +1,0 @@
-
-{{view 'overlay-checkbox' name='All' isMaster=true}}
- 
-{{#each d in checkboxesDataList}}
-  {{view 'overlay-checkbox' name=d.name 
-                            overlayClassName=d.className 
-                            checked=d.checked}}
-{{/each}}

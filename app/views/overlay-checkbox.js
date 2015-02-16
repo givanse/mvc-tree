@@ -18,16 +18,16 @@ export default Ember.View.extend({
     if ( this.get('isMaster') ) {
       this.get('parentView').send('toggleAll', checked);
     } else {
-      return false;
+      this.get('parentView').send('removeOvrEnabClass');
     }
   },
 
   checkedObserver: function() {
     var checked =  this.get('checked');
-    this.toggleOverlay(checked);
+    this._toggleOverlay(checked);
   }.observes('checked'),
 
-  toggleOverlay: function(isChecked) {
+  _toggleOverlay: function(isChecked) {
     var overlayClassName = this.get('overlayClassName'),
         svgElements = Ember.$('.'+overlayClassName);
 
@@ -45,7 +45,7 @@ export default Ember.View.extend({
   },
 
   didInsertElement: function() {
-    // like doing a trigger on(init), but after the elements have been inserted,
+    // like listening to on('init'), but after the elements have been inserted,
     // otherwise none is found and the CSS class is not applied properly
     this.checkedObserver();
   }
