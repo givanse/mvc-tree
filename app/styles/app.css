@@ -28,13 +28,23 @@ body {
   fill: #ffffff;
 }
 
+.node_header {
+  fill: #f1f1f1;
+  font-size: 16px;
+}
+
+.node_txt,
+.node_txt_auth {
+  cursor: pointer;
+}
+ 
+.node_header_title,
 .node_txt,
 .node_txt_auth, 
 .year_line_txt {
   text-anchor: middle;
   font-size: 14px;
   font-family: monospace;
-  cursor: pointer;
   stroke: none;
   fill: #000000;
 }

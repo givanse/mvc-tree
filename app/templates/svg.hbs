@@ -16,9 +16,16 @@
   <path d="{{unbound line.path}}" stroke="#000000" fill="none"></path>
 {{/each}}
 
+<!-- Column Headers -->
+{{#each elem in model.headers}}
+  {{view 'svg-g' templateName='node-header'
+                 treeConfig=view.treeConfig
+                 elem=elem}}
+{{/each}}
+
 <!-- Design Patterns -->
 {{#each elem in model.dpatterns}}
-  {{view 'svg-g' templateName='node-dpattern'
+  {{view 'svg-g-click' templateName='node-dpattern'
                  treeConfig=view.treeConfig
                  elem=elem}}
 {{/each}}
@@ -26,7 +33,7 @@
 <!-- Technologies -->
 {{#each elem in model.technologies}}
   {{#each className in elem.classNames}}
-    {{view 'svg-g' templateName='node-technology' 
+    {{view 'svg-g-click' templateName='node-technology' 
                    treeConfig=view.treeConfig 
                    elem=elem
                    classNameTech=className}}

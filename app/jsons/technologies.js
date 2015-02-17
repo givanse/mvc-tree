@@ -4,7 +4,7 @@ export default [
     name: 'SWING',
     year: '1998',
     col: 0,
-    row: 7,
+    row: 8,
     classNames: ['tech_sig']
   },
   {
@@ -12,7 +12,7 @@ export default [
     name: 'Struts',
     year: '2000',
     col: 0,
-    row: 9,
+    row: 10,
     classNames: ['tech_sig', 'tech_java']
   },
   {
@@ -20,7 +20,7 @@ export default [
     name: 'NeXTstep',
     year: '1988',
     col: 0,
-    row: 4,
+    row: 5,
     classNames: ['tech_sig']
   },
   {
@@ -28,7 +28,7 @@ export default [
     name: 'MS-Access',
     year: '1995',
     col: 6,
-    row: 6,
+    row: 7,
     classNames: ['tech_ms']
   },
   {
@@ -36,7 +36,7 @@ export default [
     name: 'Dolphin',
     year: '1995',
     col: 2,
-    row: 9,
+    row: 10,
     classNames: ['tech_smalltalk']
   },
   {
@@ -44,7 +44,7 @@ export default [
     name: 'Drupal',
     year: '2001',
     col: 4,
-    row: 10,
+    row: 11,
     classNames: ['tech_php']
   },
   {
@@ -52,7 +52,7 @@ export default [
     name: 'Rails',
     year: '2004',
     col: 0,
-    row: 12,
+    row: 13,
     classNames: ['tech_sig', 'tech_ruby']
   },
   {
@@ -60,7 +60,7 @@ export default [
     name: 'J2EE',
     year: '1999',
     col: 0,
-    row: 11,
+    row: 12,
     classNames: ['tech_java']
   },
   {
@@ -68,7 +68,7 @@ export default [
     name: 'JSF',
     year: '2004',
     col: 0,
-    row: 12,
+    row: 13,
     classNames: ['tech_java']
   },
   {
@@ -76,7 +76,7 @@ export default [
     name: 'DJango',
     year: '2005',
     col: 0,
-    row: 14,
+    row: 15,
     classNames: ['tech_python']
   },
   {
@@ -84,7 +84,7 @@ export default [
     name: 'Cake PHP',
     year: '2005',
     col: 0,
-    row: 13,
+    row: 14,
     classNames: ['tech_php']
   },
   {
@@ -92,7 +92,7 @@ export default [
     name: 'Zend',
     year: '2006',
     col: 0,
-    row: 15,
+    row: 16,
     classNames: ['tech_php']
   },
   {
@@ -100,7 +100,7 @@ export default [
     name: 'APS.NET MVC',
     year: '2007',
     col: 0,
-    row: 15,
+    row: 16,
     classNames: ['tech_ms']
   },
   {
@@ -108,7 +108,7 @@ export default [
     name: 'Silverlight',
     year: '2007',
     col: 3,
-    row: 15,
+    row: 16,
     classNames: ['tech_ms']
   },
   {
@@ -116,7 +116,7 @@ export default [
     name: 'Sproutcore',
     year: '2007',
     col: 0,
-    row: 15,
+    row: 16,
     classNames: ['tech_sig', 'tech_js']
   },
   {
@@ -124,7 +124,7 @@ export default [
     name: 'Angular.js',
     year: '2009',
     col: 3,
-    row: 16,
+    row: 17,
     classNames: ['tech_js']
   },
   {
@@ -132,7 +132,7 @@ export default [
     name: 'Backbone',
     year: '2010',
     col: 2,
-    row: 17,
+    row: 18,
     classNames: ['tech_js']
   },
   {
@@ -140,7 +140,7 @@ export default [
     name: 'Knockout.js',
     year: '2010',
     col: 3,
-    row: 17,
+    row: 18,
     classNames: ['tech_js']
   },
   {
@@ -148,7 +148,7 @@ export default [
     name: 'Ember.js',
     year: '2011',
     col: 3,
-    row: 18,
+    row: 19,
     classNames: ['tech_js']
   }
 ];

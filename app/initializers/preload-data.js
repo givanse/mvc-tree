@@ -1,5 +1,6 @@
 import fixtureT from '../jsons/technologies';
 import fixtureP from '../jsons/dpatterns';
+import fixtureH from '../jsons/headers';
 
 // TODO: Fix deprecation in Ember 1.11
 // DEPRECATION: register should be called on the registry instead of the container
@@ -16,6 +17,10 @@ export function initialize(container/*, application */) {
   fixtureT.forEach(function(item) {
     item.template = 'technologies/' + item.id;
     store.push('node-technology', item);
+  });
+
+  fixtureH.forEach(function(item) {
+    store.push('node-header', item);
   });
 }
 

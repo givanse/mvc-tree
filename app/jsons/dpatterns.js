@@ -5,7 +5,7 @@ export default [
     'year': '1987',
     'author': 'J. Coutaz',
     'col': '4',
-    'row': '2',
+    'row': '3',
     'definitions': [
         {
           'term': 'Presentation',
@@ -28,7 +28,7 @@ export default [
     'year': '1988',
     'author': 'Krasner & Pope',
     'col': '0',
-    'row': '3',
+    'row': '4',
     'definitions': [
         {
           'term': 'Model',
@@ -51,7 +51,7 @@ export default [
     'year': '1979',
     'author': 'T. Reenskaug',
     'col': '0',
-    'row': '0',
+    'row': '1',
     'definitions': [
         {
           'term': 'Thing',
@@ -78,7 +78,7 @@ export default [
     'year': '1979',
     'author': 'T. Reenskaug',
     'col': '0',
-    'row': '1',
+    'row': '2',
     'definitions': [
         {
           'term': 'Model',
@@ -101,7 +101,7 @@ export default [
     'year': '1994',
     'author': 'GoF',
     'col': '7',
-    'row': '5',
+    'row': '6',
     'definitions': null
   },
 
@@ -111,7 +111,7 @@ export default [
     'year': '1998',
     'author': 'J2EE',
     'col': '0',
-    'row': '8',
+    'row': '9',
     'definitions': [
         {
           'term': 'Model',
@@ -134,7 +134,7 @@ export default [
     'year': '1996',
     'author': 'Taligent',
     'col': '2',
-    'row': '7',
+    'row': '8',
     'definitions': [
         {
           'term': 'Model',
@@ -157,7 +157,7 @@ export default [
     'year': '1993',
     'author': 'VisualWorks',
     'col': '1',
-    'row': '5',
+    'row': '6',
     'definitions': [
         {
           'term': 'Application Model',
@@ -176,7 +176,7 @@ export default [
     'year': '1995',
     'author': 'unknown',
     'col': '6',
-    'row': '6',
+    'row': '7',
     'definitions': null 
   },
 
@@ -186,7 +186,7 @@ export default [
     'year': '2004',
     'author': 'M. Fowler',
     'col': '1',
-    'row': '12',
+    'row': '13',
     'definitions': [
         {
           'term': 'Presentation Model',
@@ -205,7 +205,7 @@ export default [
     'year': '2005',
     'author': 'Microsoft',
     'col': '3',
-    'row': '13',
+    'row': '14',
     'definitions': [
         {
           'term': 'Model',
@@ -228,7 +228,7 @@ export default [
     'year': '2012',
     'author': 'unknown',
     'col': '5',
-    'row': '19',
+    'row': '20',
     'definitions': [
         {
           'term': 'Model',
