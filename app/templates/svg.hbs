@@ -1,13 +1,13 @@
 
 <!-- Debug grid -->
-{{#if view.treeConfig.showGrid}}
-  {{#each line in view.gridLines}}
+{{#if svgenv.showGrid}}
+  {{#each line in gridLines}}
     <path d="{{unbound line}}" fill="none" stroke="#909090"></path>
   {{/each}}
 {{/if}}
 
 <!-- Years lines -->
-{{#each line in view.yearLines}}
+{{#each line in yearLines}}
   <text x="{{unbound line.x}}" y="{{unbound line.y}}" class="year_line_txt">
     <tspan dy="4.233003616333008">
       {{line.year}}
@@ -19,7 +19,7 @@
 <!-- Design Patterns -->
 {{#each elem in model.dpatterns}}
   {{view 'svg-g' templateName='node-dpattern'
-                 treeConfig=view.treeConfig
+                 treeConfig=svgenv
                  elem=elem}}
 {{/each}}
 
@@ -27,7 +27,7 @@
 {{#each elem in model.technologies}}
   {{#each className in elem.classNames}}
     {{view 'svg-g' templateName='node-technology' 
-                   treeConfig=view.treeConfig 
+                   treeConfig=svgenv
                    elem=elem
                    classNameTech=className}}
   {{/each}}

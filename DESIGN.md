@@ -2,6 +2,12 @@
 
 General design of the application.
 
+## Services
+
+   svg-environment
+     Has all the values used to configure the SVG root and
+     the grid design being used to place each node.
+
 ## Models
 
     grid-node
@@ -12,12 +18,9 @@ General design of the application.
 ## Views
 
  * svg
-   Has the `treeConfig` property used to configure the SVG root and
-   the grid design being used to place each node.
    * svg-g
      Every node in the grid uses this view and the content changes by setting
      its `templateName` property.
-
 
 ## Mixins
 
