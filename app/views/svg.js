@@ -6,7 +6,6 @@ export default Ember.View.extend({
 
   elementId: 'mvc_tree',
 
-
   templateName: 'svg',
 
   attributeBindings: ['xmlns',
@@ -22,69 +21,8 @@ export default Ember.View.extend({
   preserveAspectRatio: 'xMinYMin',
   viewBox: null,
 
-  treeConfig: {
-    showGrid: false,
+  _setViewBox: function() {
+    this.set('viewBox', this.get('controller.svgenv.viewBox'));
+  }.on('init'),
 
-    paddingT: 6,
-    paddingR: 6,
-    paddingB: 12,
-    paddingL: 6,
-
-    colW: 170 + 12,
-    rowH: 64 + 18,
-
-    maxCols: 7,
-    maxRows: 22,
-
-    viewBoxW: null,
-    viewBoxH: null,
-
-    yearLineFontSize: 12 // see CSS rules .year_line_txt
-  },
-
-  calcViewBox: function() {
-    var tc = this.get('treeConfig');
-        tc.viewBoxW = tc.colW * tc.maxCols;
-        tc.viewBoxH = tc.rowH * tc.maxRows;
-    var viewBox = '0 0 ' + tc.viewBoxW + ' ' + tc.viewBoxH;
-
-    this.set('treeConfig', tc);
-    this.set('viewBox', viewBox);
-  }.observes('treeConfig').on('init'),
-
-  gridLines: function() {
-    var tc = this.get('treeConfig'),
-        w = tc.viewBoxW,
-        h = tc.viewBoxH,
-        gridLines = [];
-
-    for (var x = 0; x < w; x += tc.colW) {
-      gridLines.push('M' + x + ' 0 V' + h + ' Z');
-    }
-    for (var y = 0; y < h; y += tc.rowH) {
-      gridLines.push('M0 ' + y + ' H' + w + ' Z');
-    }
-
-    return gridLines;
-  }.property('treeConfig'),
-
-  yearLines: function() {
-    var tc = this.get('treeConfig');
-
-    return [
-      this._buildYearLine(1980, 2, tc),
-      this._buildYearLine(1990, 5, tc),
-      this._buildYearLine(2000, 9, tc),
-      this._buildYearLine(2010, 13, tc)
-    ];
-  }.property('treeConfig'),
-
-  _buildYearLine: function(year, row, tc) {
-    var x = tc.yearLineFontSize * 2, 
-        y = row * tc.rowH,
-        xLine = tc.yearLineFontSize * 4;
-
-    return {year: year, x: x, y: y,
-            path: 'M'+xLine+' '+y+' H' + tc.viewBoxW};
-  }
 });

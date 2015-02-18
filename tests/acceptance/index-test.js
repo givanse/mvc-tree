@@ -22,7 +22,9 @@ test('visiting /#pac', function(assert) {
   assert.ok( ! $panel.isInView(), 'panel is not visible on screen');
 
   visit('/#pac');
-  window.location.hash = '#pac'; // TODO: revisit Ember url fragments support
+  // TODO: revisit Ember url fragments support
+  // https://github.com/emberjs/ember.js/issues/4098
+  window.location.hash = '#pac'; 
 
   andThen(function() {
     assert.equal(currentPath(), 'index');
