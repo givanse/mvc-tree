@@ -27,6 +27,24 @@ export default Ember.Object.extend({
     this.set('viewBoxW', viewBoxW);
     this.set('viewBoxH', viewBoxH);
     this.set('viewBox', '0 0 ' + viewBoxW + ' ' + viewBoxH);
-  }.on('init')
+  }.on('init'),
+
+  addNodeValues: function(node) {
+    // x
+    node.x = node.col * this.colW;
+    node.x_padded = this.paddingL + node.x;
+    node.cx = node.x + (this.colW / 2);
+    node.width = this.colW - this.paddingL - this.paddingR;
+    node.rx = node.width / 2;
+
+    // y
+    node.y = node.row * this.rowH;
+    node.y_padded = this.paddingT + node.y;
+    node.cy = node.y + (this.rowH / 2);
+    node.height = this.rowH - this.paddingT - this.paddingB;
+    node.ry = node.height / 2;
+
+    return node;
+  }
  
 });

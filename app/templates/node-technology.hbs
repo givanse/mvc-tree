@@ -1,14 +1,13 @@
+<ellipse class="node_tech" cx="{{unbound node.cx}}"
+                           cy="{{unbound node.cy}}" 
+                           rx="{{unbound node.rx}}" 
+                           ry="{{unbound node.ry}}"></ellipse>
 
-<ellipse class="node_tech" cx="{{unbound view.cx}}"
-                           cy="{{unbound view.cy}}" 
-                           rx="{{unbound view.rx}}" 
-                           ry="{{unbound view.ry}}"></ellipse>
-
-<text class="node_txt" x="{{unbound view.cx}}" y="{{unbound view.y}}">
+<text class="node_txt" x="{{unbound node.cx}}" y="{{unbound node.y_padded}}">
   <tspan dy="32">
-    {{elem.name}}
+    {{node.name}}
   </tspan>
-  <tspan x="{{unbound view.cx}}" dy="16.8">
-    {{elem.year}}
+  <tspan x="{{unbound node.cx}}" dy="16.8">
+    {{node.year}}
   </tspan>
 </text>

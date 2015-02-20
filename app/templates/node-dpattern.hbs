@@ -1,20 +1,20 @@
 
-<rect class="node_design" x="{{unbound view.x}}" 
-                          y="{{unbound view.y}}" 
+<rect class="node_design" x="{{unbound node.x_padded}}" 
+                          y="{{unbound node.y_padded}}" 
                           ry="7" 
                           rx="7" 
                           r="7" 
-                          height="{{unbound view.height}}"
-                          width="{{unbound view.width}}"></rect>
+                          height="{{unbound node.height}}"
+                          width="{{unbound node.width}}"></rect>
 
-<text class="node_txt" x="{{unbound view.cx}}" y="{{unbound view.y}}">
+<text class="node_txt" x="{{unbound node.cx}}" y="{{unbound node.y_padded}}">
   <tspan dy="16.8">
-    {{elem.name}}
+    {{node.name}}
   </tspan>
-  <tspan x="{{unbound view.cx}}" dy="16.8">
-    {{elem.year}}
+  <tspan x="{{unbound node.cx}}" dy="16.8">
+    {{node.year}}
   </tspan>
-  <tspan class="node_txt_auth" x="{{unbound view.cx}}" dy="16.8">
-    {{elem.author}}
+  <tspan class="node_txt_auth" x="{{unbound node.cx}}" dy="16.8">
+    {{node.author}}
   </tspan>
 </text>

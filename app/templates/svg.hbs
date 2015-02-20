@@ -13,32 +13,30 @@
       {{line.year}}
     </tspan>
   </text>
-  <path d="{{unbound line.path}}" stroke="#000000" fill="none"></path>
+  <path d="{{unbound line.path}}" fill="none" class="year_line_path"></path>
 {{/each}}
 
 <!-- Column Headers -->
-{{#each elem in model.headers}}
-  {{view 'svg-g' templateName='node-header'
-                 treeConfig=svgenv
-                 elem=elem}}
-{{/each}}
-
-<!-- Design Patterns -->
-{{#each elem in model.dpatterns}}
-  {{view 'svg-g-click' templateName='node-dpattern'
-                 treeConfig=svgenv
-                 elem=elem}}
-{{/each}}
-
-<!-- Technologies -->
-{{#each elem in model.technologies}}
-  {{#each className in elem.classNames}}
-    {{view 'svg-g-click' templateName='node-technology' 
-                   treeConfig=svgenv
-                   elem=elem
-                   classNameTech=className}}
-  {{/each}}
+{{#each node in model.headers}}
+  {{view 'svg-g' templateName='node-header' node=node}}
 {{/each}}
 
 <!-- links -->
+{{#each path in pathsToChildren}}
+  <path d="{{unbound path}}" class="line"></path>
+{{/each}}
+
+<!-- Design Patterns -->
+{{#each node in model.dpatterns}}
+  {{view 'svg-g-click' templateName='node-dpattern' node=node}}
+{{/each}}
+
+<!-- Technologies -->
+{{#each node in model.technologies}}
+  {{#each className in node.classNames}}
+    {{view 'svg-g-click' templateName='node-technology' 
+                         node=node
+                         classNameTech=className}}
+  {{/each}}
+{{/each}}
 

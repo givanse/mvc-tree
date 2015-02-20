@@ -195,3 +195,33 @@ body {
 
 /* Tabbed Drawer end*/
 
+/* svg paths start */
+
+.arrowHead {
+  fill: #663c4d;
+  stroke: #663c4d; 
+  stroke-width: 0;
+}
+
+.dashedLine {
+  stroke: #464646; 
+  stroke-dasharray: '- ';
+  stroke-width: 1.1;
+}
+
+.line {
+  fill: none;
+  stroke: #B74C77; 
+  stroke-width: 1.7;
+}
+.line:hover {
+  stroke-width: 3.5;
+}
+
+
+.year_line_path {
+  stroke: #D9EDF7; 
+  stroke-width: 7;
+}
+
+/* svg paths end */

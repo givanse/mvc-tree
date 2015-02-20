@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import PathFactory from '../mixins/path-factory';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(PathFactory, {
 
   sortedNodes: function() {
     var model = this.get('model'),
@@ -54,6 +55,28 @@ export default Ember.Controller.extend({
 
     return {year: year, x: x, y: y,
             path: 'M'+xLine+' '+y+' H' + svgenv.viewBoxW};
-  }
+  },
+
+  pathsToChildren: function() {
+    var dpatterns = this.get('model.dpatterns'),
+        paths = [],
+        _this = this;
+
+    dpatterns.forEach(function(node_dpattern) {
+      var children = node_dpattern.get('children');
+      if ( ! children || ! children.length ) {
+        return;
+      }
+
+      children.forEach(function(childId) {
+        var childNode = _this.store.getById('node-dpattern', childId);
+        var path = _this.generatePathToChild(node_dpattern, childNode);
+        paths.push(path);
+      });
+        
+    }); 
+
+    return paths;
+  }.property('model')
 
 });

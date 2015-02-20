@@ -4,6 +4,8 @@ import { module, test } from 'qunit';
 import NodeDPattern from 'mvctree/models/node-dpattern';
 import NodeTechnology from 'mvctree/models/node-technology';
 import NodeHeader from 'mvctree/models/node-header';
+import SvgEnvironmentService from '../../../initializers/svg-environment-service';
+import SvgEnvironment from '../../../services/svg-environment';
 
 var container, application;
 
@@ -17,6 +19,8 @@ module('PreloadDataInitializer', {
       container.register('model:node-dpattern', NodeDPattern);
       container.register('model:node-technology', NodeTechnology);
       container.register('model:node-header', NodeHeader);
+      container.register('initializer:svg-environment-service', SvgEnvironmentService);
+      container.register('service:svg-environment', SvgEnvironment);
     });
   }
 });

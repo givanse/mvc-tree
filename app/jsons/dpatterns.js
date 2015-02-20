@@ -29,6 +29,7 @@ export default [
     'author': 'Krasner & Pope',
     'col': '0',
     'row': '4',
+    'children': ['am', 'model2'],
     'definitions': [
         {
           'term': 'Model',
@@ -52,6 +53,7 @@ export default [
     'author': 'T. Reenskaug',
     'col': '0',
     'row': '1',
+    'children': ['mvc79', 'mvp-taligent'],
     'definitions': [
         {
           'term': 'Thing',
@@ -79,6 +81,7 @@ export default [
     'author': 'T. Reenskaug',
     'col': '0',
     'row': '2',
+    'children': ['mvc-kp'],
     'definitions': [
         {
           'term': 'Model',
@@ -158,6 +161,7 @@ export default [
     'author': 'VisualWorks',
     'col': '1',
     'row': '6',
+    'children': ['pm'],
     'definitions': [
         {
           'term': 'Application Model',

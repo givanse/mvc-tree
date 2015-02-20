@@ -1,17 +1,16 @@
 import Ember from 'ember';
-import TreeNode from '../mixins/tree-node';
 
 /*
   The main objective of this SVG group is to make it easier 
   to handle click events.
 */
-export default Ember.View.extend(TreeNode, {
+export default Ember.View.extend({
 
   tagName: 'g',
 
   _classNames: function() {
     // warning: we are overriding the classNames property
-    this.set('classNames', ['ember-view', 'g_' + this.get('elem.id')]);
+    this.set('classNames', ['ember-view', 'g_' + this.get('node.id')]);
   }.on('init'),
 
   classNameBindings: ['classNameTech'],
@@ -19,13 +18,13 @@ export default Ember.View.extend(TreeNode, {
   _$html_body: Ember.$('html, body'),
 
   click: function() {
-    var elemId = this.get('elem.id');
+    var nodeId = this.get('node.id');
 
     this._$html_body.animate({
-      scrollTop: Ember.$('#' + elemId).offset().top
+      scrollTop: Ember.$('#' + nodeId).offset().top
     }, 700);
 
     //TODO: revisit hashbang anchor support in Ember
-    window.location.hash = elemId;
+    window.location.hash = nodeId;
   }
 });

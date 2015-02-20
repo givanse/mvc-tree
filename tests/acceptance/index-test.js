@@ -14,22 +14,23 @@ module('Acceptance: Index', {
   }
 });
 
-//TODO: avoid using setTimeout() by adding an async helper that will wait
+//TODO: avoid using run.later() by adding an async helper that will wait
 // on a promise returned by the svg-g view.
+// http://stackoverflow.com/questions/26498845
+// for now its good enough
 
 test('visiting /#pac', function(assert) {
   var $panel = find('#pac');
   assert.ok( ! $panel.isInView(), 'panel is not visible on screen');
 
   visit('/#pac');
-  // TODO: revisit Ember url fragments support
-  // https://github.com/emberjs/ember.js/issues/4098
-  window.location.hash = '#pac'; 
 
   andThen(function() {
     assert.equal(currentPath(), 'index');
-    assert.equal('/'+window.location.hash, '/#pac');
-    setTimeout(function() { // wait for the scroll animation
+    // TODO: revisit Ember url fragments support
+    // https://github.com/emberjs/ember.js/issues/4098
+    //assert.equal('/'+window.location.hash, '/#pac');
+    Ember.run.later(function() { // wait for the scroll animation
       assert.ok( $panel.isInView(), 'panel is visible on screen');
     }, 1000);
   });
@@ -47,7 +48,7 @@ test('TMVE', function(assert) {
   andThen(function() {
     assert.equal(currentPath(), 'index');
     assert.equal('/'+window.location.hash, '/#tmve');
-    setTimeout(function() { // wait for the scroll animation
+    Ember.run.later(function() { // wait for the scroll animation
       assert.ok( $panel.isInView(), 'panel is visible on screen');
     }, 1000);
 
