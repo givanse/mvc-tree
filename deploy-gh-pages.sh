@@ -7,19 +7,23 @@
 # git checkout -b gh-pages
 # git pull origin gh-pages
 
-ember build --environment='production'
+#ember build --environment='production'
 
 ghPagesFolderPath='../mvc-tree-gh-pages'
+assets=$ghPagesFolderPath'/assets/**.*'
 
-git rm -rv $ghPagesFolderPath'/assets/*' 
+echo -e '\n>>remove old'
+rm -vr $assets
 
+echo -e '\n>>copy new'
 cp -Rv dist/* $ghPagesFolderPath 
 
+echo -e '\n>>add to repo'
 cd $ghPagesFolderPath
 
+git add assets
 git add -u .
-
-exit
+git status
 
 git commit -m 'update'
 
