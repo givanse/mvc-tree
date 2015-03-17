@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { initialize } from '../../../initializers/preload-data';
 import { module, test } from 'qunit';
+import GridNode from 'mvctree/models/grid-node';
 import NodeDPattern from 'mvctree/models/node-dpattern';
 import NodeTechnology from 'mvctree/models/node-technology';
 import NodeHeader from 'mvctree/models/node-header';
@@ -16,6 +17,7 @@ module('initializer:preload-data', {
       container = application.__container__;
       application.deferReadiness();
 
+      container.register('model:grid-node', GridNode);
       container.register('model:node-dpattern', NodeDPattern);
       container.register('model:node-technology', NodeTechnology);
       container.register('model:node-header', NodeHeader);

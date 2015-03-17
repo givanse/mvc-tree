@@ -20,7 +20,7 @@ body {
 .node_design, 
 .node_tech {
   cursor: pointer;
-  stroke-width: 2.7251461988304095;
+  stroke-width: 3.5;
   stroke: #663c4d;
 }
 
@@ -209,15 +209,21 @@ body {
   stroke-width: 1.1;
 }
 
+/* 
+ TODO: z-index doesn't work, do this:
+ http://jsfiddle.net/hkSFf/
+*/
 .line {
   fill: none;
-  stroke: #B74C77; 
-  stroke-width: 1.7;
+  stroke-width: 2.5;
+  stroke: #663c4d;
+  z-index: 5;
 }
 .line:hover {
-  stroke-width: 3.5;
+  stroke: #AA8091;
+  stroke-width: 5;
+  z-index: 10;
 }
-
 
 .year_line_path {
   stroke: #D9EDF7; 
@@ -225,3 +231,9 @@ body {
 }
 
 /* svg paths end */
+
+/* Bootstrap */
+
+.panel {
+  margin-top: 2px;
+}

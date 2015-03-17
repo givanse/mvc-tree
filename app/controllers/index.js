@@ -57,6 +57,10 @@ export default Ember.Controller.extend(PathFactory, {
             path: 'M'+xLine+' '+y+' H' + svgenv.viewBoxW};
   },
 
+  /*
+    Generates paths between two nodes.
+    The bound nodes have a parent/child relationship.
+  */
   pathsToChildren: function() {
     var dpatterns = this.get('model.dpatterns'),
         paths = [],
@@ -74,6 +78,33 @@ export default Ember.Controller.extend(PathFactory, {
         paths.push(path);
       });
         
+    }); 
+
+    return paths;
+  }.property('model'),
+
+  /*
+    Generates paths between two nodes.
+  */
+  pathsBoundNodes: function() {
+    var dpatterns = this.get('model.dpatterns'),
+        paths = [],
+        _this = this;
+
+    dpatterns.forEach(function(node_dpattern) {
+      var rNodes = node_dpattern.get('related');
+      var gl = rNodes.get('length');
+      var a  = rNodes.toArray();
+
+      if ( ! rNodes || ! rNodes.get('length') ) {
+        return;
+      }
+
+      rNodes.forEach(function(node) {
+        var path = _this.generateBindingPath(node_dpattern, node);
+        paths.push(path);
+      });
+
     }); 
 
     return paths;

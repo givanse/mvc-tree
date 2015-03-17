@@ -21,8 +21,13 @@
   {{view 'svg-g' templateName='node-header' node=node}}
 {{/each}}
 
-<!-- links -->
+<!-- parent to child -->
 {{#each path in pathsToChildren}}
+  <path d="{{unbound path}}" class="line"></path>
+{{/each}}
+
+<!-- bind nodes -->
+{{#each path in pathsBoundNodes}}
   <path d="{{unbound path}}" class="line"></path>
 {{/each}}
 

@@ -48,7 +48,10 @@ export default Ember.Mixin.create({
     }
   },
 
-  _genHParentPath2C(hDelta, vDelta) {
+  /*
+    generate Horizontal Path Parent to Corner
+  */
+  _genHPathP2C(hDelta, vDelta) {
     var colW = this.get('svgenv.colW'),
         isEnoughSpace = hDelta > 0 ? true : vDelta > 1 ? true : false,
         length = isEnoughSpace ? (colW / 2) : 0;
@@ -56,7 +59,10 @@ export default Ember.Mixin.create({
     return length ? 'h' + length : '';
   },
 
-  _genHChildPath2C(hDelta, vDelta) {
+  /*
+    generate Horizontal Path Corner to Child
+  */
+  _genHPathC2Ch(hDelta, vDelta) {
     var colW = this.get('svgenv.colW'),
         isEnoughSpace = hDelta > 0 ? true : vDelta > 1 ? true : false,
         length = isEnoughSpace ? (colW / 2) : 0;
@@ -107,6 +113,11 @@ export default Ember.Mixin.create({
            'h-'+halfPT;
   },
 
+  /*
+    Adds two stems:
+      1. first stem goes underneath the parent
+      2. second stem goes above the child 
+  */
   generatePathToChild: function(a, b) {
     var col1 = parseInt(a.get('col')), 
         row1 = parseInt(a.get('row')),
@@ -123,17 +134,56 @@ export default Ember.Mixin.create({
     var hDelta = Math.abs(col1 - col2),
         vDelta = Math.abs(row1 - row2);
 
-    var pp2c = this._genHParentPath2C(hDelta, vDelta), 
-        pc2c = this._genPathC2C(x, y, col1, row1, col2, row2),
-        cp2c = this._genHChildPath2C(hDelta, vDelta);
+    var pathP2C = this._genHPathP2C(hDelta, vDelta);
+    var pathC2C = this._genPathC2C(x, y, col1, row1, col2, row2);
+    var pathC2Ch = this._genHPathC2Ch(hDelta, vDelta);
 
-    pp2c = pp2c ? pp2c + ' ' : ''; 
-    pc2c = pc2c ? pc2c + ' ' : ''; 
-    cp2c = cp2c ? cp2c + ' ' : '';
+    pathP2C = pathP2C ? pathP2C + ' ' : ''; 
+    pathC2C = pathC2C ? pathC2C + ' ' : ''; 
+    pathC2Ch = pathC2Ch ? pathC2Ch + ' ' : '';
 
     return this._genVParentStem(a) + ' ' +
-           pp2c + pc2c + cp2c +
+           pathP2C + pathC2C + pathC2Ch +
            this._genChildArrow();
+  },
+
+  /*
+  */
+  generateBindingPath: function(a, b) {
+    var col1 = parseInt(a.get('col')), 
+        row1 = parseInt(a.get('row')),
+        col2 = parseInt(b.get('col')), 
+        row2 = parseInt(b.get('row'));
+ 
+    if ( col1 === col2 && row1 === row2) {
+      return '';
+    }
+
+    // switch, we want left->right
+    if ( col1 > col2 ) {
+      var tmpNode = b,
+          tmpCol = col2,
+          tmpRow = row2;
+      b = a;
+      col2 = col1;
+      row2 = row1;
+      a = tmpNode;
+      col1 = tmpCol;
+      row1 = tmpRow;
+    }
+
+    var x = a.get('x') + this.get('svgenv.colW'),
+        y = a.get('y') + this.get('svgenv.rowH');
+
+    var vDelta = Math.abs(row1 - row2);
+    row2 = vDelta > 1 ? row2 - 1 : row2; // y pushed us 1 below
+
+    var pathC2C = this._genPathC2C(x, y, col1, row1, col2, row2);
+
+    pathC2C = pathC2C ? pathC2C + ' ' : ''; 
+
+    return 'M'+x+' '+y+' '+
+           pathC2C;
   }
 
 });

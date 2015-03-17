@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Object.extend({
-  showGrid: false,
+  showGrid: Mvctree.showGrid,
 
   paddingT: 6,
   paddingR: 6,

@@ -2,7 +2,7 @@ import Ember from 'ember';
 import PathFactoryMixin from '../../../mixins/path-factory';
 import { module, test } from 'qunit';
 
-module('PathFactoryMixin');
+module('mixin:path-factory');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
@@ -70,7 +70,7 @@ test('_calcVDelta', function(assert) {
   assert.equal(subject._calcVDelta(10, 0), 9);
 });
 
-test('_genHParentPath2C', function(assert) {
+test('_genHPathP2C', function(assert) {
   var PathFactoryObject = Ember.Object.extend(PathFactoryMixin, {
     svgenv: Ember.Object.create({
       colW: 60
@@ -79,16 +79,16 @@ test('_genHParentPath2C', function(assert) {
   var subject = PathFactoryObject.create();
 
   // hDelta, vDelta
-  assert.equal(subject._genHParentPath2C(0, 0), '');
-  assert.equal(subject._genHParentPath2C(1, 0), 'h30');
-  assert.equal(subject._genHParentPath2C(0, 1), '');
-  assert.equal(subject._genHParentPath2C(1, 1), 'h30');
+  assert.equal(subject._genHPathP2C(0, 0), '');
+  assert.equal(subject._genHPathP2C(1, 0), 'h30');
+  assert.equal(subject._genHPathP2C(0, 1), '');
+  assert.equal(subject._genHPathP2C(1, 1), 'h30');
 
-  assert.equal(subject._genHParentPath2C(0, 2), 'h30');
-  assert.equal(subject._genHParentPath2C(2, 0), 'h30');
+  assert.equal(subject._genHPathP2C(0, 2), 'h30');
+  assert.equal(subject._genHPathP2C(2, 0), 'h30');
 });
 
-test('_genHChildPath2C', function(assert) {
+test('_genHPathC2Ch', function(assert) {
   var PathFactoryObject = Ember.Object.extend(PathFactoryMixin, {
     svgenv: Ember.Object.create({
       colW: 60
@@ -97,18 +97,18 @@ test('_genHChildPath2C', function(assert) {
   var subject = PathFactoryObject.create();
 
   // 2x2
-  assert.equal(subject._genHChildPath2C(0, 0), '');
-  assert.equal(subject._genHChildPath2C(0, 1), '');
-  assert.equal(subject._genHChildPath2C(1, 0), 'h30');
-  assert.equal(subject._genHChildPath2C(1, 1), 'h30');
+  assert.equal(subject._genHPathC2Ch(0, 0), '');
+  assert.equal(subject._genHPathC2Ch(0, 1), '');
+  assert.equal(subject._genHPathC2Ch(1, 0), 'h30');
+  assert.equal(subject._genHPathC2Ch(1, 1), 'h30');
 
   // 3x2
-  assert.equal(subject._genHChildPath2C(2, 0), 'h30');
-  assert.equal(subject._genHChildPath2C(2, 1), 'h30');
+  assert.equal(subject._genHPathC2Ch(2, 0), 'h30');
+  assert.equal(subject._genHPathC2Ch(2, 1), 'h30');
 
   // 2x3
-  assert.equal(subject._genHChildPath2C(0, 2), 'h-30');
-  assert.equal(subject._genHChildPath2C(1, 2), 'h30');
+  assert.equal(subject._genHPathC2Ch(0, 2), 'h-30');
+  assert.equal(subject._genHPathC2Ch(1, 2), 'h30');
 });
 
 test('_genPathC2C basic', function(assert) {
@@ -391,6 +391,34 @@ test('generatePathToChild am -> pm', function(assert) {
     }),
     result = subject.generatePathToChild(a, b),
     expected = 'M273 562 v12 h91 v492 h-91 h-3 l3 6 l3 -6 h-3';
+  assert.equal(result, expected);
+});
+
+test('generateBindingPath basic', function(assert) {
+  var PathFactoryObject = Ember.Object.extend(PathFactoryMixin, {
+    svgenv: Ember.Object.create({
+      colW: 20,
+      rowH: 20
+    })
+  });
+  var subject = PathFactoryObject.create();
+
+  var a = Ember.Object.create({col: 0, row: 0});
+  var b = Ember.Object.create({col: 0, row: 0});
+  var result = subject.generateBindingPath(a, b);
+  var expected = '';
+  assert.equal(result, expected);
+
+  a = Ember.Object.create({col: 0, row: 0});
+  b = Ember.Object.create({col: 1, row: 0});
+  result = subject.generateBindingPath(a, b);
+  expected = '';
+  assert.equal(result, expected);
+
+  a = Ember.Object.create({col: 0, row: 0});
+  b = Ember.Object.create({col: 2, row: 0});
+  result = subject.generateBindingPath(a, b);
+  expected = 'M20 10 h20';
   assert.equal(result, expected);
 });
 

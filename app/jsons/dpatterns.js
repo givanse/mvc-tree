@@ -175,7 +175,7 @@ export default [
   },
 
   { 
-    'id': 'data-binding',
+    'id': 'data_binding',
     'name': 'Data Binding',
     'year': '1995',
     'author': 'unknown',
@@ -210,6 +210,8 @@ export default [
     'author': 'Microsoft',
     'col': '3',
     'row': '14',
+    'related': [{id: 'pm', type: 'node-dpattern'}, 
+                {id: 'data_binding', type: 'node-dpattern'}],
     'definitions': [
         {
           'term': 'Model',
@@ -233,6 +235,11 @@ export default [
     'author': 'unknown',
     'col': '5',
     'row': '20',
+    'related': [{'id': 'sproutcore', 'type': 'node-technology'}, 
+                {'id': 'angular', 'type': 'node-technology'}, 
+                {'id': 'knockout', 'type': 'node-technology'}, 
+                {'id': 'backbone', 'type': 'node-technology'}, 
+                {'id': 'ember', 'type': 'node-technology'}],
     'definitions': [
         {
           'term': 'Model',
