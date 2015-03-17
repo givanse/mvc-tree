@@ -7,20 +7,17 @@ export default Ember.ContainerView.extend({
 
   itemViewClass: OverlayCheckbox,
 
-  childViews: ['masterCheckbox'],
-
-  masterCheckbox: OverlayCheckbox.create({
-    name: 'All', 
-    checked: false,
-    isMaster: true
-  }),
-
   _populateChildViews: function() {
+    var masterCheckbox = OverlayCheckbox.create({
+      name: 'All', 
+      checked: false,
+      isMaster: true
+    });
+    this.pushObject( masterCheckbox );
+
     var chksList = this.get('checkboxes'),
         _this = this;
     chksList.forEach(function(chkHash) {
-      // TODO: https://github.com/emberjs/ember.js/issues/9833
-      // tests are failing when run together, individual runs are fine
       var view = _this.createChildView(OverlayCheckbox, chkHash);
       _this.pushObject( view );
     });

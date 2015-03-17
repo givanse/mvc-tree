@@ -9,7 +9,7 @@ import SvgEnvironment from '../../../services/svg-environment';
 
 var container, application;
 
-module('PreloadDataInitializer', {
+module('initializer:preload-data', {
   beforeEach: function() {
     Ember.run(function() {
       application = Ember.Application.create();

@@ -1,3 +1,44 @@
-<h1 id='title'>MVC Family Tree</h1>
+
+<nav class="navbar navbar-default ">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' class='navbar-brand'}}
+        MVC Family Tree
+      {{/link-to}}
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+        <li>
+          {{#link-to 'about' class='navbar-brand'}}
+            About
+          {{/link-to}}
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a>
+            <iframe src="https://ghbtns.com/github-btn.html?user=givanse&repo=mvc-tree&type=star&count=true&size=large"
+                    frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+          </a>
+        </li>
+      </ul>
+
+    </div><!-- collapse -->
+
+  </div>
+</nav>
 
 {{outlet}}
