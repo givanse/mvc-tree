@@ -2,8 +2,10 @@
 
 [mvc.givan.se](http://mvc.givan.se/)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Data files are found in:
+* app/jsons
+* app/templates/dpatterns
+* app/templates/technologies
 
 ## Prerequisites
 
@@ -17,10 +19,10 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+  git clone <repository-url>
+  cd mvc-tree
+  npm install
+  bower install
 
 ## Running / Development
 

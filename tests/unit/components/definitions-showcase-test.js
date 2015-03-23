@@ -9,8 +9,6 @@ moduleForComponent('definitions-showcase', {
   // needs: ['component:foo', 'helper:bar']
 
   setup: function() {
-    // TODO: fix deprecation
-    //this.container.register('view:select', Ember.Select);
   }
 });
 

@@ -5,6 +5,7 @@ import fixtureH from '../jsons/headers';
 // TODO: Fix deprecation in Ember 1.11
 // DEPRECATION: register should be called on the registry instead of the container
 // https://github.com/ember-cli/ember-cli/issues/3159
+// https://github.com/emberjs/data/issues/2806
 export function initialize(container/*, application */) {
   var store = container.lookup('store:main');
 
