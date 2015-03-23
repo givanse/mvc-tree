@@ -2,7 +2,7 @@
 <!-- Debug grid -->
 {{#if svgenv.showGrid}}
   {{#each line in gridLines}}
-    <path d="{{unbound line}}" fill="none" stroke="#909090"></path>
+    <path d="{{unbound line}}" fill="none" class="grid_line"></path>
   {{/each}}
 {{/if}}
 
@@ -28,7 +28,7 @@
 
 <!-- bind nodes -->
 {{#each path in pathsBoundNodes}}
-  <path d="{{unbound path}}" class="line"></path>
+  <path d="{{unbound path}}" class="line line-dashed" stroke-dasharray="5, 5"></path>
 {{/each}}
 
 <!-- Design Patterns -->

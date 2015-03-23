@@ -57,6 +57,11 @@ body {
   font-size: 12px;
 }
 
+/* Grid */
+.grid_line {
+  stroke: #dbdbdb;
+}
+
 .overlay_checkbox {
   background-color: #fff;
   border: 4px double #337AB7;
@@ -221,8 +226,11 @@ body {
 }
 .line:hover {
   stroke: #AA8091;
-  stroke-width: 5;
+  stroke-width: 6;
   z-index: 10;
+}
+.line-dashed {
+  stroke: #464646;
 }
 
 .year_line_path {

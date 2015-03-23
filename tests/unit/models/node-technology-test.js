@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 import {
   moduleForModel,
   test
@@ -9,7 +11,7 @@ moduleForModel('node-technology', {
 });
 
 test('it exists', function(assert) {
-  var model = this.subject();
+  var model = this.subject({ svgenv: Ember.Object.create()});
   // var store = this.store();
   assert.ok(!!model);
 });

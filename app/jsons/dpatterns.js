@@ -235,9 +235,7 @@ export default [
     'author': 'unknown',
     'col': '5',
     'row': '20',
-    'related': [{'id': 'sproutcore', 'type': 'node-technology'}, 
-                {'id': 'angular', 'type': 'node-technology'}, 
-                {'id': 'knockout', 'type': 'node-technology'}, 
+    'related': [{'id': 'angular', 'type': 'node-technology'}, 
                 {'id': 'backbone', 'type': 'node-technology'}, 
                 {'id': 'ember', 'type': 'node-technology'}],
     'definitions': [

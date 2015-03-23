@@ -117,7 +117,8 @@ export default [
     year: '2007',
     col: 0,
     row: 16,
-    classNames: ['tech_sig', 'tech_js']
+    classNames: ['tech_sig', 'tech_js'],
+    related: [{'id': 'ember', 'type': 'node-technology'}] 
   },
   {
     id: 'angular',

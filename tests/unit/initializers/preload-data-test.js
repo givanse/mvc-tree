@@ -21,8 +21,9 @@ module('initializer:preload-data', {
       container.register('model:node-dpattern', NodeDPattern);
       container.register('model:node-technology', NodeTechnology);
       container.register('model:node-header', NodeHeader);
-      container.register('initializer:svg-environment-service', SvgEnvironmentService);
+
       container.register('service:svg-environment', SvgEnvironment);
+      SvgEnvironmentService.initialize(container, application);
     });
   }
 });

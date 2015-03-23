@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('view:svg-g', 'SvgGView');
+moduleFor('view:svg-g');
 
 // Replace this with your real tests.
 test('it exists', function(assert) {

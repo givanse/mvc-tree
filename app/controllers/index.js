@@ -93,8 +93,6 @@ export default Ember.Controller.extend(PathFactory, {
 
     dpatterns.forEach(function(node_dpattern) {
       var rNodes = node_dpattern.get('related');
-      var gl = rNodes.get('length');
-      var a  = rNodes.toArray();
 
       if ( ! rNodes || ! rNodes.get('length') ) {
         return;

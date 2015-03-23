@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('view:overlay-checkbox', 'OverlayCheckboxView');
+moduleFor('view:overlay-checkbox');
 
 // Replace this with your real tests.
 test('it exists', function(assert) {

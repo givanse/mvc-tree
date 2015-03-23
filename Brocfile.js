@@ -29,6 +29,8 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.t
            { destDir: 'fonts' });
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff',
            { destDir: 'fonts' });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2',
+           { destDir: 'fonts' });
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 module.exports = app.toTree();
