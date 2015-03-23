@@ -3,7 +3,7 @@ import PathFactory from '../mixins/path-factory';
 
 export default Ember.Controller.extend(PathFactory, {
 
-  sortedNodes: function() {
+  gridNodes: function() {
     var model = this.get('model'),
         // sortBy turns them into arrays too
         p = model.dpatterns.sortBy('year'),
@@ -87,11 +87,11 @@ export default Ember.Controller.extend(PathFactory, {
     Generates paths between two nodes.
   */
   pathsBoundNodes: function() {
-    var dpatterns = this.get('model.dpatterns'),
+    var gridNodes = this.get('gridNodes'),
         paths = [],
         _this = this;
 
-    dpatterns.forEach(function(node_dpattern) {
+    gridNodes.forEach(function(node_dpattern) {
       var rNodes = node_dpattern.get('related');
 
       if ( ! rNodes || ! rNodes.get('length') ) {
@@ -106,6 +106,6 @@ export default Ember.Controller.extend(PathFactory, {
     }); 
 
     return paths;
-  }.property('model')
+  }.property('gridNodes')
 
 });
