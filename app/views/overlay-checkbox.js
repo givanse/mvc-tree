@@ -3,13 +3,14 @@ import Ember from 'ember';
 export default Ember.View.extend({
   name: null,
   overlayClassName: null,
-  checked: false,
   isMaster: false,
     
   tagName: 'div',
   templateName: 'overlay-checkbox',
   classNames: ['overlay_checkbox'],
-  classNameBindings: ['checked:overlay_enabled'],
+
+  classNameBindings: ['checked'],
+  checked: false,
 
   click: function() {
     var checked = ! this.get('checked');
@@ -18,7 +19,7 @@ export default Ember.View.extend({
     if ( this.get('isMaster') ) {
       this.get('parentView').send('toggleAll', checked);
     } else {
-      this.get('parentView').send('removeOvrEnabClass');
+      this.get('parentView').send('setMasterUnchecked');
     }
   },
 
@@ -28,20 +29,24 @@ export default Ember.View.extend({
   }.observes('checked'),
 
   _toggleOverlay: function(isChecked) {
-    var overlayClassName = this.get('overlayClassName'),
-        svgElements = Ember.$('.'+overlayClassName);
+    var overlayClassName = this.get('overlayClassName');
 
-    if ( svgElements.length < 1 ) {
+    var svgElements$ = Ember.$('.'+overlayClassName);
+
+    if ( svgElements$.length < 1 ) {
       return;
     }
 
-    var elemsClassNames = svgElements.attr('class');
+    svgElements$.each(function(index, svgItem) {
+      var svgItem$ = Ember.$(svgItem);
+      var classes = svgItem$.attr('class');
 
-    elemsClassNames = isChecked ?
-                      elemsClassNames.replace(/hidden/, '') :
-                      elemsClassNames + ' hidden';
-
-    svgElements.attr('class', elemsClassNames);
+      classes = isChecked ? classes.replace(/hidden/, '') :
+                            classes + ' hidden';
+      // last time I checked toggleClass(), and similar, do not
+      // work well with SVGs, attr() always works.
+      svgItem$.attr('class', classes);
+    });
   },
 
   didInsertElement: function() {

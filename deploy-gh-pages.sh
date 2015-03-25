@@ -7,7 +7,7 @@
 # git checkout -b gh-pages
 # git pull origin gh-pages
 
-#ember build --environment='production'
+ember build --environment='production'
 
 ghPagesFolderPath='../mvc-tree-gh-pages'
 assets=$ghPagesFolderPath'/assets/**.*'
@@ -25,7 +25,7 @@ git add assets
 git add -u .
 git status
 
-git commit -m 'update'
+git commit -m 'automated deploy'
 
 git push -u origin gh-pages
 

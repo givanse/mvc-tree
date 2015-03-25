@@ -3,52 +3,55 @@ import OverlayCheckbox from './overlay-checkbox';
 
 export default Ember.ContainerView.extend({
 
-  //overlayClassNames: ['checkbox_group'],
-
   itemViewClass: OverlayCheckbox,
 
+  masterCheckbox: null,
+
   _populateChildViews: function() {
-    var masterCheckbox = OverlayCheckbox.create({
+    this.masterCheckbox = OverlayCheckbox.create({
       name: 'All', 
       checked: false,
       isMaster: true
     });
-    this.pushObject( masterCheckbox );
+    this.pushObject( this.masterCheckbox );
 
-    var chksList = this.get('checkboxes'),
-        _this = this;
+    var chksList = this._checkboxesList;
+    var _this = this;
+
     chksList.forEach(function(chkHash) {
       var view = _this.createChildView(OverlayCheckbox, chkHash);
       _this.pushObject( view );
     });
   }.on('init'),
 
-  checkboxes: [{name: 'Significant', 
-                overlayClassName: 'tech_sig',
-                checked: true},
-               {name: 'Java', 
-                overlayClassName: 'tech_java',
-                checked: false},
-               {name: 'JavaScript', 
-                overlayClassName: 'tech_js',
-                checked: false},
-               {name: 'Microsoft', 
-                overlayClassName: 'tech_ms',
-                checked: false},
-               {name: 'PHP', 
-                overlayClassName: 'tech_php',
-                checked: false},
-               {name: 'Python', 
-                overlayClassName: 'tech_python',
-                checked: false},
-               {name: 'Ruby', 
-                overlayClassName: 'tech_ruby',
-                checked: false},
-               {name: 'Smalltalk', 
-                overlayClassName: 'tech_smalltalk',
-                checked: false}],
+  _checkboxesList: [
+   {name: 'Significant', 
+    overlayClassName: 'tech_sig',
+    checked: true},
+   {name: 'Java', 
+    overlayClassName: 'tech_java',
+    checked: false},
+   {name: 'JavaScript', 
+    overlayClassName: 'tech_js',
+    checked: false},
+   {name: 'Microsoft', 
+    overlayClassName: 'tech_ms',
+    checked: false},
+   {name: 'PHP', 
+    overlayClassName: 'tech_php',
+    checked: false},
+   {name: 'Python', 
+    overlayClassName: 'tech_python',
+    checked: false},
+   {name: 'Ruby', 
+    overlayClassName: 'tech_ruby',
+    checked: false},
+   {name: 'Smalltalk', 
+    overlayClassName: 'tech_smalltalk',
+    checked: false}],
 
   actions: {
+
     toggleAll: function(isChecked) {
       var childViews = this.get('childViews');
       for(var i = 0; i < childViews.length; i++) {
@@ -56,10 +59,10 @@ export default Ember.ContainerView.extend({
       }
     },
 
-    removeOvrEnabClass: function() {
-      Ember.$( '#' + this.get('masterCheckbox.elementId') )
-           .removeClass('overlay_enabled');
+    setMasterUnchecked: function() {
+      this.masterCheckbox.set('checked', false);
     }
+
   }
 
 });

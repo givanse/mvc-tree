@@ -18,7 +18,7 @@
 
 <!-- Column Headers -->
 {{#each node in model.headers}}
-  {{view 'svg-g' templateName='node-header' node=node}}
+  {{view 'svg-g' templateName='svg-g/node-header' node=node}}
 {{/each}}
 
 <!-- parent to child -->
@@ -27,21 +27,29 @@
 {{/each}}
 
 <!-- bind nodes -->
-{{#each path in pathsBoundNodes}}
-  <path d="{{unbound path}}" class="line line-dashed" stroke-dasharray="5, 5"></path>
+{{#each pathObj in pathsBoundNodes}}
+  <!-- 
+    TODO:
+      bug with: 
+        class="line line-dashed tech_js"
+      works:
+        class="line line-dashed"
+  -->
+  <path d="{{unbound pathObj.path}}"
+        class="{{unbound pathObj.classNames}}"></path>
 {{/each}}
 
 <!-- Design Patterns -->
 {{#each node in model.dpatterns}}
-  {{view 'svg-g-click' templateName='node-dpattern' node=node}}
+  {{view 'svg-g-click' templateName='svg-g/node-dpattern' node=node}}
 {{/each}}
 
 <!-- Technologies -->
 {{#each node in model.technologies}}
-  {{#each className in node.classNames}}
-    {{view 'svg-g-click' templateName='node-technology' 
+  {{#each classNameTech in node.classNames}}
+    {{view 'svg-g-click' templateName='svg-g/node-technology' 
                          node=node
-                         classNameTech=className}}
+                         classNameTech=classNameTech}}
   {{/each}}
 {{/each}}
 

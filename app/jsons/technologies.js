@@ -153,8 +153,3 @@ export default [
     classNames: ['tech_js']
   }
 ];
-
-//T.draw.bindTwoCells(paper, 0, 15.5, 3, 17, 'te_js');
-//T.draw.bindTwoCells(paper, 3, 16, 5, 19, 'te_js');
-//T.draw.bindTwoCells(paper, 2, 17, 5, 19, 'te_js');
-//T.draw.bindTwoCells(paper, 3, 18, 5, 19, 'te_js');

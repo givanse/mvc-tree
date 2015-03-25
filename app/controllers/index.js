@@ -105,8 +105,13 @@ export default Ember.Controller.extend(PathFactory, {
       }
 
       rNodes.forEach(function(node) {
-        var path = _this.generateBindingPath(node_dpattern, node);
-        paths.push(path);
+        var classNames = node.get('classNames');
+        classNames = classNames ? classNames.join(' ') : '';
+        var pathObj = {
+          path: _this.generateBindingPath(node_dpattern, node),
+          classNames: 'line line-dashed ' + classNames
+        };
+        paths.push(pathObj);
       });
 
     }); 
