@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       dpatterns: this.store.all('node-dpattern'),
       technologies: this.store.all('node-technology'),
-      headers: this.store.all('node-header'),
+      headers: this.store.all('node-header')
     });
   }
 });

@@ -17,12 +17,15 @@ module('initializer:preload-data', {
       container = application.__container__;
       application.deferReadiness();
 
-      container.register('model:grid-node', GridNode);
-      container.register('model:node-dpattern', NodeDPattern);
-      container.register('model:node-technology', NodeTechnology);
-      container.register('model:node-header', NodeHeader);
+      // TODO: revisit
+      // https://github.com/switchfly/ember-test-helpers/issues/7
+      
+      container._registry.register('model:grid-node', GridNode);
+      container._registry.register('model:node-dpattern', NodeDPattern);
+      container._registry.register('model:node-technology', NodeTechnology);
+      container._registry.register('model:node-header', NodeHeader);
 
-      container.register('service:svg-environment', SvgEnvironment);
+      container._registry.register('service:svg-environment', SvgEnvironment);
       SvgEnvironmentService.initialize(container, application);
     });
   }

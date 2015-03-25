@@ -4,14 +4,16 @@ import PathFactory from '../mixins/path-factory';
 export default Ember.Controller.extend(PathFactory, {
 
   gridNodes: function() {
-    var model = this.get('model'),
-        // sortBy turns them into arrays too
-        p = model.dpatterns.sortBy('year'),
-        t = model.technologies.sortBy('year');
+    // sortBy() returns Array
+    var pArr = this.get('model.dpatterns').sortBy('year'), 
+        tArr = this.get('model.technologies').sortBy('year');
 
-    return p.concat( t ).sort(function(a, b) {
-      a = a.get('year');
-      b = b.get('year');
+    Ember.assert('model.dpatterns should not be empty', pArr.length);
+    Ember.assert('model.technologies should not be empty', tArr.length);
+
+    var gridNodes = pArr.concat( tArr ).sort(function(nodeA, nodeB) {
+      var a = nodeA.get('year');
+      var b = nodeB.get('year');
       if ( a < b ) {
         return -1;
       }
@@ -20,6 +22,10 @@ export default Ember.Controller.extend(PathFactory, {
       }
       return 0;
     });
+
+    Ember.assert('gridNodes should not be empty', gridNodes.length);
+
+    return gridNodes;
   }.property('model'),
 
   gridLines: function() {
