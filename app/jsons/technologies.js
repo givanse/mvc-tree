@@ -4,7 +4,7 @@ export default [
     name: 'SWING',
     year: '1998',
     col: 0,
-    row: 8,
+    row: 10,
     classNames: ['tech_sig']
   },
   {
@@ -12,7 +12,7 @@ export default [
     name: 'Struts',
     year: '2000',
     col: 0,
-    row: 10,
+    row: 12,
     classNames: ['tech_sig', 'tech_java']
   },
   {
@@ -28,7 +28,7 @@ export default [
     name: 'MS-Access',
     year: '1995',
     col: 6,
-    row: 7,
+    row: 8,
     classNames: ['tech_ms']
   },
   {
@@ -98,9 +98,9 @@ export default [
   {
     id: 'aspnet',
     name: 'APS.NET MVC',
-    year: '2007',
+    year: '2008',
     col: 0,
-    row: 16,
+    row: 17,
     classNames: ['tech_ms']
   },
   {

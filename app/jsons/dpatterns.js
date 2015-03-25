@@ -113,8 +113,8 @@ export default [
     'name': 'Model 2',
     'year': '1998',
     'author': 'J2EE',
-    'col': '0',
-    'row': '9',
+    'col': 0,
+    'row': 11,
     'definitions': [
         {
           'term': 'Model',
@@ -136,8 +136,8 @@ export default [
     'name': 'MVP',
     'year': '1996',
     'author': 'Taligent',
-    'col': '2',
-    'row': '8',
+    'col': 2,
+    'row': 9,
     'definitions': [
         {
           'term': 'Model',

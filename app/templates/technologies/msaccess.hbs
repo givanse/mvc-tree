@@ -1,0 +1,9 @@
+
+<p>
+  The 1995 Microsoft Access does not at all honor MVC. It does, perhaps, explains a style of data/view operation that Microsoft were happy with at the time, and would mimic in the years that followed. It might be one part of the reason they were so late to a proper implementation of MVC
+  (<a href="#aspnet">2008's ASP.Net MVC</a>).
+</p>
+
+<p>
+  MS Access bound a record in a database table to the form showing it. Forms had next/previous ("&lt;" and "&gt;") controls. When those were interacted with the form would transition to the intended row in the table, with the data-bound fields in the form updating automatically. If the user had changed some fields in the form, before hitting next, they would be saved automatically too when next/prev was pressed . It was possible to veto the advancing of the form, but the data-bound nature of the form and the fields from a database attempted to be dominant. In the context of MVC, there was no intermediate model. The view (form) was wired directly to the database.
+</p>
