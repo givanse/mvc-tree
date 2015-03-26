@@ -10,19 +10,19 @@ export default [
     'definitions': [
         {
           'term': 'Thing',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Something that is of interest to the user. It could be concrete, like a house or an integrated circuit. It could be abstract, like a new idea or opinions about a paper. It could be a whole, like a computer, or a part, like a circuit element.'
         },
         {
           'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'A Model is an active representation of an abstraction in the form of data in a computing system.'
         },
         {
           'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'To any given Model there is attached one or more Views, each View being capable of showing one or more pictorial representations of the Model on the screen and on hardcopy. A View is also able to perform such operations upon the Model that is reasonabely associated with that View.'
         },
         {
           'term': 'Editor',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'An Editor is an interface between a user and one or more views. It provides the user with a suitable command system, for example in the form of menus that may change dynamically according to the current context. It provides the Views with the necessary coordination and command messages.'
         }
     ]
   },
@@ -59,15 +59,15 @@ export default [
     'definitions': [
         {
           'term': 'Presentation',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'the Presentation defines the concrete syntax of the application, i.e. the input and output behavior of the application as perceived by the user. The Presentation of an application is a set of entities, called interactive objects, specialized in man-machine communication.'
         },
         {
           'term': 'Abstraction',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'the Abstraction part corresponds to the semantics of the application. It implements the functions that the application is able to perform. These functions are supposed to result from a thorough task analysis.'
         },
         {
           'term': 'Control',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'the Control part maintains the mapping and the consistency between the abstract entities (involved in the interaction and implemented in the Abstract part) and their presentation to the user. It embodies the boundary between semantics and syntax. It is intended to hold the context of the overall interaction between the user and the application.'
         }
     ]
   },
@@ -82,15 +82,15 @@ export default [
     'definitions': [
         {
           'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'The model of an application is the domain-specific software simulation or implementation of the application\'s central structure.'
         },
         {
           'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Views deal with everything graphical: they request data from their model, and display the data.'
         },
         {
           'term': 'Controller',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Controllers contain the interface between their associated models and views and the input devices (e.g., keyboard, pointing device, time).'
         }
     ]
   },
@@ -99,8 +99,8 @@ export default [
     'name': 'Observer Pattern',
     'year': '1994',
     'author': 'GoF',
-    'col': '7',
-    'row': '6',
+    'col': '6',
+    'row': '7',
     'definitions': null
   },
 
@@ -114,15 +114,15 @@ export default [
     'definitions': [
         {
           'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': ''
         },
         {
           'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': ''
         },
         {
           'term': 'Controller',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': ''
         }
     ]
   },
@@ -137,15 +137,15 @@ export default [
     'definitions': [
         {
           'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Deals with data management. How do I change my data? How do I specify my data? What is my data?'
         },
         {
           'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Deals with user interface. How do I display my data? How do events map into changes in my data?'
         },
         {
           'term': 'Presenter',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'The View-Controller of a basic MVC is refered as Presentation. This represents the function of the classic Smalltalk controller, but elevated to an application level and taking into account the intermediate selection, command, and interactor concepts. Its role is to interpret the events and gestures initiated by the user and provide business logic.'
         }
     ]
   },
@@ -161,11 +161,7 @@ export default [
     'definitions': [
         {
           'term': 'Application Model',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'Property Object',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': ''
         }
     ]
   },
@@ -176,7 +172,7 @@ export default [
     'year': '1995',
     'author': 'unknown',
     'col': '6',
-    'row': '7',
+    'row': '8',
     'definitions': null 
   },
 
@@ -190,11 +186,11 @@ export default [
     'definitions': [
         {
           'term': 'Presentation Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Stores state and logic'
         },
         {
           'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Presentation behavior'
         }
     ]
   },
@@ -211,15 +207,15 @@ export default [
     'definitions': [
         {
           'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'It is the data or business logic, completely UI independent, that stores the state and does the processing of the problem domain.'
         },
         {
           'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Consists of the visual elements, the buttons, windows, graphics and more complex controls of a GUI. In simple examples, the View is data bound directly to the model.'
         },
         {
           'term': 'View Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'The term means \"Model of a View\", and be thought of as abstraction of the view, but it also provides a specialization of the Model that the View can use for data-binding. It contains data-transformers that convert Model types into View types, and it contains Commands the View can use to interact with the Model.'
         }
     ]
   },
@@ -237,15 +233,15 @@ export default [
     'definitions': [
         {
           'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': ''
         },
         {
           'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': ''
         },
         {
           'term': 'Whatever',
-          'text': 'Lorem ipsum dolor sir amet'
+          'text': 'Whatever works for you'
         }
     ]
   }
