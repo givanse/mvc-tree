@@ -3,13 +3,11 @@ import OverlayCheckbox from './overlay-checkbox';
 
 export default Ember.ContainerView.extend({
 
-  itemViewClass: OverlayCheckbox,
-
   masterCheckbox: null,
 
   _populateChildViews: function() {
-    this.masterCheckbox = OverlayCheckbox.create({
-      name: 'All', 
+    this.masterCheckbox = this.createChildView(OverlayCheckbox, {
+      name: 'All',
       checked: false,
       isMaster: true
     });
