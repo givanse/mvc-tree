@@ -1,52 +1,5 @@
 export default [
   { 
-    'id': 'pac',
-    'name': 'PAC',
-    'year': '1987',
-    'author': 'J. Coutaz',
-    'col': '4',
-    'row': '3',
-    'definitions': [
-        {
-          'term': 'Presentation',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'Abstraction',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'Control',
-          'text': 'Lorem ipsum dolor sir amet'
-        }
-    ]
-  },
-
-  { 
-    'id': 'mvc-kp',
-    'name': 'MVC K&P',
-    'year': '1988',
-    'author': 'Krasner & Pope',
-    'col': '0',
-    'row': '4',
-    'children': ['am', 'model2'],
-    'definitions': [
-        {
-          'term': 'Model',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'View',
-          'text': 'Lorem ipsum dolor sir amet'
-        },
-        {
-          'term': 'Controller',
-          'text': 'Lorem ipsum dolor sir amet'
-        }
-    ]
-  },
-
-  { 
     'id': 'tmve',
     'name': 'TMVE',
     'year': '1979',
@@ -73,7 +26,6 @@ export default [
         }
     ]
   },
-
   { 
     'id': 'mvc79',
     'name': 'MVC',
@@ -82,6 +34,51 @@ export default [
     'col': '0',
     'row': '2',
     'children': ['mvc-kp'],
+    'definitions': [
+        {
+          'term': 'Model',
+          'text': 'Models represent knowledge. A model could be a single object (rather uninteresting), or it could be some structure of objects.'
+        },
+        {
+          'term': 'View',
+          'text': 'A view is a (visual) representation of its model. It would ordinarily highlight certain attributes of the model and suppress others. It is thus acting as a presentation filter.'
+        },
+        {
+          'term': 'Controller',
+          'text': 'A controller is the link between a user and the system.'
+        }
+    ]
+  },
+  { 
+    'id': 'pac',
+    'name': 'PAC',
+    'year': '1987',
+    'author': 'J. Coutaz',
+    'col': '4',
+    'row': '3',
+    'definitions': [
+        {
+          'term': 'Presentation',
+          'text': 'Lorem ipsum dolor sir amet'
+        },
+        {
+          'term': 'Abstraction',
+          'text': 'Lorem ipsum dolor sir amet'
+        },
+        {
+          'term': 'Control',
+          'text': 'Lorem ipsum dolor sir amet'
+        }
+    ]
+  },
+  { 
+    'id': 'mvc-kp',
+    'name': 'MVC K&P',
+    'year': '1988',
+    'author': 'Krasner & Pope',
+    'col': '0',
+    'row': '4',
+    'children': ['am', 'model2'],
     'definitions': [
         {
           'term': 'Model',
@@ -97,7 +94,6 @@ export default [
         }
     ]
   },
-
   { 
     'id': 'observer',
     'name': 'Observer Pattern',
