@@ -2,6 +2,9 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+
+  svgenv: Ember.inject.service('svg-environment'),
+
   name: DS.attr('string'),
   year: DS.attr('number'),
   col: DS.attr('number'),

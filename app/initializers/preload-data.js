@@ -26,7 +26,7 @@ export function initialize(container/*, application */) {
 
 export default {
   name: 'preload-data',
-  after: 'svg-environment-service',
+  after: ['ember-data', 'store'], 
   initialize: initialize 
 };
 

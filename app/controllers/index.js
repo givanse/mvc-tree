@@ -3,6 +3,8 @@ import PathFactory from '../mixins/path-factory';
 
 export default Ember.Controller.extend(PathFactory, {
 
+  svgenv: Ember.inject.service('svg-environment'),
+
   gridNodes: function() {
     // sortBy() returns Array
     var pArr = this.get('model.dpatterns').sortBy('year'), 
