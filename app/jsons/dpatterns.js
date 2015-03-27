@@ -114,15 +114,15 @@ export default [
     'definitions': [
         {
           'term': 'Model',
-          'text': ''
+          'text': 'Java Beans'
         },
         {
           'term': 'View',
-          'text': ''
+          'text': 'JSP Pages'
         },
         {
           'term': 'Controller',
-          'text': ''
+          'text': 'A Servlet (later framework) with routing built in'
         }
     ]
   },
