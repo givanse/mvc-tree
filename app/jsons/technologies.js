@@ -5,14 +5,6 @@ export default [
     year: '1998',
     col: 0,
     row: 10,
-    classNames: ['tech_sig']
-  },
-  {
-    id: 'struts',
-    name: 'Struts',
-    year: '2000',
-    col: 0,
-    row: 12,
     classNames: ['tech_sig', 'tech_java']
   },
   {
@@ -64,11 +56,19 @@ export default [
     classNames: ['tech_java']
   },
   {
+    id: 'struts',
+    name: 'Struts',
+    year: '2000',
+    col: 0,
+    row: 13,
+    classNames: ['tech_sig', 'tech_java']
+  },
+  {
     id: 'jsf',
     name: 'JSF',
     year: '2004',
     col: 0,
-    row: 13,
+    row: 14,
     classNames: ['tech_java']
   },
   {

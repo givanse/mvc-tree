@@ -182,7 +182,7 @@ export default [
     'year': '2004',
     'author': 'M. Fowler',
     'col': '1',
-    'row': '13',
+    'row': '14',
     'definitions': [
         {
           'term': 'Presentation Model',
@@ -201,7 +201,7 @@ export default [
     'year': '2005',
     'author': 'Microsoft',
     'col': '3',
-    'row': '14',
+    'row': '15',
     'related': [{id: 'pm', type: 'node-dpattern'}, 
                 {id: 'data_binding', type: 'node-dpattern'}],
     'definitions': [
