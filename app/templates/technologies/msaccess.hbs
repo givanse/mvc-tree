@@ -1,9 +1,20 @@
 
 <p>
-  The 1995 Microsoft Access does not at all honor MVC. It does, perhaps, explains a style of data/view operation that Microsoft were happy with at the time, and would mimic in the years that followed. It might be one part of the reason they were so late to a proper implementation of MVC
-  (<a href="#aspnet">2008's ASP.Net MVC</a>).
+  The 1995 Microsoft Access did not honor MVC at all . It did, perhaps, explain a style of data/view operation that Microsoft were happy with at the time - data binding. MS Access bound a record in a database table to the form showing it. Forms had next/previous ("&lt;" and "&gt;") controls. When those were interacted with the form would transition to the intended row in the table, with the data-bound fields in the form updating automatically. If the user had changed some fields in the form, before hitting next, they would be saved automatically too when next/prev was pressed. It was possible to veto the advancing of the form, but the data-bound nature of the form and the fields from a database attempted to be dominant. In the context of MVC, there was no intermediate model. The view (form) was wired directly to the database.
 </p>
 
 <p>
-  MS Access bound a record in a database table to the form showing it. Forms had next/previous ("&lt;" and "&gt;") controls. When those were interacted with the form would transition to the intended row in the table, with the data-bound fields in the form updating automatically. If the user had changed some fields in the form, before hitting next, they would be saved automatically too when next/prev was pressed. It was possible to veto the advancing of the form, but the data-bound nature of the form and the fields from a database attempted to be dominant. In the context of MVC, there was no intermediate model. The view (form) was wired directly to the database.
+  ActiveX had a data-binding technology called ActiveX Data Objects (<a href="http://en.wikipedia.org/wiki/ActiveX_Data_Objects">ADO</a>). Microsoft released ADO in Octover 1996.
+</p>
+
+<p>
+  MicroSoft launched .Net for public consupmtion in 2000. One facet of that was Active Data Objects (ADO.NET). Obviously that was taking ADO into the new .NET era. It very much continued the data-bound style, and UI technologies for .NET were also wired to it. 
+</p>
+
+<p>
+  In 2003, Erik Dörnenburg wrote a technology called .NET Entity Objects Framework (<a href="http://neo.sourceforge.net/">NEO</a>). He had worked with NeXTSTEP in '92, which was strongly modelled on MVC, and Enterprise Objects Framework (<a href="http://en.wikipedia.org/wiki/Enterprise_Objects_Framework">EOF</a>) specifically, and wanted to bring some of that to .NET. He was also an Agile enthusiast, and wanted to have as much testable code as possible. He made Neo to help separate ADO.NET a little and allow some that testable, separative goodness. Neo has some other non-functional aspects but they are not important to this description. Erik later presented on this at a conference "Data programming beyond ADO.NET" in 2004 (see <a href="http://erik.doernenburg.com/talks/really-old/">his old presentations page - scroll to the bottom</a>), and some time after Microsoft bundled non data-binding technologies with .NET, but it could have been a cooincidence. That started their patronage of the MVP sub-family of patterns.
+</p>
+
+<p>
+  MS being a patron of data-binding for many years might be one part of why they were so late to a proper implementation of MVC. Late being <a href="#aspnet">ASP.Net MVC</a> in 2008.
 </p>
