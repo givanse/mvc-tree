@@ -160,9 +160,21 @@ export default [
     'children': ['pm'],
     'definitions': [
         {
+          'term': 'Domain Model',
+          'text': 'Some object or objects that represent your domain.'
+        },
+        {
           'term': 'Application Model',
-          'text': ''
-        }
+          'text': 'Handle user interaction and re-direct messages to the domain model if necessary.'
+        },
+        {
+          'term': 'View',
+          'text': 'Each view should display a particular visual representation of some aspect of the model.'
+        },
+        {
+          'term': 'Controller',
+          'text': 'Manipulates the model and the changes should be reflected in the view.'
+        },
     ]
   },
 
