@@ -126,7 +126,6 @@ export default [
         }
     ]
   },
-
   { 
     'id': 'mvp',
     'name': 'MVP',
@@ -149,7 +148,28 @@ export default [
         }
     ]
   },
-
+  { 
+    'id': 'mva',
+    'name': 'MVA',
+    'year': '2001?',
+    'author': 'Cocoa',
+    'col': 2,
+    'row': 13,
+    'definitions': [
+        {
+          'term': 'Model',
+          'text': ''
+        },
+        {
+          'term': 'View',
+          'text': 'Is completely decoupled from the Model.'
+        },
+        {
+          'term': 'Adapter',
+          'text': 'AKA mediating controller'
+        }
+    ]
+  },
   { 
     'id': 'am',
     'name': 'Application Model',
