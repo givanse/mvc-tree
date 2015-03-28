@@ -6,7 +6,7 @@ export default [
     'author': 'T. Reenskaug',
     'col': '0',
     'row': '1',
-    'children': ['mvc79', 'mvp-taligent'],
+    'children': ['mvc79', 'mvp'],
     'definitions': [
         {
           'term': 'Thing',
@@ -128,7 +128,7 @@ export default [
   },
 
   { 
-    'id': 'mvp-taligent',
+    'id': 'mvp',
     'name': 'MVP',
     'year': '1996',
     'author': 'Taligent',
