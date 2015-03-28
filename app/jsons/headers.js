@@ -31,14 +31,8 @@ export default [
   },
   {
     id: '5',
-    title: 'MVW',
-    col: '5',
-    row: '0'
-  },
-  {
-    id: '6',
     title: 'Other Patterns',
-    col: '6',
+    col: '5',
     row: '0'
   }
 ];

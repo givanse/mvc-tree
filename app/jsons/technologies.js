@@ -19,7 +19,7 @@ export default [
     id: 'msaccess',
     name: 'MS-Access',
     year: '1995',
-    col: 6,
+    col: 5,
     row: 8,
     classNames: ['tech_ms']
   },

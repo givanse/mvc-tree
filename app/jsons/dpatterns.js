@@ -99,7 +99,7 @@ export default [
     'name': 'Observer Pattern',
     'year': '1994',
     'author': 'GoF',
-    'col': '6',
+    'col': '5',
     'row': '7',
     'definitions': null
   },
@@ -171,7 +171,7 @@ export default [
     'name': 'Data Binding',
     'year': '1995',
     'author': 'unknown',
-    'col': '6',
+    'col': '5',
     'row': '8',
     'definitions': null 
   },
