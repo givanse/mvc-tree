@@ -20,7 +20,7 @@ export default [
     name: 'MS-Access',
     year: '1995',
     col: 5,
-    row: 8,
+    row: 9,
     classNames: ['tech_ms']
   },
   {
@@ -36,7 +36,7 @@ export default [
     name: 'Drupal',
     year: '2001',
     col: 4,
-    row: 11,
+    row: 13,
     classNames: ['tech_php']
   },
   {
@@ -44,7 +44,7 @@ export default [
     name: 'Rails',
     year: '2004',
     col: 0,
-    row: 13,
+    row: 14,
     classNames: ['tech_sig', 'tech_ruby']
   },
   {
@@ -76,7 +76,7 @@ export default [
     name: 'DJango',
     year: '2005',
     col: 0,
-    row: 15,
+    row: 16,
     classNames: ['tech_python']
   },
   {
@@ -84,7 +84,7 @@ export default [
     name: 'Cake PHP',
     year: '2005',
     col: 0,
-    row: 14,
+    row: 15,
     classNames: ['tech_php']
   },
   {
@@ -100,7 +100,7 @@ export default [
     name: 'APS.NET MVC',
     year: '2008',
     col: 0,
-    row: 17,
+    row: 18,
     classNames: ['tech_ms']
   },
   {
@@ -116,7 +116,7 @@ export default [
     name: 'Sproutcore',
     year: '2007',
     col: 0,
-    row: 16,
+    row: 17,
     classNames: ['tech_sig', 'tech_js'],
     related: [{'id': 'ember', 'type': 'node-technology'}] 
   },

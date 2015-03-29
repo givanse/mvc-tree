@@ -47,11 +47,12 @@ export default Ember.Controller.extend(PathFactory, {
   }.property(),
 
   yearLines: function() {
+    // TODO: feed it as JSON 
     return [
-      this._buildYearLine(1980, 2),
-      this._buildYearLine(1990, 5),
-      this._buildYearLine(2000, 9),
-      this._buildYearLine(2010, 13)
+      this._buildYearLine(1980, 3),
+      this._buildYearLine(1990, 6),
+      this._buildYearLine(2000, 13),
+      this._buildYearLine(2010, 18)
     ];
   }.property(),
 
