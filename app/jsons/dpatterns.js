@@ -140,11 +140,11 @@ export default [
         },
         {
           'term': 'View',
-          'text': 'Deals with user interface. How do I display my data? How do events map into changes in my data?'
+          'text': 'Deals with user interface. How do I display my data? How do events map into changes in my data? It hands off events to the presenter, similar to what Application Model does. But, it observes the Model, so the View updates itself.'
         },
         {
           'term': 'Presenter',
-          'text': 'The View-Controller of a basic MVC is refered as Presentation. This represents the function of the classic Smalltalk controller, but elevated to an application level and taking into account the intermediate selection, command, and interactor concepts. Its role is to interpret the events and gestures initiated by the user and provide business logic.'
+          'text': 'The View-Controller of a basic MVC is refered as Presentation. This represents the function of the classic Smalltalk controller, but elevated to an application level and taking into account the intermediate selection, command, and interactor concepts. Its role is to interpret the events and gestures initiated by the user and provide business logic. The classic Controller faded into the View.'
         }
     ]
   },
@@ -186,7 +186,7 @@ export default [
         },
         {
           'term': 'Application Model',
-          'text': 'Handle user interaction and re-direct messages to the domain model if necessary.'
+          'text': 'Handle user interaction and re-direct messages to the domain model if necessary. Observes the domain model and provides property objects.'
         },
         {
           'term': 'View',
@@ -219,11 +219,11 @@ export default [
     'definitions': [
         {
           'term': 'Presentation Model',
-          'text': 'Stores state and logic'
+          'text': 'Stores state and logic, its an abstraction of the view.'
         },
         {
           'term': 'View',
-          'text': 'Presentation behavior'
+          'text': 'Presentation behavior, utterly simple and mainly used to render.'
         }
     ]
   },
