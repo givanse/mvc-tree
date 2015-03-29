@@ -46,7 +46,7 @@ export default Ember.ContainerView.extend({
     checked: false},
    {name: 'Smalltalk', 
     overlayClassName: 'tech_smalltalk',
-    checked: false}],
+    checked: true}],
 
   actions: {
 

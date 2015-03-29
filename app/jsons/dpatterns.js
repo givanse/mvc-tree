@@ -178,6 +178,7 @@ export default [
     'col': '1',
     'row': '6',
     'children': ['pm'],
+    'related': [{'id': 'dolphin', 'type': 'node-technology'}],
     'definitions': [
         {
           'term': 'Domain Model',

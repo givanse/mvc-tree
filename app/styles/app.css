@@ -231,7 +231,7 @@ body {
 }
 .line-dashed {
   stroke: #464646;
-  stroke-dasharray: 5, 5;
+  stroke-dasharray: 2, 2;
 }
 .line-dashed:hover {
   stroke-dasharray: none;

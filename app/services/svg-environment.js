@@ -5,10 +5,10 @@ export default Ember.Object.extend({
 
   showGrid: ENV.APP.showGrid,
 
-  paddingT: 6,
-  paddingR: 6,
-  paddingB: 12,
-  paddingL: 6,
+  paddingT: 8,
+  paddingR: 12,
+  paddingB: 8,
+  paddingL: 12,
 
   colW: 170 + 12,
   rowH: 64 + 18,
