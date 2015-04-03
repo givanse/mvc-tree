@@ -44,7 +44,7 @@ export default [
     name: 'Rails',
     year: '2004',
     col: 0,
-    row: 14,
+    row: 15,
     classNames: ['tech_sig', 'tech_ruby']
   },
   {
