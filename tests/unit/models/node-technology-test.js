@@ -11,7 +11,16 @@ moduleForModel('node-technology', {
 });
 
 test('it exists', function(assert) {
-  var model = this.subject({ svgenv: Ember.Object.create()});
+  var model = this.subject({ svgenv: Ember.Object.create() });
   // var store = this.store();
   assert.ok(!!model);
+});
+
+test('set template name', function(assert) {
+  var model = this.subject({ 
+    id: 'foobar',
+    svgenv: Ember.Object.create()
+  });
+
+  assert.equal(model.get('template'), 'technologies/foobar');
 });

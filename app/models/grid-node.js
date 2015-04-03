@@ -9,9 +9,11 @@ export default DS.Model.extend({
   year: DS.attr('number'),
   col: DS.attr('number'),
   row: DS.attr('number'),
-  template: DS.attr('string'),
 
   // added localy
+
+  template: DS.attr('string'),
+
   x: DS.attr('number'),
   y: DS.attr('number'),
   x_padded: DS.attr('number'),

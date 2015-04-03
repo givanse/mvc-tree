@@ -2,26 +2,14 @@ import fixtureT from '../jsons/technologies';
 import fixtureP from '../jsons/dpatterns';
 import fixtureH from '../jsons/headers';
 
-// TODO: Fix deprecation in Ember 1.11
-// DEPRECATION: register should be called on the registry instead of the container
-// https://github.com/ember-cli/ember-cli/issues/3159
-// https://github.com/emberjs/data/issues/2806
 export function initialize(container/*, application */) {
   var store = container.lookup('store:main');
 
-  fixtureP.forEach(function(item) {
-    item.template = 'dpatterns/' + item.id;
-    store.push('node-dpattern', item);
-  });
+  store.pushMany('node-header', fixtureH);
 
-  fixtureT.forEach(function(item) {
-    item.template = 'technologies/' + item.id;
-    store.push('node-technology', item);
-  });
+  store.pushMany('node-technology', fixtureT);
 
-  fixtureH.forEach(function(item) {
-    store.push('node-header', item);
-  });
+  store.pushMany('node-dpattern', fixtureP);
 }
 
 export default {

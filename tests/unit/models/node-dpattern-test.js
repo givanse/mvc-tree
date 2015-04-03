@@ -15,3 +15,12 @@ test('it exists', function(assert) {
   // var store = this.store();
   assert.ok(!!model);
 });
+
+test('set template name', function(assert) {
+  var model = this.subject({ 
+    id: 'foobar',
+    svgenv: Ember.Object.create()
+  });
+
+  assert.equal(model.get('template'), 'dpatterns/foobar');
+});

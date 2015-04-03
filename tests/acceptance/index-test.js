@@ -25,8 +25,6 @@ test('visiting / first time', function(assert) {
   });
 });
 
-// Don't do this, initializer:preload-data will misbehave
-/*
 test('visiting / second time', function(assert) {
   visit('/');
 
@@ -34,4 +32,3 @@ test('visiting / second time', function(assert) {
     assert.equal(currentPath(), 'index');
   });
 });
-*/
