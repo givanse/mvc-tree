@@ -10,14 +10,20 @@ moduleForModel('grid-node', {
   needs: []
 });
 
+// TODO: an id should not need to be specified in each test
+
 test('it exists', function(assert) {
-  var model = this.subject({ svgenv: Ember.Object.create() });
+  var model = this.subject({
+    id: 0,
+    svgenv: Ember.Object.create()
+  });
   //var store = this.store();
   assert.ok(!!model);
 });
 
 test('create node 0,0 padding 15 0 0 10', function(assert) {
   var model = this.subject({
+    id: 1,
     col: 0, row: 0,
     svgenv: Ember.Object.create({
       colW: 30, rowH: 60,
@@ -41,6 +47,7 @@ test('create node 0,0 padding 15 0 0 10', function(assert) {
 
 test('create node 1,1 padding 15 0 0 10', function(assert) {
   var model = this.subject({
+    id: 2,
     col: 1, row: 1,
     svgenv: Ember.Object.create({
       colW: 30, rowH: 60,
@@ -60,6 +67,7 @@ test('create node 1,1 padding 15 0 0 10', function(assert) {
 
 test('create node 0,0', function(assert) {
   var model = this.subject({
+    id: 3,
     col: 0, row: 0,
     svgenv: Ember.Object.create({
       colW: 130, rowH: 60,
@@ -80,4 +88,3 @@ test('create node 0,0', function(assert) {
   assert.equal(model.get('rx'), 53, 'rx 53');
   assert.equal(model.get('ry'), 18, 'ry 18');
 });
-

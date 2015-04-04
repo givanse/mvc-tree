@@ -11,7 +11,9 @@ moduleForModel('node-dpattern', {
 });
 
 test('it exists', function(assert) {
-  var model = this.subject({ svgenv: Ember.Object.create() });
+  var model = this.subject({ 
+    svgenv: Ember.Object.create()
+  });
   // var store = this.store();
   assert.ok(!!model);
 });
