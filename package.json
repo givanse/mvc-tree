@@ -32,5 +32,8 @@
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.16",
     "ember-export-application-global": "^1.0.2"
+  },
+  "dependencies": {
+    "ember-lazy-image": "givanse/ember-lazy-image#img-class"
   }
 }
