@@ -14,7 +14,7 @@ export default Ember.Object.extend({
   rowH: 64 + 18,
 
   maxCols: 6,
-  maxRows: 22,
+  maxRows: 29,
 
   viewBoxW: null,
   viewBoxH: null,

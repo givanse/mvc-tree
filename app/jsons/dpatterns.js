@@ -95,82 +95,6 @@ export default [
     ]
   },
   { 
-    'id': 'observer',
-    'name': 'Observer Pattern',
-    'year': '1994',
-    'author': 'GoF',
-    'col': '5',
-    'row': '7',
-    'definitions': null
-  },
-
-  { 
-    'id': 'model2',
-    'name': 'Model 2',
-    'year': '1998',
-    'author': 'J2EE',
-    'col': 0,
-    'row': 11,
-    'definitions': [
-        {
-          'term': 'Model',
-          'text': 'Java Beans'
-        },
-        {
-          'term': 'View',
-          'text': 'JSP Pages'
-        },
-        {
-          'term': 'Controller',
-          'text': 'A Servlet (later framework) with routing built in'
-        }
-    ]
-  },
-  { 
-    'id': 'mvp',
-    'name': 'MVP',
-    'year': '1996',
-    'author': 'Taligent',
-    'col': 2,
-    'row': 9,
-    'definitions': [
-        {
-          'term': 'Model',
-          'text': 'Deals with data management. How do I change my data? How do I specify my data? What is my data?'
-        },
-        {
-          'term': 'View',
-          'text': 'Deals with user interface. How do I display my data? How do events map into changes in my data? It hands off events to the presenter, similar to what Application Model does. But, it observes the Model, so the View updates itself.'
-        },
-        {
-          'term': 'Presenter',
-          'text': 'The View-Controller of a basic MVC is refered as Presentation. This represents the function of the classic Smalltalk controller, but elevated to an application level and taking into account the intermediate selection, command, and interactor concepts. Its role is to interpret the events and gestures initiated by the user and provide business logic. The classic Controller faded into the View.'
-        }
-    ]
-  },
-  { 
-    'id': 'mva',
-    'name': 'MVA',
-    'year': '2001?',
-    'author': 'Cocoa',
-    'col': 2,
-    'row': 13,
-    'definitions': [
-        {
-          'term': 'Model',
-          'text': ''
-        },
-        {
-          'term': 'View',
-          'text': 'Is completely decoupled from the Model.'
-        },
-        {
-          'term': 'Adapter',
-          'text': 'AKA mediating controller'
-        }
-    ]
-  },
-  { 
     'id': 'am',
     'name': 'Application Model',
     'year': '1993',
@@ -198,7 +122,15 @@ export default [
         },
     ]
   },
-
+  { 
+    'id': 'observer',
+    'name': 'Observer Pattern',
+    'year': '1994',
+    'author': 'GoF',
+    'col': '5',
+    'row': '7',
+    'definitions': null
+  },
   { 
     'id': 'data_binding',
     'name': 'Data Binding',
@@ -208,14 +140,79 @@ export default [
     'row': '8',
     'definitions': null 
   },
-
+  { 
+    'id': 'mvp',
+    'name': 'MVP',
+    'year': '1996',
+    'author': 'Taligent',
+    'col': 2,
+    'row': 10,
+    'definitions': [
+        {
+          'term': 'Model',
+          'text': 'Deals with data management. How do I change my data? How do I specify my data? What is my data?'
+        },
+        {
+          'term': 'View',
+          'text': 'Deals with user interface. How do I display my data? How do events map into changes in my data? It hands off events to the presenter, similar to what Application Model does. But, it observes the Model, so the View updates itself.'
+        },
+        {
+          'term': 'Presenter',
+          'text': 'The View-Controller of a basic MVC is refered as Presentation. This represents the function of the classic Smalltalk controller, but elevated to an application level and taking into account the intermediate selection, command, and interactor concepts. Its role is to interpret the events and gestures initiated by the user and provide business logic. The classic Controller faded into the View.'
+        }
+    ]
+  },
+  { 
+    'id': 'model2',
+    'name': 'Model 2',
+    'year': '1998',
+    'author': 'J2EE',
+    'col': 0,
+    'row': 13,
+    'definitions': [
+        {
+          'term': 'Model',
+          'text': 'Java Beans'
+        },
+        {
+          'term': 'View',
+          'text': 'JSP Pages'
+        },
+        {
+          'term': 'Controller',
+          'text': 'A Servlet (later framework) with routing built in'
+        }
+    ]
+  },
+  { 
+    'id': 'mva',
+    'name': 'MVA',
+    'year': '2001?',
+    'author': 'Cocoa',
+    'col': 2,
+    'row': 16,
+    'definitions': [
+        {
+          'term': 'Model',
+          'text': ''
+        },
+        {
+          'term': 'View',
+          'text': 'Is completely decoupled from the Model.'
+        },
+        {
+          'term': 'Adapter',
+          'text': 'AKA mediating controller'
+        }
+    ]
+  },
   { 
     'id': 'pm',
     'name': 'Presentation Model',
     'year': '2004',
     'author': 'M. Fowler',
     'col': '1',
-    'row': '14',
+    'row': '17',
     'definitions': [
         {
           'term': 'Presentation Model',
@@ -227,14 +224,13 @@ export default [
         }
     ]
   },
-
   { 
     'id': 'mvvm',
     'name': 'MVVM',
     'year': '2005',
     'author': 'Microsoft',
     'col': '3',
-    'row': '15',
+    'row': '19',
     'related': [{id: 'pm', type: 'node-dpattern'}, 
                 {id: 'data_binding', type: 'node-dpattern'}],
     'definitions': [
@@ -252,14 +248,13 @@ export default [
         }
     ]
   },
-
   { 
     'id': 'mvw',
     'name': 'MVW',
     'year': '2012',
     'author': 'unknown',
     'col': '5',
-    'row': '20',
+    'row': '27',
     'related': [{'id': 'angular', 'type': 'node-technology'}, 
                 {'id': 'backbone', 'type': 'node-technology'}, 
                 {'id': 'ember', 'type': 'node-technology'}],

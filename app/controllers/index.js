@@ -46,8 +46,8 @@ export default Ember.Controller.extend(PathFactory, {
     return [
       this._buildYearLine(1980, 3),
       this._buildYearLine(1990, 6),
-      this._buildYearLine(2000, 13),
-      this._buildYearLine(2010, 18)
+      this._buildYearLine(2000, 15),
+      this._buildYearLine(2010, 25)
     ];
   }.property(),
 
