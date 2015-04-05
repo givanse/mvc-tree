@@ -110,7 +110,7 @@ export default [
         },
         {
           'term': 'Application Model',
-          'text': 'Handle user interaction and re-direct messages to the domain model if necessary. Observes the domain model and provides property objects.'
+          'text': 'Handle user interaction and re-direct messages to the domain model if necessary. Observes the domain model and provides property objects. Deals with view logic and view state.'
         },
         {
           'term': 'View',
@@ -188,7 +188,7 @@ export default [
     'id': 'mva',
     'name': 'MVA',
     'year': '2001?',
-    'author': 'Cocoa',
+    'author': 'Cocoa?',
     'col': 2,
     'row': 16,
     'definitions': [
