@@ -32,14 +32,6 @@ export default [
     classNames: ['tech_sig', 'tech_java']
   },
   {
-    id: 'j2ee',
-    name: 'J2EE',
-    year: '1999',
-    col: 0,
-    row: 14,
-    classNames: ['tech_java']
-  },
-  {
     id: 'struts',
     name: 'Struts',
     year: '2000',
