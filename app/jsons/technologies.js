@@ -1,12 +1,29 @@
 export default [
   {
+    id: 'interface-builder',
+    name: 'Interface Builder',
+    year: '1986',
+    col: 5,
+    row: 2,
+    classNames: ['tech_hist']
+  },
+  {
+    id: 'hypercard',
+    name: 'HyperCard',
+    year: '1987',
+    col: 5,
+    row: 3,
+    classNames: ['tech_hist']
+  },
+  {
     id: 'nextstep',
     name: 'NeXTstep',
     year: '1988',
     col: 0,
     row: 5,
     classNames: ['tech_sig'],
-    related: [{'id': 'www', 'type': 'node-technology'}] 
+    related: [{'id': 'www', 'type': 'node-technology'},
+              {'id': 'interface-builder', 'type': 'node-technology'}] 
   },
   {
     id: 'www',
