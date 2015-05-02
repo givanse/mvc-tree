@@ -255,9 +255,6 @@ export default [
     'author': 'unknown',
     'col': '5',
     'row': '27',
-    'related': [{'id': 'angular', 'type': 'node-technology'}, 
-                {'id': 'backbone', 'type': 'node-technology'}, 
-                {'id': 'ember', 'type': 'node-technology'}],
     'definitions': [
         {
           'term': 'Model',
