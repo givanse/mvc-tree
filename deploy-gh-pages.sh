@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# mkdir $ghPagesFolderPath
-# cd ghPagesFolderPath
-# git init
-# git remote add origin git@github.com:givanse/mvc-tree.git 
-# git checkout -b gh-pages
-# git pull origin gh-pages
-
 ember build --environment='production'
 
 ghPagesFolderPath='../mvc-tree-gh-pages'
