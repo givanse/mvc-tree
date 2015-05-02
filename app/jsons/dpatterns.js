@@ -100,7 +100,7 @@ export default [
     'year': '1993',
     'author': 'VisualWorks',
     'col': '1',
-    'row': '6',
+    'row': '7',
     'children': ['pm'],
     'related': [{'id': 'dolphin', 'type': 'node-technology'}],
     'definitions': [

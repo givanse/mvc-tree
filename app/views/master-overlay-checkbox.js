@@ -23,6 +23,9 @@ export default Ember.ContainerView.extend({
   }.on('init'),
 
   _checkboxesList: [
+   {name: 'Historical', 
+    overlayClassName: 'tech_hist',
+    checked: true},
    {name: 'Significant', 
     overlayClassName: 'tech_sig',
     checked: true},

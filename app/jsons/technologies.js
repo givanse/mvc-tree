@@ -5,7 +5,16 @@ export default [
     year: '1988',
     col: 0,
     row: 5,
-    classNames: ['tech_sig']
+    classNames: ['tech_sig'],
+    related: [{'id': 'www', 'type': 'node-technology'}] 
+  },
+  {
+    id: 'www',
+    name: 'WorldWideWeb',
+    year: '1990',
+    col: 5,
+    row: 6,
+    classNames: ['tech_hist']
   },
   {
     id: 'dolphin',

@@ -110,6 +110,9 @@ body {
 .tech_smalltalk { 
   fill: #FFB675;
 }
+.tech_hist { 
+  fill: #D48A50;
+}
 
 .button_top {
   font-size: 1.8rem;

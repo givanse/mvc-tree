@@ -31,7 +31,7 @@ export default [
   },
   {
     id: '5',
-    title: 'Other Patterns',
+    title: 'Miscellaneous',
     col: '5',
     row: '0'
   }
