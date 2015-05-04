@@ -21,10 +21,10 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-  git clone <repository-url>
-  cd mvc-tree
-  npm install
-  bower install
+    git clone <repository-url>
+    cd mvc-tree
+    npm install
+    bower install
 
 ## Running / Development
 
