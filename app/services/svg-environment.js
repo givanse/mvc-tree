@@ -13,7 +13,7 @@ export default Ember.Object.extend({
   colW: 170 + 12,
   rowH: 64 + 18,
 
-  maxCols: 7,
+  maxCols: 6,
   maxRows: 29,
 
   viewBoxW: null,

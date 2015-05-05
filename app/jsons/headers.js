@@ -24,12 +24,6 @@ export default [
     row: '0'
   },
   {
-    id: '4',
-    title: 'PAC',
-    column: 'pac',
-    row: '0'
-  },
-  {
     id: '5',
     title: 'Miscellaneous',
     column: 'miscellaneous',

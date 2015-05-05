@@ -54,8 +54,8 @@ export default [
     'name': 'PAC',
     'year': '1987',
     'author': 'J. Coutaz',
-    'column': 'pac',
-    'row': '3',
+    'column': 'miscellaneous',
+    'row': '5',
     'definitions': [
         {
           'term': 'Presentation',
@@ -77,7 +77,7 @@ export default [
     'year': '1988',
     'author': 'Krasner & Pope',
     'column': 'classic-mvc',
-    'row': '4',
+    'row': '6',
     'children': ['am', 'model2'],
     'definitions': [
         {
@@ -100,7 +100,7 @@ export default [
     'year': '1993',
     'author': 'VisualWorks',
     'column': 'am',
-    'row': '7',
+    'row': '9',
     'children': ['pm'],
     'related': [{'id': 'dolphin', 'type': 'node-technology'}],
     'definitions': [
@@ -128,7 +128,7 @@ export default [
     'year': '1994',
     'author': 'GoF',
     'column': 'miscellaneous',
-    'row': '7',
+    'row': '10',
     'definitions': null
   },
   { 
@@ -137,7 +137,7 @@ export default [
     'year': '1995',
     'author': 'unknown',
     'column': 'miscellaneous',
-    'row': '8',
+    'row': '11',
     'definitions': null 
   },
   { 
@@ -146,7 +146,7 @@ export default [
     'year': '1996',
     'author': 'Taligent',
     'column': 'mvp',
-    'row': 10,
+    'row': 12,
     'definitions': [
         {
           'term': 'Model',
@@ -168,7 +168,7 @@ export default [
     'year': '1998',
     'author': 'J2EE',
     'column': 'server-mvc',
-    'row': 13,
+    'row': 14,
     'definitions': [
         {
           'term': 'Model',

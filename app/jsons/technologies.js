@@ -4,7 +4,7 @@ export default [
     name: 'Interface Builder',
     year: '1986',
     'column': 'miscellaneous',
-    row: 2,
+    row: 3,
     classNames: ['tech_hist']
   },
   {
@@ -12,7 +12,7 @@ export default [
     name: 'HyperCard',
     year: '1987',
     'column': 'miscellaneous',
-    row: 3,
+    row: 4,
     classNames: ['tech_hist']
   },
   {
@@ -20,7 +20,7 @@ export default [
     name: 'NeXTstep',
     year: '1988',
     'column': 'classic-mvc',
-    row: 5,
+    row: 7,
     classNames: ['tech_sig'],
     related: [{'id': 'www', 'type': 'node-technology'},
               {'id': 'interface-builder', 'type': 'node-technology'}] 
@@ -30,7 +30,7 @@ export default [
     name: 'WorldWideWeb',
     year: '1990',
     'column': 'miscellaneous',
-    row: 6,
+    row: 8,
     classNames: ['tech_hist']
   },
   {
@@ -38,7 +38,7 @@ export default [
     name: 'Dolphin',
     year: '1996',
     'column': 'mvp',
-    row: 11,
+    row: 13,
     classNames: ['tech_smalltalk']
   },
   {
@@ -46,7 +46,7 @@ export default [
     name: 'MS-Access',
     year: '1995',
     'column': 'miscellaneous',
-    row: 9,
+    row: 12,
     classNames: ['tech_ms']
   },
   {
@@ -54,7 +54,7 @@ export default [
     name: 'SWING',
     year: '1998',
     'column': 'classic-mvc',
-    row: 12,
+    row: 14,
     classNames: ['tech_sig', 'tech_java']
   },
   {
@@ -69,7 +69,7 @@ export default [
     id: 'drupal',
     name: 'Drupal',
     year: '2001',
-    'column': 'pac',
+    'column': 'miscellaneous',
     row: 16,
     classNames: ['tech_php']
   },

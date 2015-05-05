@@ -20,11 +20,7 @@ export default [
     col: '4'
   },
   {
-    id: 'pac',
-    col: '5'
-  },
-  {
     id: 'miscellaneous',
-    col: '6'
+    col: '5'
   }
 ];
