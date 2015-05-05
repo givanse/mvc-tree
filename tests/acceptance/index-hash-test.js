@@ -19,7 +19,9 @@ module('Acceptance: Index#hash', {
     Ember.run(function() {
       var arr1 = store.all('node-technology').toArray();
       var arr2 = store.all('node-dpattern').toArray();
-      arr1.concat(arr2).forEach(function(record) {
+      var arr3 = store.all('node-header').toArray();
+      var arr4 = store.all('column').toArray();
+      arr1.concat(arr2).concat(arr3).concat(arr4).forEach(function(record) {
         store.unloadRecord(record);
       });
     });

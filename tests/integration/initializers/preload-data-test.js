@@ -6,6 +6,7 @@ import GridNode from 'mvctree/models/grid-node';
 import NodeDPattern from 'mvctree/models/node-dpattern';
 import NodeTechnology from 'mvctree/models/node-technology';
 import NodeHeader from 'mvctree/models/node-header';
+import Column from 'mvctree/models/column';
 
 var container, application;
 
@@ -21,6 +22,7 @@ module('initializer:preload-data', {
       container._registry.register('model:node-dpattern', NodeDPattern);
       container._registry.register('model:node-technology', NodeTechnology);
       container._registry.register('model:node-header', NodeHeader);
+      container._registry.register('model:column', Column);
     });
   }
 });

@@ -7,7 +7,7 @@ import {
 
 moduleForModel('node-dpattern', {
   // Specify the other units that are required for this test.
-  needs: ['model:grid-node']
+  needs: ['model:grid-node', 'model:column']
 });
 
 test('it exists', function(assert) {

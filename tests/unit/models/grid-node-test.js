@@ -7,7 +7,7 @@ import {
 
 moduleForModel('grid-node', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:column']
 });
 
 // TODO: an id should not need to be specified in each test
