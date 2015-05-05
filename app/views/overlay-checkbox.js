@@ -12,6 +12,10 @@ export default Ember.View.extend({
   classNameBindings: ['checked'],
   checked: false,
 
+  attributeBindings: ['itemscope', 'itemtype'],
+  itemscope: '',
+  itemtype: 'http://schema.org/SiteNavigationElement',
+
   click: function() {
     var checked = ! this.get('checked');
     this.set('checked', checked);

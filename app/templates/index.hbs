@@ -15,13 +15,16 @@
 <div class="container">
   <!-- List of all the nodes with their descriptions. -->
   {{#each node in gridNodes}}
-    <div id="{{unbound node.id}}" class="row text_box_info">
+    <div id="{{unbound node.id}}" class="row text_box_info"
+         itemscope itemtype="http://schema.org/WebPageElement">
       
         <div class="panel {{if node.author 'panel-primary' 'panel-info'}}">
 
           <div class="panel-heading">
             <!-- title -->
-            <h3 class="panel-title">{{node.year}} {{node.name}}</h3>
+            <h3 class="panel-title" itemprop="headline">
+              {{node.year}} {{node.name}}
+            </h3>
 
             <div class="pull-right button_top">
               <a href="#top">
@@ -33,13 +36,16 @@
 
           <div class="panel-body">
             <!-- template -->
-            {{partial node.template}}
-            
+            <div itemprop="text">
+              {{partial node.template}}
+            </div>
 
             {{#if node.definitions}}
-              {{definitions-showcase currPatternId=node.id
-                                     currDefinitions=node.definitions
-                                     allPatterns=model.dpatterns}}
+              <div itemscope itemtype="http://schema.org/Table">
+                {{definitions-showcase currPatternId=node.id
+                                       currDefinitions=node.definitions
+                                       allPatterns=model.dpatterns}}
+              </div>
             {{/if}}
           </div><!-- panel-body -->
         </div><!-- panel -->

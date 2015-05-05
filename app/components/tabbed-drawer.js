@@ -8,6 +8,10 @@ export default Ember.Component.extend({
 
   classNameBindings: ['isDrawerShown'],
 
+  attributeBindings: ['itemscope', 'itemtype'],
+  itemscope: '',
+  itemtype: 'http://schema.org/SiteNavigationElement',
+
   isDrawerShown: true,  
 
   actions: {
