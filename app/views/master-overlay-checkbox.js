@@ -37,7 +37,7 @@ export default Ember.ContainerView.extend({
     checked: true},
    {name: 'Microsoft', 
     overlayClassName: 'tech_ms',
-    checked: false},
+    checked: true},
    {name: 'PHP', 
     overlayClassName: 'tech_php',
     checked: false},

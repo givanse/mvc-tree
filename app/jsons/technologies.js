@@ -3,7 +3,7 @@ export default [
     id: 'interface-builder',
     name: 'Interface Builder',
     year: '1986',
-    col: 5,
+    'column': 'miscellaneous',
     row: 2,
     classNames: ['tech_hist']
   },
@@ -11,7 +11,7 @@ export default [
     id: 'hypercard',
     name: 'HyperCard',
     year: '1987',
-    col: 5,
+    'column': 'miscellaneous',
     row: 3,
     classNames: ['tech_hist']
   },
@@ -19,7 +19,7 @@ export default [
     id: 'nextstep',
     name: 'NeXTstep',
     year: '1988',
-    col: 0,
+    'column': 'classic-mvc',
     row: 5,
     classNames: ['tech_sig'],
     related: [{'id': 'www', 'type': 'node-technology'},
@@ -29,7 +29,7 @@ export default [
     id: 'www',
     name: 'WorldWideWeb',
     year: '1990',
-    col: 5,
+    'column': 'miscellaneous',
     row: 6,
     classNames: ['tech_hist']
   },
@@ -37,7 +37,7 @@ export default [
     id: 'dolphin',
     name: 'Dolphin',
     year: '1996',
-    col: 2,
+    'column': 'mvp',
     row: 11,
     classNames: ['tech_smalltalk']
   },
@@ -45,7 +45,7 @@ export default [
     id: 'msaccess',
     name: 'MS-Access',
     year: '1995',
-    col: 5,
+    'column': 'miscellaneous',
     row: 9,
     classNames: ['tech_ms']
   },
@@ -53,7 +53,7 @@ export default [
     id: 'swing',
     name: 'SWING',
     year: '1998',
-    col: 0,
+    'column': 'classic-mvc',
     row: 12,
     classNames: ['tech_sig', 'tech_java']
   },
@@ -61,7 +61,7 @@ export default [
     id: 'struts',
     name: 'Struts',
     year: '2000',
-    col: 0,
+    'column': 'server-mvc',
     row: 15,
     classNames: ['tech_sig', 'tech_java']
   },
@@ -69,7 +69,7 @@ export default [
     id: 'drupal',
     name: 'Drupal',
     year: '2001',
-    col: 4,
+    'column': 'pac',
     row: 16,
     classNames: ['tech_php']
   },
@@ -77,7 +77,7 @@ export default [
     id: 'jsf',
     name: 'JSF',
     year: '2004',
-    col: 0,
+    'column': 'server-mvc',
     row: 17,
     classNames: ['tech_java']
   },
@@ -85,7 +85,7 @@ export default [
     id: 'rails',
     name: 'Rails',
     year: '2004',
-    col: 0,
+    'column': 'server-mvc',
     row: 18,
     classNames: ['tech_sig', 'tech_ruby']
   },
@@ -93,7 +93,7 @@ export default [
     id: 'cakephp',
     name: 'Cake PHP',
     year: '2005',
-    col: 0,
+    'column': 'server-mvc',
     row: 19,
     classNames: ['tech_php']
   },
@@ -101,7 +101,7 @@ export default [
     id: 'django',
     name: 'DJango',
     year: '2005',
-    col: 0,
+    'column': 'server-mvc',
     row: 20,
     classNames: ['tech_python']
   },
@@ -109,7 +109,7 @@ export default [
     id: 'zend',
     name: 'Zend',
     year: '2006',
-    col: 0,
+    'column': 'server-mvc',
     row: 21,
     classNames: ['tech_php']
   },
@@ -117,7 +117,7 @@ export default [
     id: 'silverlight',
     name: 'Silverlight',
     year: '2007',
-    col: 3,
+    'column': 'mvvm',
     row: 22,
     classNames: ['tech_ms']
   },
@@ -125,7 +125,7 @@ export default [
     id: 'sproutcore',
     name: 'Sproutcore',
     year: '2007',
-    col: 0,
+    'column': 'classic-mvc',
     row: 22,
     classNames: ['tech_sig', 'tech_js'],
     related: [{'id': 'ember', 'type': 'node-technology'}] 
@@ -134,7 +134,7 @@ export default [
     id: 'aspnet',
     name: 'APS.NET MVC',
     year: '2008',
-    col: 0,
+    'column': 'server-mvc',
     row: 23,
     classNames: ['tech_ms']
   },
@@ -142,7 +142,7 @@ export default [
     id: 'angular',
     name: 'Angular.js',
     year: '2009',
-    col: 3,
+    'column': 'mvvm',
     row: 24,
     classNames: ['tech_js']
   },
@@ -150,7 +150,7 @@ export default [
     id: 'backbone',
     name: 'Backbone',
     year: '2010',
-    col: 2,
+    'column': 'mvp',
     row: 25,
     classNames: ['tech_js']
   },
@@ -158,7 +158,7 @@ export default [
     id: 'knockout',
     name: 'Knockout.js',
     year: '2010',
-    col: 3,
+    'column': 'mvvm',
     row: 25,
     classNames: ['tech_js']
   },
@@ -166,7 +166,7 @@ export default [
     id: 'ember',
     name: 'Ember.js',
     year: '2011',
-    col: 3,
+    'column': 'mvvm',
     row: 26,
     classNames: ['tech_js']
   }

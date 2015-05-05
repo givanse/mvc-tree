@@ -4,7 +4,7 @@ export default [
     'name': 'TMVE',
     'year': '1979',
     'author': 'T. Reenskaug',
-    'col': '0',
+    'column': 'classic-mvc',
     'row': '1',
     'children': ['mvc79', 'mvp'],
     'definitions': [
@@ -31,7 +31,7 @@ export default [
     'name': 'MVC',
     'year': '1979',
     'author': 'T. Reenskaug',
-    'col': '0',
+    'column': 'classic-mvc',
     'row': '2',
     'children': ['mvc-kp'],
     'definitions': [
@@ -54,7 +54,7 @@ export default [
     'name': 'PAC',
     'year': '1987',
     'author': 'J. Coutaz',
-    'col': '4',
+    'column': 'pac',
     'row': '3',
     'definitions': [
         {
@@ -76,7 +76,7 @@ export default [
     'name': 'MVC K&P',
     'year': '1988',
     'author': 'Krasner & Pope',
-    'col': '0',
+    'column': 'classic-mvc',
     'row': '4',
     'children': ['am', 'model2'],
     'definitions': [
@@ -99,7 +99,7 @@ export default [
     'name': 'Application Model',
     'year': '1993',
     'author': 'VisualWorks',
-    'col': '1',
+    'column': 'am',
     'row': '7',
     'children': ['pm'],
     'related': [{'id': 'dolphin', 'type': 'node-technology'}],
@@ -127,7 +127,7 @@ export default [
     'name': 'Observer Pattern',
     'year': '1994',
     'author': 'GoF',
-    'col': '5',
+    'column': 'miscellaneous',
     'row': '7',
     'definitions': null
   },
@@ -136,7 +136,7 @@ export default [
     'name': 'Data Binding',
     'year': '1995',
     'author': 'unknown',
-    'col': '5',
+    'column': 'miscellaneous',
     'row': '8',
     'definitions': null 
   },
@@ -145,7 +145,7 @@ export default [
     'name': 'MVP',
     'year': '1996',
     'author': 'Taligent',
-    'col': 2,
+    'column': 'mvp',
     'row': 10,
     'definitions': [
         {
@@ -167,7 +167,7 @@ export default [
     'name': 'Model 2',
     'year': '1998',
     'author': 'J2EE',
-    'col': 0,
+    'column': 'server-mvc',
     'row': 13,
     'definitions': [
         {
@@ -189,7 +189,7 @@ export default [
     'name': 'MVA',
     'year': '2001?',
     'author': 'Cocoa?',
-    'col': 2,
+    'column': 'mvp',
     'row': 16,
     'definitions': [
         {
@@ -211,7 +211,7 @@ export default [
     'name': 'Presentation Model',
     'year': '2004',
     'author': 'M. Fowler',
-    'col': '1',
+    'column': 'am',
     'row': '17',
     'definitions': [
         {
@@ -229,7 +229,7 @@ export default [
     'name': 'MVVM',
     'year': '2005',
     'author': 'Microsoft',
-    'col': '3',
+    'column': 'mvvm',
     'row': '19',
     'related': [{id: 'pm', type: 'node-dpattern'}, 
                 {id: 'data_binding', type: 'node-dpattern'}],
@@ -253,7 +253,7 @@ export default [
     'name': 'MVW',
     'year': '2012',
     'author': 'unknown',
-    'col': '5',
+    'column': 'miscellaneous',
     'row': '27',
     'definitions': [
         {

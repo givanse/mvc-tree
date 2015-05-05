@@ -1,38 +1,44 @@
 export default [
   {
     id: '0',
-    title: 'MVC',
-    col: '0',
+    title: 'Classic MVC',
+    column: 'classic-mvc',
     row: '0'
   },
   {
     id: '1',
     title: 'Application Model',
-    col: '1',
+    column: 'am',
     row: '0'
   },
   {
     id: '2',
     title: 'MVP',
-    col: '2',
+    column: 'mvp',
     row: '0'
   },
   {
     id: '3',
     title: 'MVVM',
-    col: '3',
+    column: 'mvvm',
     row: '0'
   },
   {
     id: '4',
     title: 'PAC',
-    col: '4',
+    column: 'pac',
     row: '0'
   },
   {
     id: '5',
     title: 'Miscellaneous',
-    col: '5',
+    column: 'miscellaneous',
     row: '0'
-  }
+  },
+  {
+    id: '6',
+    title: 'Server MVC',
+    column: 'server-mvc',
+    row: '0'
+  },
 ];

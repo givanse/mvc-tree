@@ -3,17 +3,22 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
 
-  svgenv: Ember.inject.service('svg-environment'),
-
   name: DS.attr('string'),
   year: DS.attr('number'),
-  col: DS.attr('number'),
+  column: DS.belongsTo('column'),
   row: DS.attr('number'),
 
-  // added localy
+  /*
+    Added localy
+  */
+
+  col: Ember.computed('column', function() {
+    return this.get('column.col');
+  }),
 
   template: DS.attr('string'),
 
+  svgenv: Ember.inject.service('svg-environment'),
   x: DS.attr('number'),
   y: DS.attr('number'),
   x_padded: DS.attr('number'),
