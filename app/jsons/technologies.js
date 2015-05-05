@@ -16,6 +16,14 @@ export default [
     classNames: ['tech_hist']
   },
   {
+    id: 'action',
+    name: 'Action!',
+    year: '1988',
+    'column': 'miscellaneous',
+    row: 6,
+    classNames: ['tech_hist']
+  },
+  {
     id: 'nextstep',
     name: 'NeXTstep',
     year: '1988',
