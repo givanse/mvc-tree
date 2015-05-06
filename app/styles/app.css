@@ -9,6 +9,10 @@ body {
   line-height: 2rem;
 }
 
+a sup {
+  margin-left: 3px;
+}
+
 #mvc_tree {
   overflow: hidden;
   position: relative;
@@ -62,14 +66,28 @@ body {
   stroke: #dbdbdb;
 }
 
+.td_drawer .container_view {
+  width: 8rem;
+  text-align: center;
+  line-height: 1.8rem;
+  padding-top: 0.6rem;
+}
+
+@media (max-height: 640px) {
+  .td_drawer .container_view {
+    width: 15rem;
+  }
+}
+
 .overlay_checkbox {
+  display: inline-block;
   background-color: #fff;
   border: 4px double #337AB7;
   cursor: pointer;
-  margin: 4px;
+  margin: 0 4px;
   padding: 2px;
   text-align: center;
-  max-width: 160px;
+  width: 7rem;
   overflow: hidden;
 }
 
@@ -161,7 +179,7 @@ body {
 
 .tabbed_drawer {
   position: fixed;
-  top: 15%;
+  top: 85px;
   z-index: 10;
   right: 0px;
 }
