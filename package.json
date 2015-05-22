@@ -1,7 +1,7 @@
 {
-  "name": "mvctree",
+  "name": "mvc-tree",
   "version": "0.0.0",
-  "description": "Small description for mvctree goes here",
+  "description": "A chronological visualization of the family of MVC patterns.",
   "private": true,
   "directories": {
     "doc": "doc",

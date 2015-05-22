@@ -2,11 +2,11 @@ import Ember from 'ember';
 import { initialize } from '../../../initializers/preload-data';
 import { module, test } from 'qunit';
 import SvgEnvironment from '../../../services/svg-environment';
-import GridNode from 'mvctree/models/grid-node';
-import NodeDPattern from 'mvctree/models/node-dpattern';
-import NodeTechnology from 'mvctree/models/node-technology';
-import NodeHeader from 'mvctree/models/node-header';
-import Column from 'mvctree/models/column';
+import GridNode from 'mvc-tree/models/grid-node';
+import NodeDPattern from 'mvc-tree/models/node-dpattern';
+import NodeTechnology from 'mvc-tree/models/node-technology';
+import NodeHeader from 'mvc-tree/models/node-header';
+import Column from 'mvc-tree/models/column';
 
 var container, application;
 

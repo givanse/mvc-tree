@@ -1,8 +1,8 @@
 /*globals blanket, module */
 
 var options = {
-  modulePrefix: "mvctree",
-  filter: "//.*mvctree/.*/",
+  modulePrefix: "mvc-tree",
+  filter: "//.*mvc-tree/.*/",
   antifilter: "//.*(tests|template).*/",
   loaderExclusions: [],
   enableCoverage: true,
