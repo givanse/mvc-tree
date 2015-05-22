@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/mvctree.css">
     <link rel="stylesheet" href="assets/test-support.css">
+    <style>#blanket-main { position: relative; z-index: 99999; }</style>
 
     {{content-for 'head-footer'}}
     {{content-for 'test-head-footer'}}
@@ -24,10 +25,23 @@
     <script src="assets/vendor.js"></script>
     <script src="assets/test-support.js"></script>
     <script src="assets/mvctree.js"></script>
+    <script src="assets/blanket-options.js"></script>
+    <script src="assets/blanket-loader.js"></script>
     <script src="testem.js"></script>
     <script src="assets/test-loader.js"></script>
 
     {{content-for 'body-footer'}}
     {{content-for 'test-body-footer'}}
+    <script>
+     /*
+      * Force QUnit autostart to be true to work around changes in
+      * ember-cli-qunit and ember-cli-blanket.
+      *
+      * Reference:
+      * https://github.com/sglanzer/ember-cli-blanket/issues/60
+      * https://github.com/ember-cli/ember-cli-qunit/commit/98c8d370d574adc4deb2ab438edd0d248b22155b
+      */
+      QUnit.config.autostart = true;
+    </script>
   </body>
 </html>

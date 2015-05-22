@@ -5,6 +5,8 @@ node_js:
 
 sudo: false
 
+CODECLIMATE_REPO_TOKEN=83e99be7e25b1dffb903852f780472ff721eaa84fa9e9f17e31334be40e5c3dc 
+
 cache:
   directories:
     - node_modules

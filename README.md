@@ -1,6 +1,8 @@
 # MVC Tree
 
 [![Build Status](https://travis-ci.org/givanse/mvc-tree.svg?branch=master)](https://travis-ci.org/givanse/mvc-tree)
+[![Test Coverage](https://codeclimate.com/github/givanse/mvc-tree/badges/coverage.svg)](https://codeclimate.com/github/givanse/mvc-tree/coverage)
+[![Code Climate](https://codeclimate.com/github/givanse/mvc-tree/badges/gpa.svg)](https://codeclimate.com/github/givanse/mvc-tree)
 
 [mvc.givan.se](http://mvc.givan.se/)
 
