@@ -6,7 +6,7 @@ export default [
     'author': 'T. Reenskaug',
     'column': 'classic-mvc',
     'row': '1',
-    'children': ['mvc79', 'mvp'],
+    'children': ['mvc79'],
     'definitions': [
         {
           'term': 'Thing',
@@ -33,7 +33,7 @@ export default [
     'author': 'T. Reenskaug',
     'column': 'classic-mvc',
     'row': '2',
-    'children': ['mvc-kp'],
+    'children': ['mvc-kp', 'mvp'],
     'definitions': [
         {
           'term': 'Model',
