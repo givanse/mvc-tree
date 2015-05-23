@@ -220,37 +220,50 @@ export default Ember.Mixin.create(CoordinatesFactory, {
   },
 
   /*
+    @method _orderNodes 
+    @param {model:grid-node} a 
+    @param {model:grid-node} b 
+    @return {a: grid-node, b: grid-node} | null 
+  */
+  _orderNodes(a, b) {
+    var aCol = a.get('col'),
+        aRow = a.get('row'),
+        bCol = b.get('col'),
+        bRow = b.get('row');
+
+    // nodes with the same position
+    if ( aCol === bCol && aRow === bRow) { 
+      return null;
+    }
+
+    // switch, we want left->right
+    if ( ( aCol > bCol ) || ( aCol === bCol && aRow > bRow ) ) {
+      var tmpNode = b;
+      b = a;
+      a = tmpNode;
+    }
+
+    return {a: a, b: b};
+  },
+
+  /*
     @method generateBindingPath 
     @param {model:grid-node} a 
     @param {model:grid-node} b 
     @return {String} SVG path 
   */
   generateBindingPath: function(a, b) {
-    var col1 = parseInt(a.get('col')), 
-        row1 = parseInt(a.get('row')),
-        col2 = parseInt(b.get('col')), 
-        row2 = parseInt(b.get('row'));
- 
-    if ( col1 === col2 && row1 === row2) {
+    var orderedNodes = this._orderNodes(a, b);
+
+    if ( ! orderedNodes ) {
       return null;
     }
 
-    // switch, we want left->right
-    if ( ( col1 > col2 ) ||
-         ( col1 === col2 && row1 > row2 ) ) {
-      var tmpNode = b,
-          tmpCol = col2,
-          tmpRow = row2;
-      b = a;
-      col2 = col1;
-      row2 = row1;
-      a = tmpNode;
-      col1 = tmpCol;
-      row1 = tmpRow;
-    }
+    a = orderedNodes.a;
+    b = orderedNodes.b;
 
-    var hDelta = col2 - col1,
-        vDelta = row2 - row1;
+    var hDelta = b.get('col') - a.get('col'),
+        vDelta = b.get('row') - a.get('row');
 
     var paddingR = this.get('svgenv.paddingR');
     var pathN2C = this._genVPathN2C(hDelta, vDelta); 

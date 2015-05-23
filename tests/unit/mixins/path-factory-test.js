@@ -551,6 +551,80 @@ test('_genVPathN2C', function(assert) {
   assert.equal(result, expected, 'do not accept a right-to-left direction');
 });
 
+test('_orderNodes', function(assert) {
+  var PathFactoryObject = Ember.Object.extend(PathFactoryMixin, {
+    svgenv: Ember.Object.create({
+      colW: 10,
+      rowH: 10,
+      paddingT: 0,
+      paddingR: 0,
+      paddingB: 0,
+      paddingL: 0
+    })
+  });
+  var subject = PathFactoryObject.create();
+
+  // 3x3 node `a` at the center (1,1)
+
+  var a = Ember.Object.create({col: 1, row: 1});
+  var b = Ember.Object.create({col: 1, row: 1});
+  var result = subject._orderNodes(a, b);
+  var expected = null;
+  assert.equal(result, expected, 'same node');
+
+  // swap needed
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 0, row: 0});
+  result = subject._orderNodes(a, b);
+  expected = {a: b, b: a};
+  assert.deepEqual(result, expected, '1,1 0,0 swap');
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 0, row: 1});
+  result = subject._orderNodes(a, b);
+  expected = {a: b, b: a};
+  assert.deepEqual(result, expected, '1,1 0,1 swap');
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 0, row: 2});
+  result = subject._orderNodes(a, b);
+  expected = {a: b, b: a};
+  assert.deepEqual(result, expected, '1,1 0,2 swap');
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 1, row: 0});
+  result = subject._orderNodes(a, b);
+  expected = {a: b, b: a};
+  assert.deepEqual(result, expected, '1,1 1,0 swap');
+
+  // no swap
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 2, row: 0});
+  result = subject._orderNodes(a, b);
+  expected = {a: a, b: b};
+  assert.deepEqual(result, expected, '1,1 2,0');
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 2, row: 1});
+  result = subject._orderNodes(a, b);
+  expected = {a: a, b: b};
+  assert.deepEqual(result, expected, '1,1 2,1');
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 1, row: 2});
+  result = subject._orderNodes(a, b);
+  expected = {a: a, b: b};
+  assert.deepEqual(result, expected, '1,1 1,2');
+
+  a = Ember.Object.create({col: 1, row: 1});
+  b = Ember.Object.create({col: 2, row: 2});
+  result = subject._orderNodes(a, b);
+  expected = {a: a, b: b};
+  assert.deepEqual(result, expected, '1,1 2,2');
+});
+
 test('generateBindingPath 3x2 simple', function(assert) {
   var PathFactoryObject = Ember.Object.extend(PathFactoryMixin, {
     svgenv: Ember.Object.create({
