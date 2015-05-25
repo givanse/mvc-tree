@@ -32,16 +32,5 @@
 
     {{content-for 'body-footer'}}
     {{content-for 'test-body-footer'}}
-    <script>
-     /*
-      * Force QUnit autostart to be true to work around changes in
-      * ember-cli-qunit and ember-cli-blanket.
-      *
-      * Reference:
-      * https://github.com/sglanzer/ember-cli-blanket/issues/60
-      * https://github.com/ember-cli/ember-cli-qunit/commit/98c8d370d574adc4deb2ab438edd0d248b22155b
-      */
-      QUnit.config.autostart = true;
-    </script>
   </body>
 </html>
