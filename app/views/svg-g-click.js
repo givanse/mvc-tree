@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import googlePageview from '../mixins/google-pageview';
+var ga = Ember.Object.extend(googlePageview).create();
 
 /*
   The main objective of this SVG group is to make it easier 
@@ -26,5 +28,7 @@ export default Ember.View.extend({
 
     //TODO: revisit hashbang anchor support in Ember
     window.location.hash = nodeId;
-  }
+    ga.pageviewToGA(window.location.href, nodeId);
+  },
+
 });
