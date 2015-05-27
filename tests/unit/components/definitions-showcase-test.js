@@ -5,9 +5,7 @@ import {
 import Ember from 'ember';
 
 moduleForComponent('definitions-showcase', {
-  // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
-
+  unit: true,
   setup: function() {
   }
 });

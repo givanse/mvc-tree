@@ -3,7 +3,7 @@ import {
   module,
   test
 } from 'qunit';
-import startApp from 'mvctree/tests/helpers/start-app';
+import startApp from 'mvc-tree/tests/helpers/start-app';
 
 var application;
 
@@ -41,9 +41,7 @@ test('visiting /#pac', function(assert) {
 
   andThen(function() {
     assert.equal(currentPath(), 'index', 'current path');
-    // TODO: https://github.com/emberjs/ember.js/issues/10784
-    // waiting for that issue to be solved, then enable this test
-    // assert.equal(currentURL(), '/#pac', 'current URL');
+    assert.equal(currentURL(), '/#pac', 'current URL');
 
     // TODO: enable this test
     // it has to wait for the scroll animation (view:svg-g-click) to finish

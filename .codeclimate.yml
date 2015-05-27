@@ -1,0 +1,8 @@
+languages:
+  JavaScript: true
+
+exclude_paths:
+- "app/jsons/*"
+- "tests/acceptance/*"
+- "tests/integration/*"
+- "tests/unit/*"
