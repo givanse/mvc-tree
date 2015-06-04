@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 import GridNode from './grid-node';
 
@@ -11,9 +12,9 @@ export default GridNode.extend({
 
   definitions: DS.attr(), 
 
-  _template: function() {
+  _template: Ember.on('ready', function() {
     var template = 'dpatterns/' + this.get('id');
     this.set('template', template);
-  }.on('ready')
+  })
 
 });

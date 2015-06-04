@@ -3,8 +3,8 @@ import fixtureP from '../jsons/dpatterns';
 import fixtureH from '../jsons/headers';
 import fixtureC from '../jsons/columns';
 
-export function initialize(container/*, application */) {
-  var store = container.lookup('store:main');
+export function initialize(instance) {
+  var store = instance.container.lookup('store:application');
 
   store.pushMany('column', fixtureC);
 
@@ -17,7 +17,7 @@ export function initialize(container/*, application */) {
 
 export default {
   name: 'preload-data',
-  after: ['ember-data', 'store'], 
+  after: ['ember-data'], 
   initialize: initialize 
 };
 
