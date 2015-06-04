@@ -15,6 +15,7 @@ module('Acceptance: Index click SVG', {
   afterEach: function() {
     // TODO: remove this workaround
     // https://github.com/givanse/mvc-tree/issues/2
+/*
     var store = application.registry.lookup('store:main');
     Ember.run(function() {
       var arr1 = store.all('node-technology').toArray();
@@ -25,6 +26,7 @@ module('Acceptance: Index click SVG', {
         store.unloadRecord(record);
       });
     });
+*/
     Ember.run(application, 'destroy');
   }
 });

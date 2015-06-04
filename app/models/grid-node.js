@@ -30,7 +30,7 @@ export default DS.Model.extend({
   width: DS.attr('number'),
   height: DS.attr('number'),
 
-  addNodeValues: function() {
+  addNodeValues: Ember.on('ready', function() {
     var svgenv = this.get('svgenv');
 
     if ( ! svgenv ) {
@@ -53,6 +53,6 @@ export default DS.Model.extend({
     this.set('height', svgenv.get('rowH') - svgenv.get('paddingT') - svgenv.get('paddingB'));
     this.set('ry', this.get('height') / 2);
 
-  }.on('ready')
+  })
 
 });
