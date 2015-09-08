@@ -8,7 +8,7 @@ export default GridNode.extend({
 
   children: DS.attr(), 
 
-  related: DS.hasMany('grid-node', {polymorphic: true, async: true}), 
+  related: DS.hasMany('grid-node', {polymorphic: true}), 
 
   definitions: DS.attr(), 
 

@@ -2,7 +2,6 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
-import Ember from 'ember';
 
 moduleForComponent('definitions-showcase', {
   unit: true,

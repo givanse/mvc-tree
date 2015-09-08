@@ -1,18 +1,15 @@
+import fixtureC from '../jsons/columns';
+import fixtureH from '../jsons/headers';
 import fixtureT from '../jsons/technologies';
 import fixtureP from '../jsons/dpatterns';
-import fixtureH from '../jsons/headers';
-import fixtureC from '../jsons/columns';
 
 export function initialize(instance) {
-  var store = instance.container.lookup('store:application');
+  var store = instance.container.lookup('service:store');
 
-  store.pushMany('column', fixtureC);
-
-  store.pushMany('node-header', fixtureH);
-
-  store.pushMany('node-technology', fixtureT);
-
-  store.pushMany('node-dpattern', fixtureP);
+  store.push(fixtureC);
+  store.push(fixtureH);
+  store.push(fixtureT);
+  store.push(fixtureP);
 }
 
 export default {
@@ -20,4 +17,3 @@ export default {
   after: ['ember-data'], 
   initialize: initialize 
 };
-

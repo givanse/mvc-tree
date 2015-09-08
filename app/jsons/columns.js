@@ -1,26 +1,46 @@
-export default [
-  {
-    id: 'classic-mvc',
-    col: '0'
-  },
-  {
-    id: 'server-mvc',
-    col: '1'
-  },
-  {
-    id: 'am',
-    col: '2'
-  },
-  {
-    id: 'mvp',
-    col: '3'
-  },
-  {
-    id: 'mvvm',
-    col: '4'
-  },
-  {
-    id: 'miscellaneous',
-    col: '5'
-  }
-];
+export default {
+  'data': [
+    {
+      type: 'column',
+      id: 'classic-mvc',
+      attributes: {
+        col: '0'
+      }
+    },
+    {
+      type: 'column',
+      id: 'server-mvc',
+      attributes: {
+        col: '1'
+      }
+    },
+    {
+      type: 'column',
+      id: 'am',
+      attributes: {
+        col: '2'
+      }
+    },
+    {
+      type: 'column',
+      id: 'mvp',
+      attributes: {
+        col: '3'
+      }
+    },
+    {
+      type: 'column',
+      id: 'mvvm',
+      attributes: {
+        col: '4'
+      }
+    },
+    {
+      type: 'column',
+      id: 'miscellaneous',
+      attributes: {
+        col: '5'
+      }
+    }
+  ]
+};

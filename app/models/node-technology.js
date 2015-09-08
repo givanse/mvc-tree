@@ -6,11 +6,14 @@ export default GridNode.extend({
 
   classNames: DS.attr(),
 
-  related: DS.hasMany('grid-node', {polymorphic: true, async: true}), 
+  // relationships
 
-  _template: Ember.computed('ready', function() {
-    var template = 'technologies/' + this.get('id');
-    this.set('template', template);
+  related: DS.hasMany('grid-node', {polymorphic: true}), 
+
+  // local
+
+  template: Ember.computed('ready', function() {
+    return 'technologies/' + this.get('id');
   })
 
 });
