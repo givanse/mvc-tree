@@ -7,7 +7,6 @@ export default {
         'name': 'TMVE',
         'year': '1979',
         'author': 'T. Reenskaug',
-        'column': 'classic-mvc',
         'row': '1',
         'children': ['mvc79'],
         'definitions': [
@@ -28,6 +27,11 @@ export default {
               'text': 'An Editor is an interface between a user and one or more views. It provides the user with a suitable command system, for example in the form of menus that may change dynamically according to the current context. It provides the Views with the necessary coordination and command messages.'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'classic-mvc'}
+        }
       }
     },
     { 
@@ -37,7 +41,6 @@ export default {
         'name': 'MVC',
         'year': '1979',
         'author': 'T. Reenskaug',
-        'column': 'classic-mvc',
         'row': '2',
         'children': ['mvc-kp', 'mvp'],
         'definitions': [
@@ -54,6 +57,11 @@ export default {
               'text': 'A controller is the link between a user and the system.'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'classic-mvc'}
+        }
       }
     },
     { 
@@ -63,7 +71,6 @@ export default {
         'name': 'PAC',
         'year': '1987',
         'author': 'J. Coutaz',
-        'column': 'miscellaneous',
         'row': '5',
         'definitions': [
             {
@@ -79,6 +86,11 @@ export default {
               'text': 'the Control part maintains the mapping and the consistency between the abstract entities (involved in the interaction and implemented in the Abstract part) and their presentation to the user. It embodies the boundary between semantics and syntax. It is intended to hold the context of the overall interaction between the user and the application.'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'miscellaneous'}
+        }
       }
     },
     { 
@@ -88,7 +100,6 @@ export default {
         'name': 'MVC K&P',
         'year': '1988',
         'author': 'Krasner & Pope',
-        'column': 'classic-mvc',
         'row': '6',
         'children': ['am', 'model2'],
         'definitions': [
@@ -105,6 +116,11 @@ export default {
               'text': 'Controllers contain the interface between their associated models and views and the input devices (e.g., keyboard, pointing device, time).'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'classic-mvc'}
+        }
       }
     },
     { 
@@ -114,10 +130,8 @@ export default {
         'name': 'Application Model',
         'year': '1993',
         'author': 'VisualWorks',
-        'column': 'am',
         'row': '9',
         'children': ['pm'],
-        'related': [{'id': 'dolphin', 'type': 'node-technology'}],
         'definitions': [
             {
               'term': 'Domain Model',
@@ -136,6 +150,14 @@ export default {
               'text': 'Manipulates the model and the changes should be reflected in the view.'
             },
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'am'}
+        },
+        related: {
+          data: [{'id': 'dolphin', 'type': 'node-technology'}],
+        }
       }
     },
     { 
@@ -145,9 +167,13 @@ export default {
         'name': 'Observer Pattern',
         'year': '1994',
         'author': 'GoF',
-        'column': 'miscellaneous',
         'row': '10',
         'definitions': null
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'miscellaneous'}
+        }
       }
     },
     { 
@@ -157,9 +183,13 @@ export default {
         'name': 'Data Binding',
         'year': '1995',
         'author': 'unknown',
-        'column': 'miscellaneous',
         'row': '11',
         'definitions': null 
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'miscellaneous'}
+        }
       }
     },
     { 
@@ -169,7 +199,6 @@ export default {
         'name': 'MVP',
         'year': '1996',
         'author': 'Taligent',
-        'column': 'mvp',
         'row': 12,
         'definitions': [
             {
@@ -185,6 +214,11 @@ export default {
               'text': 'The View-Controller of a basic MVC is refered as Presentation. This represents the function of the classic Smalltalk controller, but elevated to an application level and taking into account the intermediate selection, command, and interactor concepts. Its role is to interpret the events and gestures initiated by the user and provide business logic. The classic Controller faded into the View.'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'mvp'}
+        }
       }
     },
     { 
@@ -194,7 +228,6 @@ export default {
         'name': 'Model 2',
         'year': '1998',
         'author': 'J2EE',
-        'column': 'server-mvc',
         'row': 14,
         'definitions': [
             {
@@ -210,6 +243,11 @@ export default {
               'text': 'A Servlet (later framework) with routing built in'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'server-mvc'}
+        }
       }
     },
     { 
@@ -219,7 +257,6 @@ export default {
         'name': 'MVA',
         'year': '2001?',
         'author': 'Cocoa?',
-        'column': 'mvp',
         'row': 16,
         'definitions': [
             {
@@ -235,6 +272,11 @@ export default {
               'text': 'AKA mediating controller'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'mvp'}
+        }
       }
     },
     { 
@@ -244,7 +286,6 @@ export default {
         'name': 'Presentation Model',
         'year': '2004',
         'author': 'M. Fowler',
-        'column': 'am',
         'row': '17',
         'definitions': [
             {
@@ -256,6 +297,11 @@ export default {
               'text': 'Presentation behavior, utterly simple and mainly used to render.'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'am'}
+        }
       }
     },
     { 
@@ -265,10 +311,7 @@ export default {
         'name': 'MVVM',
         'year': '2005',
         'author': 'Microsoft',
-        'column': 'mvvm',
         'row': '19',
-        'related': [{id: 'pm', type: 'node-dpattern'}, 
-                    {id: 'data_binding', type: 'node-dpattern'}],
         'definitions': [
             {
               'term': 'Model',
@@ -283,6 +326,15 @@ export default {
               'text': 'The term means \"Model of a View\", and be thought of as abstraction of the view, but it also provides a specialization of the Model that the View can use for data-binding. It contains data-transformers that convert Model types into View types, and it contains Commands the View can use to interact with the Model.'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'mvvm'}
+        },
+        related: {
+          data: [{id: 'pm', type: 'node-dpattern'}, 
+                 {id: 'data_binding', type: 'node-dpattern'}]
+        }
       }
     },
     { 
@@ -292,7 +344,6 @@ export default {
         'name': 'MVW',
         'year': '2012',
         'author': 'unknown',
-        'column': 'miscellaneous',
         'row': '27',
         'definitions': [
             {
@@ -308,6 +359,11 @@ export default {
               'text': 'Whatever works for you'
             }
         ]
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'miscellaneous'}
+        }
       }
     }
   ]

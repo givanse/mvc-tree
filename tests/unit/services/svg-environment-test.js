@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('service:svg-environment', {
+moduleFor('service:svg-environment', 'Unit | Service | svg-environment', {
   // Specify the other units that are required for this test.
   // needs: ['service:foo']
 });
