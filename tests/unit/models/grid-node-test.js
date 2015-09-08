@@ -1,11 +1,7 @@
+import { moduleForModel, test } from 'ember-qunit';
 import Ember from 'ember';
 
-import {
-  moduleForModel,
-  test
-} from 'ember-qunit';
-
-moduleForModel('grid-node', {
+moduleForModel('grid-node', 'Unit | Model | grid-node', {
   // Specify the other units that are required for this test.
   needs: ['model:column']
 });
@@ -13,25 +9,32 @@ moduleForModel('grid-node', {
 // TODO: an id should not need to be specified in each test
 
 test('it exists', function(assert) {
+  let svgenvMock = Ember.Service.extend({});
+  this.container.register('service:svg-environment', svgenvMock);
+  this.container.injection('model', 'svgenv', 'service:svg-environment');
+  
   var model = this.subject({
     id: 0,
-    svgenv: Ember.Object.create()
+    //svgenv: Ember.Service.extend()
   });
   //var store = this.store();
   assert.ok(!!model);
 });
 
 test('create node 0,0 padding 15 0 0 10', function(assert) {
+  let svgenvMock = Ember.Service.extend({
+    colW: 30, rowH: 60,
+    paddingT: 15,
+    paddingR: 0,
+    paddingB: 0,
+    paddingL: 10
+  });
+  this.container.register('service:svg-environment', svgenvMock);
+  this.container.injection('model', 'svgenv', 'service:svg-environment');
+
   var model = this.subject({
     id: 1,
-    col: 0, row: 0,
-    svgenv: Ember.Object.create({
-      colW: 30, rowH: 60,
-      paddingT: 15,
-      paddingR: 0,
-      paddingB: 0,
-      paddingL: 10
-    })
+    col: 0, row: 0
   });
   assert.equal(model.get('x'), 0, 'x 0');
   assert.equal(model.get('y'), 0, 'y 0');
@@ -46,16 +49,19 @@ test('create node 0,0 padding 15 0 0 10', function(assert) {
 });
 
 test('create node 1,1 padding 15 0 0 10', function(assert) {
+  let svgenvMock = Ember.Service.extend({
+    colW: 30, rowH: 60,
+    paddingT: 15,
+    paddingR: 0,
+    paddingB: 0,
+    paddingL: 10
+  });
+  this.container.register('service:svg-environment', svgenvMock);
+  this.container.injection('model', 'svgenv', 'service:svg-environment');
+
   var model = this.subject({
     id: 2,
-    col: 1, row: 1,
-    svgenv: Ember.Object.create({
-      colW: 30, rowH: 60,
-      paddingT: 15,
-      paddingR: 0,
-      paddingB: 0,
-      paddingL: 10
-    })
+    col: 1, row: 1
   });
   assert.equal(model.get('x'), 30, 'x 30');
   assert.equal(model.get('y'), 60, 'y 60');
@@ -66,16 +72,19 @@ test('create node 1,1 padding 15 0 0 10', function(assert) {
 });
 
 test('create node 0,0', function(assert) {
+  let svgenvMock = Ember.Service.extend({
+    colW: 130, rowH: 60,
+    paddingT: 12,
+    paddingR: 12,
+    paddingB: 12,
+    paddingL: 12
+  });
+  this.container.register('service:svg-environment', svgenvMock);
+  this.container.injection('model', 'svgenv', 'service:svg-environment');
+
   var model = this.subject({
     id: 3,
-    col: 0, row: 0,
-    svgenv: Ember.Object.create({
-      colW: 130, rowH: 60,
-      paddingT: 12,
-      paddingR: 12,
-      paddingB: 12,
-      paddingL: 12
-    })
+    col: 0, row: 0
   });
   assert.equal(model.get('x'), 0, 'x 0');
   assert.equal(model.get('y'), 0, 'y 0');

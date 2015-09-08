@@ -10,7 +10,7 @@ export default DS.Model.extend({
   /*
     Relationships 
   */
-  column: DS.belongsTo('column'),
+  column: DS.belongsTo('column', {async: true}),
 
   /*
     Added localy
@@ -22,7 +22,6 @@ export default DS.Model.extend({
 
   template: DS.attr('string'),
 
-  svgenv: Ember.inject.service('svg-environment'),
   x: DS.attr('number'),
   y: DS.attr('number'),
   x_padded: DS.attr('number'),
@@ -34,7 +33,9 @@ export default DS.Model.extend({
   width: DS.attr('number'),
   height: DS.attr('number'),
 
-  addNodeValues: Ember.on('ready', function() {
+  svgenv: Ember.inject.service('svg-environment'),
+
+  _addNodeValues: Ember.on('ready', function() {
     var svgenv = this.get('svgenv');
 
     if ( ! svgenv ) {
@@ -56,7 +57,6 @@ export default DS.Model.extend({
     this.set('cy', this.get('y') + (svgenv.get('rowH') / 2));
     this.set('height', svgenv.get('rowH') - svgenv.get('paddingT') - svgenv.get('paddingB'));
     this.set('ry', this.get('height') / 2);
-
   })
 
 });

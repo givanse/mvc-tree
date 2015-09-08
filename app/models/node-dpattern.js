@@ -8,9 +8,13 @@ export default GridNode.extend({
 
   children: DS.attr(), 
 
-  related: DS.hasMany('grid-node', {polymorphic: true}), 
-
   definitions: DS.attr(), 
+
+  // relationships
+
+  related: DS.hasMany('grid-node', {polymorphic: true, async: true}), 
+
+  // local
 
   _template: Ember.on('ready', function() {
     var template = 'dpatterns/' + this.get('id');

@@ -1,5 +1,4 @@
 import Ember from 'ember';
-//import { initialize } from '../../../app/instance-initializers/preload-data';
 import { initialize } from 'mvc-tree/instance-initializers/preload-data';
 import { module, test } from 'qunit';
 import SvgEnvironment from '../../../services/svg-environment';

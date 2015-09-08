@@ -48,13 +48,13 @@ export default Ember.Component.extend(PathFactory, {
 
   yearLines: Ember.computed({
     get: function() {
-      // TODO: feed it as JSON 
-      return [
-        this._buildYearLine(1980, 3),
-        this._buildYearLine(1990, 6),
-        this._buildYearLine(2000, 15),
-        this._buildYearLine(2010, 25)
-      ];
+      let rowDividers = this.get('model.rowDividers');
+   
+      if (!rowDividers) {
+        return [];
+      }
+
+      return rowDividers.map(obj => this._buildYearLine(obj.year, obj.row));
     }
   }),
 
@@ -75,6 +75,10 @@ export default Ember.Component.extend(PathFactory, {
   pathsToChildren: Ember.computed('model', function() {
     let dpatterns = this.get('model.dpatterns');
     let paths = [];
+
+    if (!dpatterns) {
+      return paths;
+    }
 
     dpatterns.forEach(node_dpattern => {
       let children = node_dpattern.get('children');
@@ -100,6 +104,10 @@ export default Ember.Component.extend(PathFactory, {
       var gridNodes = this.get('gridNodes'),
           paths = [],
           _this = this;
+
+      if (!gridNodes) {
+        return paths;
+      }
 
       gridNodes.forEach(function(node_dpattern) {
         var rNodes = node_dpattern.get('related');

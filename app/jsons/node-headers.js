@@ -5,8 +5,12 @@ export default {
       id: '0',
       attributes: {
         title: 'Classic MVC',
-        column: 'classic-mvc',
         row: '0'
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'classic-mvc'}
+        }
       }
     },
     {
@@ -14,8 +18,12 @@ export default {
       id: '1',
       attributes: {
         title: 'Application Model',
-        column: 'am',
         row: '0'
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'am'}
+        }
       }
     },
     {
@@ -23,8 +31,12 @@ export default {
       id: '2',
       attributes: {
         title: 'MVP',
-        column: 'mvp',
         row: '0'
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'mvp'}
+        }
       }
     },
     {
@@ -32,8 +44,12 @@ export default {
       id: '3',
       attributes: {
         title: 'MVVM',
-        column: 'mvvm',
         row: '0'
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'mvvm'}
+        }
       }
     },
     {
@@ -41,8 +57,12 @@ export default {
       id: '5',
       attributes: {
         title: 'Miscellaneous',
-        column: 'miscellaneous',
         row: '0'
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'miscellaneous'}
+        }
       }
     },
     {
@@ -50,9 +70,13 @@ export default {
       id: '6',
       attributes: {
         title: 'Server MVC',
-        column: 'server-mvc',
         row: '0'
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'server-mvc'}
+        }
       }
-    },
+    }
   ]
 };
