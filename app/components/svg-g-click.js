@@ -6,7 +6,7 @@ var ga = Ember.Object.extend(googlePageview).create();
   The main objective of this SVG group is to make it easier 
   to handle click events.
 */
-export default Ember.View.extend({
+export default Ember.Component.extend({
 
   tagName: 'g',
 

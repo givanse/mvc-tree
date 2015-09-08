@@ -5,7 +5,7 @@
 <!-- Tree drawn with SVG -->
 <div class="mvc_tree_wrapper_scroll">
   <div class="mvc_tree_wrapper">
-    {{view 'svg'}}
+    {{root-svg model=model gridNodes=gridNodes}}
   </div>
 </div>
 
@@ -13,7 +13,7 @@
 
 <div class="container">
   <!-- List of all the nodes with their descriptions. -->
-  {{#each node in gridNodes}}
+  {{#each gridNodes as |node|}}
     <div id="{{unbound node.id}}" class="row text_box_info"
          itemscope itemtype="http://schema.org/WebPageElement">
       

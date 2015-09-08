@@ -17,7 +17,7 @@
 <!-- definitions -->
 <div class="col-xs-12 col-md-6">
   <ul class="list-group">
-    {{#each definition in currDefinitions}}
+    {{#each currDefinitions as |definition|}}
       <li class="list-group-item">
         <b>{{definition.term}}</b>: {{definition.text}}
       </li>
@@ -36,7 +36,7 @@
                     class='form-control'}}
   </div>
   <ul class="list-group compare_to">
-    {{#each definition in selectedPattern.definitions}}
+    {{#each selectedPattern.definitions as |definition|}}
       <li class="list-group-item">
         <b>{{definition.term}}</b>: {{definition.text}}
       </li>

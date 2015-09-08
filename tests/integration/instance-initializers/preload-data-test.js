@@ -1,5 +1,6 @@
 import Ember from 'ember';
 //import { initialize } from '../../../app/instance-initializers/preload-data';
+import { initialize } from 'mvc-tree/instance-initializers/preload-data';
 import { module, test } from 'qunit';
 import SvgEnvironment from '../../../services/svg-environment';
 import GridNode from 'mvc-tree/models/grid-node';
@@ -10,8 +11,7 @@ import Column from 'mvc-tree/models/column';
 
 var container, application;
 
-/*
-module('instance-initializer:preload-data', {
+module('Integration | Instance Initializer | preload-data', {
   beforeEach: function() {
     Ember.run(function() {
       application = Ember.Application.create();
@@ -30,10 +30,9 @@ module('instance-initializer:preload-data', {
 
 test('it works', function(assert) {
   Ember.run(function() {
-    initialize(application);
+    initialize(application.__deprecatedInstance__);
   });
 
   // you would normally confirm the results of the initializer here
   assert.ok(true);
 });
-*/

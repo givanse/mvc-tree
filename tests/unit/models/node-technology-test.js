@@ -5,7 +5,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('node-technology', {
+moduleForModel('node-technology', 'Unit | Model | node-technology', {
   // Specify the other units that are required for this test.
   needs: ['model:grid-node', 'model:column']
 });

@@ -1,13 +1,13 @@
 
 <!-- Debug grid -->
 {{#if svgenv.showGrid}}
-  {{#each line in gridLines}}
+  {{#each gridLines as |line|}}
     <path d="{{unbound line}}" fill="none" class="grid_line"></path>
   {{/each}}
 {{/if}}
 
 <!-- Years lines -->
-{{#each line in yearLines}}
+{{#each yearLines as |line|}}
   <text x="{{unbound line.x}}" y="{{unbound line.y}}" class="year_line_txt">
     <tspan dy="4.233003616333008">
       {{line.year}}
@@ -17,17 +17,17 @@
 {{/each}}
 
 <!-- Column Headers -->
-{{#each node in model.headers}}
-  {{view 'svg-g' templateName='svg-g/node-header' node=node}}
+{{#each model.headers as |node|}}
+  {{svg-g layoutName='svg-g/node-header' node=node}}
 {{/each}}
 
 <!-- parent to child -->
-{{#each path in pathsToChildren}}
+{{#each pathsToChildren as |path|}}
   <path d="{{unbound path}}" class="line"></path>
 {{/each}}
 
 <!-- bind nodes -->
-{{#each pathObj in pathsBoundNodes}}
+{{#each pathsBoundNodes as |pathObj|}}
   <!-- 
     TODO:
       bug with: 
@@ -40,16 +40,15 @@
 {{/each}}
 
 <!-- Design Patterns -->
-{{#each node in model.dpatterns}}
-  {{view 'svg-g-click' templateName='svg-g/node-dpattern' node=node}}
+{{#each model.dpatterns as |node|}}
+  {{svg-g-click layoutName='svg-g/node-dpattern' node=node}}
 {{/each}}
 
 <!-- Technologies -->
-{{#each node in model.technologies}}
-  {{#each classNameTech in node.classNames}}
-    {{view 'svg-g-click' templateName='svg-g/node-technology' 
-                         node=node
-                         classNameTech=classNameTech}}
+{{#each model.technologies as |node|}}
+  {{#each node.classNames as |classNameTech|}}
+    {{svg-g-click layoutName='svg-g/node-technology' 
+                  node=node
+                  classNameTech=classNameTech}}
   {{/each}}
 {{/each}}
-

@@ -5,8 +5,12 @@ export default DS.Model.extend({
 
   name: DS.attr('string'),
   year: DS.attr('number'),
-  column: DS.belongsTo('column'),
   row: DS.attr('number'),
+
+  /*
+    Relationships 
+  */
+  column: DS.belongsTo('column'),
 
   /*
     Added localy
