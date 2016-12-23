@@ -40,8 +40,5 @@
     "ember-data": "2.1.0-beta.2",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3"
-  },
-  "dependencies": {
-    "ember-lazy-image": "givanse/ember-lazy-image#img-class"
   }
 }
