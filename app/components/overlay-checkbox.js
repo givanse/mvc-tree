@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
-export default Ember.View.extend({
+export default Ember.Component.extend({
+  //TODO: can be rendered either as name or view.name
+  //Views deprecation leftover?
   name: null,
   overlayClassName: null,
   isMaster: false,
     
   tagName: 'div',
-  templateName: 'overlay-checkbox',
   classNames: ['overlay_checkbox'],
 
   classNameBindings: ['checked'],
@@ -16,14 +17,17 @@ export default Ember.View.extend({
   itemscope: '',
   itemtype: 'http://schema.org/SiteNavigationElement',
 
+  checkboxEventBus: Ember.inject.service(),
+
   click: function() {
-    var checked = ! this.get('checked');
+    let checked = !this.get('checked');
     this.set('checked', checked);
 
-    if ( this.get('isMaster') ) {
-      this.get('parentView').send('toggleAll', checked);
+    let checkboxEventBus = this.get('checkboxEventBus');
+    if (this.get('isMaster')) {
+      checkboxEventBus.toggleAll(checked);
     } else {
-      this.get('parentView').send('setMasterUnchecked');
+      checkboxEventBus.setMasterUnchecked();
     }
   },
 
@@ -53,8 +57,19 @@ export default Ember.View.extend({
     });
   },
 
+  init: function() {
+    this._super(...arguments);
+    let checkboxEventBus = this.get('checkboxEventBus');
+    if (this.get('isMaster')) {
+      checkboxEventBus.registerMasterCheckbox(this);
+    } else {
+      checkboxEventBus.registerCheckbox(this);
+    }
+  },
+
   didInsertElement: function() {
-    // like listening to on('init'), but after the elements have been inserted,
+    this._super(...arguments);
+    // after the elements have been inserted,
     // otherwise none is found and the CSS class is not applied properly
     this.checkedObserver();
   }

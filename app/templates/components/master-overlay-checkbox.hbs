@@ -1,0 +1,7 @@
+{{overlay-checkbox name="All" checked=false isMaster=true}}
+
+{{#each checkboxesList as |chkb|}}
+  {{overlay-checkbox name=chkb.name checked=chkb.checked overlayClassName=chkb.overlayClassName}}
+{{/each}}
+
+{{yield}}

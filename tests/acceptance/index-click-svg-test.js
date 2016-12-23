@@ -4,7 +4,7 @@ import startApp from 'mvc-tree/tests/helpers/start-app';
 
 var application;
 
-module('Acceptance: Index click SVG', {
+module('Acceptance: Index Click SVG', {
   beforeEach: function() {
     application = startApp();
   },
@@ -25,8 +25,8 @@ test('Click the node TMVE', function(assert) {
   assert.equal(find('#tmve .compare_to').children().length, 0, 'empty list');
 
   fillIn('#tmve .visible-sm-block .ember-select', 'mvc79').then(function() {
-    assert.ok(find('#tmve .compare_to').children().length > 0,
-              'definitions list is populated');
+    let result = find('#tmve .compare_to').children().length > 0;
+    assert.ok(result, 'definitions list is populated');
   });
 
   andThen(function() {
