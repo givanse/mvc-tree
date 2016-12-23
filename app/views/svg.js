@@ -1,3 +1,4 @@
+//TODO: almost sure this view is not used anywhere
 import Ember from 'ember';
 
 export default Ember.View.extend({

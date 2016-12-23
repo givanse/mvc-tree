@@ -10,7 +10,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "clean": "rm -rf bower_components/; rm -rf node_modules/; rm -rf tmp/"
   },
   "repository": "",
   "engines": {

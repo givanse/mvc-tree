@@ -7,12 +7,14 @@ export default Ember.Component.extend(PathFactory, {
 
   elementId: 'mvc_tree',
 
-  attributeBindings: ['xmlns',
-                      'version', 
-                      'width',
-                      'height',
-                      'viewBox', 
-                      'preserveAspectRatio'],
+  attributeBindings: [
+    'xmlns',
+    'version', 
+    'width',
+    'height',
+    'viewBox', 
+    'preserveAspectRatio'
+  ],
   xmlns: 'http://www.w3.org/2000/svg',
   version: '1.1',
   width: '100%',
@@ -20,9 +22,11 @@ export default Ember.Component.extend(PathFactory, {
   viewBox: null,
   preserveAspectRatio: 'xMinYMin',
 
-  _setViewBox: Ember.on('init', function() {
+  init: function() {
+    this._super(...arguments);
+
     this.set('viewBox', this.get('svgenv.viewBox'));
-  }),
+  },
 
   svgenv: Ember.inject.service('svg-environment'),
 
