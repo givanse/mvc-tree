@@ -15,4 +15,4 @@ export function linkToBlank(params/*, hash*/) {
   return new Ember.Handlebars.SafeString(link); 
 }
 
-export default Ember.HTMLBars.makeBoundHelper(linkToBlank);
+export default Ember.Helper.helper(linkToBlank);
