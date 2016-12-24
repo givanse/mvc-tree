@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   /*
-    All the grid nodes sorted by date.
-  */
+   * All the grid nodes sorted by date.
+   */
   gridNodes: Ember.computed('model', {
     get: function() {
       // sortBy() returns Array
