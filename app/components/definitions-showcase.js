@@ -4,7 +4,7 @@ export default Ember.Component.extend({
 
   allPatterns: null,
 
-  availablePatterns: function() {
+  availablePatterns: Ember.computed('allPatterns', function() {
     var currPatternId = this.get('currPatternId'), 
         allPatterns = this.get('allPatterns');
 
@@ -20,11 +20,11 @@ export default Ember.Component.extend({
 
       return true;
     }).sortBy('name').toArray();
-  }.property('allPatterns'),
+  }),
 
   selectedPatternId: null,
 
-  selectedPattern: function() {
+  selectedPattern: Ember.computed('selectedPatternId', function() {
     var selectedPatternId = this.get('selectedPatternId'); 
 
     if ( ! selectedPatternId ) {
@@ -41,6 +41,14 @@ export default Ember.Component.extend({
     }
 
     return null;
-  }.property('selectedPatternId')
+  }),
+
+  actions: {
+
+    showSelectedPattern(selectedPatternId) {
+      this.set('selectedPatternId', selectedPatternId);
+    }   
+
+  }
 
 });

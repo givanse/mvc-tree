@@ -5,16 +5,16 @@
   <div class="col-xs-12 col-md-6">
   </div>
   <div class="hidden-sm col-md-6">
-    {{view 'select' content=availablePatterns
-                    value=selectedPatternId
-                    prompt='compare to:'
-                    optionValuePath='content.id'
-                    optionLabelPath='content.name'
-                    class='form-control'}}
+    {{c-select
+      options=availablePatterns
+      selected=selectedPatternId
+      prompt='compare to:'
+      action='showSelectedPattern'
+    }}
   </div>
 </div>
 
-<!-- definitions -->
+<!-- definitions current -->
 <div class="col-xs-12 col-md-6">
   <ul class="list-group">
     {{#each currDefinitions as |definition|}}
@@ -25,15 +25,16 @@
   </ul>
 </div>
 
-<!-- definitions -->
+<!-- definitions comparing to -->
 <div class="col-md-6">
   <div class="visible-sm-block">
-    {{view 'select' content=availablePatterns
-                    value=selectedPatternId
-                    prompt='compare to:'
-                    optionValuePath='content.id'
-                    optionLabelPath='content.name'
-                    class='form-control'}}
+    <!-- TODO: refactors this CSS, clean the select copy pasta, use contextual component -->
+    {{c-select
+      options=availablePatterns
+      selected=selectedPatternId
+      prompt='compare to:'
+      action='showSelectedPattern'
+    }}
   </div>
   <ul class="list-group compare_to">
     {{#each selectedPattern.definitions as |definition|}}

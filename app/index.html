@@ -3,39 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>MVC Family Tree</title>
-    <meta name="description" content="A chronological visualization of the family of MVC patterns.">
-    <meta name="keywords" content="mvc,design patterns,software architecture,gui,graphical interface">
-    <meta name="author" content="Gastón I. Silva">
+    <title>MvcTree</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:url" content="http://mvc.givan.se/">
-    <meta property="og:title" content="MVC Family Tree">
-    <meta property="og:site_name" content="MVC Family Tree">
-    <meta property="og:description" content="A chronological visualization of the family of MVC patterns.">
-    <meta property="og:image" content="http://mvc.givan.se/thumb-d044a99851e56d6550326f119c52e130.png">
+    {{content-for "head"}}
 
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:creator" content="@givanse"/>
-    <meta name="twitter:title" content="MVC Family Tree"/>
-    <meta name="twitter:description" content="A chronological visualization of the family of MVC patterns."/>
-    <meta name="twitter:url" content="http://mvc.givan.se/"/>
-    <meta name="twitter:image" content="http://mvc.givan.se/thumb-d044a99851e56d6550326f119c52e130.png"/>
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/mvc-tree.css">
 
-    {{content-for 'head'}}
-
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/mvc-tree.css">
-
-    {{content-for 'head-footer'}}
+    {{content-for "head-footer"}}
   </head>
   <body>
-    {{content-for 'body'}}
+    {{content-for "body"}}
 
-    <script src="assets/vendor.js"></script>
-    <script src="assets/mvc-tree.js"></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/mvc-tree.js"></script>
 
-    {{content-for 'body-footer'}}
+    {{content-for "body-footer"}}
   </body>
 </html>

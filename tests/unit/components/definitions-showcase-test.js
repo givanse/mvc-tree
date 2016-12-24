@@ -3,8 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('definitions-showcase', {
+moduleForComponent('definitions-showcase', 'Unit | Component | definitions-showcase', {
   unit: true,
+  needs: ['component:c-select'],
   setup: function() {
   }
 });
