@@ -12,7 +12,7 @@ export function linkToBlank(params/*, hash*/) {
              '<sup><span class=\"glyphicon glyphicon-new-window\" aria-hidden=\"true\"></span></sup>' +
              '</a>';
 
-  return new Ember.Handlebars.SafeString(link); 
+  return new Ember.String.htmlSafe(link); 
 }
 
 export default Ember.Helper.helper(linkToBlank);

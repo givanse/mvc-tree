@@ -24,9 +24,10 @@ test('Click the node TMVE', function(assert) {
 
   assert.equal(find('#tmve .compare_to').children().length, 0, 'empty list');
 
-  fillIn('#tmve .visible-sm-block .ember-select', 'mvc79').then(function() {
+  fillIn('#tmve .visible-sm-block .c-select', 'mvc79')
+  .then(function() {
     let result = find('#tmve .compare_to').children().length > 0;
-    assert.ok(result, 'definitions list is populated');
+    assert.ok(result, 'definitions list for the selected pattern is populated');
   });
 
   andThen(function() {

@@ -9,9 +9,9 @@ moduleForModel('grid-node', 'Unit | Model | grid-node', {
 // TODO: an id should not need to be specified in each test
 
 test('it exists', function(assert) {
-  let svgenvMock = Ember.Service.extend({});
-  this.container.register('service:svg-environment', svgenvMock);
-  this.container.injection('model', 'svgenv', 'service:svg-environment');
+  let svgenvStub = Ember.Service.extend({});
+  this.register('service:svg-environment', svgenvStub);
+  this.inject.service('model', 'svgenv', 'service:svg-environment');
   
   var model = this.subject({
     id: 0,
@@ -22,15 +22,15 @@ test('it exists', function(assert) {
 });
 
 test('create node 0,0 padding 15 0 0 10', function(assert) {
-  let svgenvMock = Ember.Service.extend({
+  let svgenvStub = Ember.Service.extend({
     colW: 30, rowH: 60,
     paddingT: 15,
     paddingR: 0,
     paddingB: 0,
     paddingL: 10
   });
-  this.container.register('service:svg-environment', svgenvMock);
-  this.container.injection('model', 'svgenv', 'service:svg-environment');
+  this.register('service:svg-environment', svgenvStub);
+  this.inject.service('model', 'svgenv', 'service:svg-environment');
 
   var model = this.subject({
     id: 1,
@@ -49,15 +49,15 @@ test('create node 0,0 padding 15 0 0 10', function(assert) {
 });
 
 test('create node 1,1 padding 15 0 0 10', function(assert) {
-  let svgenvMock = Ember.Service.extend({
+  let svgenvStub = Ember.Service.extend({
     colW: 30, rowH: 60,
     paddingT: 15,
     paddingR: 0,
     paddingB: 0,
     paddingL: 10
   });
-  this.container.register('service:svg-environment', svgenvMock);
-  this.container.injection('model', 'svgenv', 'service:svg-environment');
+  this.register('service:svg-environment', svgenvStub);
+  this.inject.service('model', 'svgenv', 'service:svg-environment');
 
   var model = this.subject({
     id: 2,
@@ -72,15 +72,15 @@ test('create node 1,1 padding 15 0 0 10', function(assert) {
 });
 
 test('create node 0,0', function(assert) {
-  let svgenvMock = Ember.Service.extend({
+  let svgenvStub = Ember.Service.extend({
     colW: 130, rowH: 60,
     paddingT: 12,
     paddingR: 12,
     paddingB: 12,
     paddingL: 12
   });
-  this.container.register('service:svg-environment', svgenvMock);
-  this.container.injection('model', 'svgenv', 'service:svg-environment');
+  this.register('service:svg-environment', svgenvStub);
+  this.inject.service('model', 'svgenv', 'service:svg-environment');
 
   var model = this.subject({
     id: 3,
