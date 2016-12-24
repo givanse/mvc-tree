@@ -10,10 +10,14 @@ export default Ember.Component.extend({
 
   tagName: 'g',
 
-  _classNames: function() {
+  layoutName: null,
+
+  init: function() {
+    this._super(...arguments);
+
     // warning: we are overriding the classNames property
     this.set('classNames', ['ember-view', 'g_' + this.get('node.id')]);
-  }.on('init'),
+  },
 
   classNameBindings: ['classNameTech'],
 
@@ -28,7 +32,8 @@ export default Ember.Component.extend({
 
     //TODO: revisit hashbang anchor support in Ember
     window.location.hash = nodeId;
+
     ga.pageviewToGA(window.location.href, nodeId);
-  },
+  }
 
 });
