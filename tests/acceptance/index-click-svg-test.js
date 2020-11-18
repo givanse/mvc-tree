@@ -1,40 +1,28 @@
-import Ember from 'ember';
-import {module, test} from 'qunit';
-import startApp from 'mvc-tree/tests/helpers/start-app';
+import { click, fillIn, currentURL, currentPath, visit } from '@ember/test-helpers';
+import { module, test } from 'qunit';
 
-var application;
+module('Acceptance: Index Click SVG', function(/*hooks*/) {
 
-module('Acceptance: Index Click SVG', {
-  beforeEach: function() {
-    application = startApp();
-  },
+  test('Click the node TMVE', async function(assert) {
+    await visit('/');
 
-  afterEach: function() {
-    Ember.run(application, 'destroy');
-  }
-});
+    var $panel = find('#tmve');
+    assert.ok( ! $panel.isInView(), 'panel is not visible on screen');
 
-test('Click the node TMVE', function(assert) {
-  visit('/');
+    await click('svg .g_tmve');
 
-  var $panel = find('#tmve');
-  assert.ok( ! $panel.isInView(), 'panel is not visible on screen');
+    assert.equal(find('#tmve .compare_to').children().length, 0, 'empty list');
 
-  click('svg .g_tmve');
+    fillIn('#tmve .visible-sm-block .c-select', 'mvc79')
+    .then(function() {
+      let result = find('#tmve .compare_to').children().length > 0;
+      assert.ok(result, 'definitions list for the selected pattern is populated');
+    });
 
-  assert.equal(find('#tmve .compare_to').children().length, 0, 'empty list');
-
-  fillIn('#tmve .visible-sm-block .c-select', 'mvc79')
-  .then(function() {
-    let result = find('#tmve .compare_to').children().length > 0;
-    assert.ok(result, 'definitions list for the selected pattern is populated');
-  });
-
-  andThen(function() {
     assert.equal(currentPath(), 'index');
     assert.equal('/'+window.location.hash, '/#tmve');
 
-    assert.notEqual(currentURL(), '/#tmve', 
+    assert.notEqual(currentURL(), '/#tmve',
                     'we did not enter this ember route');
 
     // TODO: enable this test

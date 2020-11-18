@@ -1,12 +1,14 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Component from '@ember/component';
+import EmberObject from '@ember/object';
 import googlePageview from '../mixins/google-pageview';
-var ga = Ember.Object.extend(googlePageview).create();
+var ga = EmberObject.extend(googlePageview).create();
 
 /*
   The main objective of this SVG group is to make it easier 
   to handle click events.
 */
-export default Ember.Component.extend({
+export default Component.extend({
 
   tagName: 'g',
 
@@ -21,13 +23,13 @@ export default Ember.Component.extend({
 
   classNameBindings: ['classNameTech'],
 
-  _$html_body: Ember.$('html, body'),
+  _$html_body: $('html, body'),
 
   click: function() {
     var nodeId = this.get('node.id');
 
     this._$html_body.animate({
-      scrollTop: Ember.$('#' + nodeId).offset().top
+      scrollTop: $('#' + nodeId).offset().top
     }, 700);
 
     //TODO: revisit hashbang anchor support in Ember

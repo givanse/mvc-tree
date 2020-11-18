@@ -1,23 +1,23 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-moduleForComponent('definitions-showcase', 'Unit | Component | definitions-showcase', {
-  unit: true,
-  needs: ['component:c-select'],
-  setup: function() {
-  }
-});
+module('Unit | Component | definitions-showcase', function(hooks) {
+  setupTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(2);
+  hooks.beforeEach(function() {
+    this.setup = function() {
+    };
+  });
 
-  // creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender', 'preRender');
+  test('it renders', function(assert) {
+    assert.expect(2);
 
-  // appends the component to the page
-  this.render();
-  assert.equal(component._state, 'inDOM', 'inDOM');
+    // creates the component instance
+    var component = this.owner.factoryFor('component:definitions-showcase').create();
+    assert.equal(component._state, 'preRender', 'preRender');
+
+    // appends the component to the page
+    this.render();
+    assert.equal(component._state, 'inDOM', 'inDOM');
+  });
 });

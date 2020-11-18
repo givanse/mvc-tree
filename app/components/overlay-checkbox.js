@@ -1,12 +1,15 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { observer } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   //TODO: can be rendered either as name or view.name
   //Views deprecation leftover?
   name: null,
   overlayClassName: null,
   isMaster: false,
-    
+
   tagName: 'div',
   classNames: ['overlay_checkbox'],
 
@@ -17,7 +20,7 @@ export default Ember.Component.extend({
   itemscope: '',
   itemtype: 'http://schema.org/SiteNavigationElement',
 
-  checkboxEventBus: Ember.inject.service(),
+  checkboxEventBus: service(),
 
   click: function() {
     let checked = !this.get('checked');
@@ -31,22 +34,22 @@ export default Ember.Component.extend({
     }
   },
 
-  checkedObserver: function() {
+  checkedObserver: observer('checked', function() {
     var checked =  this.get('checked');
     this._toggleOverlay(checked);
-  }.observes('checked'),
+  }),
 
   _toggleOverlay: function(isChecked) {
     var overlayClassName = this.get('overlayClassName');
 
-    var svgElements$ = Ember.$('.'+overlayClassName);
+    var svgElements$ = $('.'+overlayClassName);
 
     if ( svgElements$.length < 1 ) {
       return;
     }
 
     svgElements$.each(function(index, svgItem) {
-      var svgItem$ = Ember.$(svgItem);
+      var svgItem$ = $(svgItem);
       var classes = svgItem$.attr('class');
 
       classes = isChecked ? classes.replace(/hidden/, '') :

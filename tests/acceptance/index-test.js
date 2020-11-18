@@ -1,34 +1,19 @@
-import Ember from 'ember';
+import { currentPath, visit } from '@ember/test-helpers';
 import {
   module,
   test
 } from 'qunit';
-import startApp from 'mvc-tree/tests/helpers/start-app';
 
-var application;
+module('Acceptance: Index', function(hooks) {
+  test('visiting / first time', async function(assert) {
+    await visit('/');
 
-module('Acceptance: Index', {
-  beforeEach: function() {
-    application = startApp();
-  },
-
-  afterEach: function() {
-    Ember.run(application, 'destroy');
-  }
-});
-
-test('visiting / first time', function(assert) {
-  visit('/');
-
-  andThen(function() {
     assert.equal(currentPath(), 'index');
   });
-});
 
-test('visiting / second time', function(assert) {
-  visit('/');
+  test('visiting / second time', async function(assert) {
+    await visit('/');
 
-  andThen(function() {
     assert.equal(currentPath(), 'index');
   });
 });

@@ -1,13 +1,18 @@
 // overkill? nah
 // TODO: contextual components
 // http://discuss.emberjs.com/t/how-to-communicate-to-child-components/7772/7?u=givanse
-import Ember from 'ember';
+import Service from '@ember/service';
 
-export default Ember.Service.extend({
+export default Service.extend({
 
   masterCheckbox: null,
- 
-  checkboxes: [],
+
+  checkboxes: null,
+
+  init() {
+    this._super(...arguments);
+    this.checkboxes = [];
+  },
 
   setMasterUnchecked: function() {
     let masterCheckbox = this.get('masterCheckbox');

@@ -1,7 +1,9 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import PathFactory from '../mixins/path-factory';
 
-export default Ember.Component.extend(PathFactory, {
+export default Component.extend(PathFactory, {
 
   tagName: 'svg',
 
@@ -28,11 +30,11 @@ export default Ember.Component.extend(PathFactory, {
     this.set('viewBox', this.get('svgenv.viewBox'));
   },
 
-  svgenv: Ember.inject.service('svg-environment'),
+  svgenv: service('svg-environment'),
 
-  store: Ember.inject.service(),
+  store: service(),
 
-  gridLines: Ember.computed({
+  gridLines: computed({
     get: function() {
       var svgenv = this.get('svgenv'),
           w = svgenv.viewBoxW,
@@ -50,7 +52,7 @@ export default Ember.Component.extend(PathFactory, {
     }
   }),
 
-  yearLines: Ember.computed({
+  yearLines: computed({
     get: function() {
       let rowDividers = this.get('model.rowDividers');
    
@@ -76,7 +78,7 @@ export default Ember.Component.extend(PathFactory, {
     Generates paths between two nodes.
     The bound nodes have a parent/child relationship.
   */
-  pathsToChildren: Ember.computed('model', function() {
+  pathsToChildren: computed('model', function() {
     let dpatterns = this.get('model.dpatterns');
     let paths = [];
 
@@ -103,7 +105,7 @@ export default Ember.Component.extend(PathFactory, {
   /*
     Generates paths between two nodes.
   */
-  pathsBoundNodes: Ember.computed('gridNodes', {
+  pathsBoundNodes: computed('gridNodes', {
     get: function() {
       var gridNodes = this.get('gridNodes'),
           paths = [],

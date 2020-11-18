@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
 import CoordinatesFactory from './coordinates-factory';
 
 /* Meant to be used only by controllers/objects that have an svgenv property. */
-export default Ember.Mixin.create(CoordinatesFactory, {
+export default Mixin.create(CoordinatesFactory, {
 
   // 1 is right, -1 is left
   _calcHDir: function(col1, col2) {

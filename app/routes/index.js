@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { hash } from 'rsvp';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model: function() {
     let rowDividers = [
@@ -10,7 +11,7 @@ export default Ember.Route.extend({
       {year: 2010, row: 25}
     ];
 
-    return Ember.RSVP.hash({
+    return hash({
       dpatterns: this.store.peekAll('node-dpattern'),
       technologies: this.store.peekAll('node-technology'),
       headers: this.store.peekAll('node-header'),

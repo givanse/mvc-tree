@@ -323,7 +323,7 @@ export default {
             },
             {
               'term': 'View Model',
-              'text': 'The term means \"Model of a View\", and be thought of as abstraction of the view, but it also provides a specialization of the Model that the View can use for data-binding. It contains data-transformers that convert Model types into View types, and it contains Commands the View can use to interact with the Model.'
+              'text': 'The term means "Model of a View", and be thought of as abstraction of the view, but it also provides a specialization of the Model that the View can use for data-binding. It contains data-transformers that convert Model types into View types, and it contains Commands the View can use to interact with the Model.'
             }
         ]
       },

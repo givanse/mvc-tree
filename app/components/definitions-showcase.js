@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   allPatterns: null,
 
-  availablePatterns: Ember.computed('allPatterns', function() {
+  availablePatterns: computed('allPatterns', function() {
     var currPatternId = this.get('currPatternId'), 
         allPatterns = this.get('allPatterns');
 
@@ -24,7 +25,7 @@ export default Ember.Component.extend({
 
   selectedPatternId: null,
 
-  selectedPattern: Ember.computed('selectedPatternId', function() {
+  selectedPattern: computed('selectedPatternId', function() {
     var selectedPatternId = this.get('selectedPatternId'); 
 
     if ( ! selectedPatternId ) {

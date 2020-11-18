@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   /*
    * All the grid nodes sorted by date.
    */
-  gridNodes: Ember.computed('model', {
+  gridNodes: computed('model', {
     get: function() {
       // sortBy() returns Array
       var pArr = this.get('model.dpatterns').sortBy('year'), 

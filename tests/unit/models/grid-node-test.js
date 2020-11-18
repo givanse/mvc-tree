@@ -1,5 +1,5 @@
+import Service from '@ember/service';
 import { moduleForModel, test } from 'ember-qunit';
-import Ember from 'ember';
 
 moduleForModel('grid-node', 'Unit | Model | grid-node', {
   // Specify the other units that are required for this test.
@@ -9,7 +9,7 @@ moduleForModel('grid-node', 'Unit | Model | grid-node', {
 // TODO: an id should not need to be specified in each test
 
 test('it exists', function(assert) {
-  let svgenvStub = Ember.Service.extend({});
+  let svgenvStub = Service.extend({});
   this.register('service:svg-environment', svgenvStub);
   this.inject.service('model', 'svgenv', 'service:svg-environment');
   
@@ -22,7 +22,7 @@ test('it exists', function(assert) {
 });
 
 test('create node 0,0 padding 15 0 0 10', function(assert) {
-  let svgenvStub = Ember.Service.extend({
+  let svgenvStub = Service.extend({
     colW: 30, rowH: 60,
     paddingT: 15,
     paddingR: 0,
@@ -49,7 +49,7 @@ test('create node 0,0 padding 15 0 0 10', function(assert) {
 });
 
 test('create node 1,1 padding 15 0 0 10', function(assert) {
-  let svgenvStub = Ember.Service.extend({
+  let svgenvStub = Service.extend({
     colW: 30, rowH: 60,
     paddingT: 15,
     paddingR: 0,
@@ -72,7 +72,7 @@ test('create node 1,1 padding 15 0 0 10', function(assert) {
 });
 
 test('create node 0,0', function(assert) {
-  let svgenvStub = Ember.Service.extend({
+  let svgenvStub = Service.extend({
     colW: 130, rowH: 60,
     paddingT: 12,
     paddingR: 12,

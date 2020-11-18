@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { on } from '@ember/object/evented';
+import Service from '@ember/service';
 import ENV from '../config/environment';
 
-export default Ember.Service.extend({
+export default Service.extend({
 
   showGrid: ENV.APP.showGrid,
 
@@ -22,7 +23,7 @@ export default Ember.Service.extend({
 
   yearLineFontSize: 12, // from CSS rule .year_line_txt
 
-  _calcViewBox: Ember.on('init', function() {
+  _calcViewBox: on('init', function() {
     var viewBoxW = this.get('colW') * this.get('maxCols'),
         viewBoxH = this.get('rowH') * this.get('maxRows');
 

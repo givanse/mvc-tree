@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { on } from '@ember/object/evented';
 import DS from 'ember-data';
 import GridNode from './grid-node';
 
@@ -16,7 +16,7 @@ export default GridNode.extend({
 
   // local
 
-  _template: Ember.on('ready', function() {
+  _template: on('ready', function() {
     var template = 'dpatterns/' + this.get('id');
     this.set('template', template);
   })

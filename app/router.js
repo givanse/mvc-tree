@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 import googlePageview from './mixins/google-pageview';
 
-const Router = Ember.Router.extend(googlePageview, {
+const Router = EmberRouter.extend(googlePageview, {
   location: config.locationType,
   rootURL: config.rootURL
 });

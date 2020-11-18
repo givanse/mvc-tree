@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   tagName: 'select',
 
@@ -9,11 +9,12 @@ export default Ember.Component.extend({
   options: null,
 
   selected: null,
-  
+
   prompt: null,
 
+  //TODO: use closure actions
   change: function() {
-    let selected = arguments[0].originalEvent.srcElement.value; 
+    let selected = arguments[0].originalEvent.srcElement.value;
     this.set('selected', selected);
     this.sendAction(selected);
   }

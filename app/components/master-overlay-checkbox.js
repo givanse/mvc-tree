@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
 const CHECKBOXES_LIST = [
   {
@@ -48,7 +48,7 @@ const CHECKBOXES_LIST = [
   }
 ];
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   classNames: ['container_view', 'master_overlay_checkbox'],
 

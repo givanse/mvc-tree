@@ -1,30 +1,17 @@
-import Ember from 'ember';
-import {module, test} from 'qunit';
-import startApp from 'mvc-tree/tests/helpers/start-app';
+import { currentURL, currentPath, visit } from '@ember/test-helpers';
+import { module, test } from 'qunit';
 
-var application;
+module('Acceptance: Index#hash', function(hooks) {
+  //TODO: avoid using run.later() by adding an async helper that will wait
+  // on a promise returned by the svg-g view.
+  // http://stackoverflow.com/questions/26498845
 
-module('Acceptance: Index#hash', {
-  beforeEach: function() {
-    application = startApp();
-  },
+  test('visiting /#pac', async function(assert) {
+    var $panel = find('#pac');
+    assert.ok( ! $panel.isInView(), 'panel is not visible on screen');
 
-  afterEach: function() {
-    Ember.run(application, 'destroy');
-  }
-});
+    await visit('/#pac');
 
-//TODO: avoid using run.later() by adding an async helper that will wait
-// on a promise returned by the svg-g view.
-// http://stackoverflow.com/questions/26498845
-
-test('visiting /#pac', function(assert) {
-  var $panel = find('#pac');
-  assert.ok( ! $panel.isInView(), 'panel is not visible on screen');
-
-  visit('/#pac');
-
-  andThen(function() {
     assert.equal(currentPath(), 'index', 'current path');
     assert.equal(currentURL(), '/#pac', 'current URL');
 

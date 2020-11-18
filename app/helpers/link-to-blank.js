@@ -1,18 +1,20 @@
-import Ember from 'ember';
+import { helper as buildHelper } from '@ember/component/helper';
+import { htmlSafe } from '@ember/template';
+import { assert } from '@ember/debug';
 
 export function linkToBlank(params/*, hash*/) {
 
-  Ember.assert("You must provide two parameters to the link-to-blank helper.", params.length === 2);
+  assert("You must provide two parameters to the link-to-blank helper.", params.length === 2);
 
   var text = params[0];
   var url = params[1];
 
-  var link = '<a target=\"_blank\" href=\"' + url + '\">' + 
+  var link = '<a target="_blank" href="' + url + '">' +
              text +
-             '<sup><span class=\"glyphicon glyphicon-new-window\" aria-hidden=\"true\"></span></sup>' +
+             '<sup><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></sup>' +
              '</a>';
 
-  return new Ember.String.htmlSafe(link); 
+  return new htmlSafe(link);
 }
 
-export default Ember.Helper.helper(linkToBlank);
+export default buildHelper(linkToBlank);

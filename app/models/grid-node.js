@@ -1,4 +1,7 @@
-import Ember from 'ember';
+import EmberError from '@ember/error';
+import { on } from '@ember/object/evented';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -16,7 +19,7 @@ export default DS.Model.extend({
     Added localy
   */
 
-  col: Ember.computed('column', function() {
+  col: computed('column', function() {
     return this.get('column.col');
   }),
 
@@ -33,13 +36,13 @@ export default DS.Model.extend({
   width: DS.attr('number'),
   height: DS.attr('number'),
 
-  svgenv: Ember.inject.service('svg-environment'),
+  svgenv: service('svg-environment'),
 
-  _addNodeValues: Ember.on('ready', function() {
+  _addNodeValues: on('ready', function() {
     var svgenv = this.get('svgenv');
 
     if ( ! svgenv ) {
-      throw new Ember.Error('svgenv has not been injected yet');
+      throw new EmberError('svgenv has not been injected yet');
     }
 
     // TODO: use uppercase names for absolute values

@@ -1,28 +1,28 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 
-import {
-  moduleForModel,
-  test
-} from 'ember-qunit';
+import { module, test } from 'qunit';
 
-moduleForModel('node-dpattern', {
-  // Specify the other units that are required for this test.
-  needs: ['model:grid-node', 'model:column']
-});
+import { setupTest } from 'ember-qunit';
 
-test('it exists', function(assert) {
-  var model = this.subject({ 
-    svgenv: Ember.Object.create()
-  });
-  // var store = this.store();
-  assert.ok(!!model);
-});
+import { run } from '@ember/runloop';
 
-test('set template name', function(assert) {
-  var model = this.subject({ 
-    id: 'foobar',
-    svgenv: Ember.Object.create()
+module('node-dpattern', function(hooks) {
+  setupTest(hooks);
+
+  test('it exists', function(assert) {
+    var model = run(() => this.owner.lookup('service:store').createRecord('node-dpattern', { 
+      svgenv: EmberObject.create()
+    }));
+    // var store = this.store();
+    assert.ok(!!model);
   });
 
-  assert.equal(model.get('template'), 'dpatterns/foobar');
+  test('set template name', function(assert) {
+    var model = run(() => this.owner.lookup('service:store').createRecord('node-dpattern', { 
+      id: 'foobar',
+      svgenv: EmberObject.create()
+    }));
+
+    assert.equal(model.get('template'), 'dpatterns/foobar');
+  });
 });
