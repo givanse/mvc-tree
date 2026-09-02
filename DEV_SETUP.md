@@ -36,47 +36,53 @@ Universal Analytics (`ember-cli-google-analytics` / `UA-47511141-2`) is not incl
 
 ## Deploy
 
-The live host is **https://mvc.givan.se** on Netlify. GitHub Actions does **not** deploy.
+The live host is **https://mvc.givan.se** (Netlify site **mvc**). GitHub Actions does **not** deploy. Do **not** set `stop_builds`.
 
-**Merging to `master` does not publish.** Production ships only on an intentional trigger (policy below).
+**Merging to `master` does not publish.** Squash-merge with `[skip netlify]` in the merge commit message unless that merge is itself the intentional ship (it is not). Ignore is a belt; `[skip netlify]` is the merge-commit policy.
 
-**Deploy Previews are already off.** Web Dev confirmed this site has `skip_prs=true`. `[context.deploy-preview] ignore = "exit 0"` in `netlify.toml` (and the same for branch deploys) is belt-and-suspenders if that toggle is later flipped—not the only control. `web/ignore-build.sh` skips those contexts too.
+**Deploy Previews are already off** (`skip_prs=true`). `[context.deploy-preview] ignore = "exit 0"` (and the same for branch deploys) is belt-and-suspenders if that toggle is later flipped. Auto git publishing stays on; ignore skips those production builds.
 
-### Leftover Netlify UI clicks (Gastón)
+### How to ship (CLI only)
 
-`skip_prs` is done. **Do not click anything to “lock” or stop auto builds.**
+Intentional ship is **`netlify deploy --prod`** or a **build hook**. Not the dashboard.
 
-| Setting | Action |
-| --- | --- |
-| `skip_prs` / Deploy Previews | **None.** Already `true` (off). |
-| `stop_builds` | **Do not touch.** Already false. Turning it on blocks Clear-cache UI deploys and hooks too. Leave Builds enabled. |
-| Auto publishing on `master` git push | **Leave it on.** Ignore skips those production builds (`exit 0`). Do not lock deploys. |
-| Site UI **Build settings** | **Stay empty or match toml** (UI still overrides the file): Base `web`, command `npm ci && npm run build`, publish `dist`, Node 24. If the UI still has `ember build -e production` / Publish `dist/`, clear those fields **or** set them to match. That is the only leftover settings check. |
-| This merge | **None.** Ignore will skip; do not Trigger deploy just to land toml. |
+One-time (login persists; link once per clone):
 
-**To actually publish** (not this merge): Deploys → Trigger deploy → **Clear cache and deploy site**, or a **build hook**. Plain “Deploy site” may still be skipped by ignore.
+```bash
+netlify login
+cd web
+netlify link --name mvc    # or: netlify link --id <site-id>
+netlify status             # confirm mvc / mvc.givan.se
+```
 
-### How to ship
+Primary path — local Vite build, upload `dist` (ignore does not run):
 
-Netlify ignore **does** run for UI “Trigger deploy” / “Deploy site”. Plain **Deploy site** may still be skipped. Use:
+```bash
+cd web
+npm run build
+netlify deploy --prod --dir=dist
+```
 
-1. Netlify UI → Deploys → Trigger deploy → **Clear cache and deploy site** (`CACHED_COMMIT_REF` equals `COMMIT_REF`, treated as intentional), or
-2. A **Netlify build hook**. Official docs: ignore will **not** cancel a hook-triggered build, regardless of exit code.
+Alternative — build hook (official: ignore does **not** cancel a hook-triggered build). Create and trigger via CLI/API, not the dashboard:
 
-Do not add a `workflow_dispatch` that needs a new secret. Optional later: store `NETLIFY_BUILD_HOOK` and trigger the hook from Actions.
+```bash
+netlify api listSiteBuildHooks --data '{"site_id":"<SITE_ID>"}'
+netlify api createSiteBuildHook --data '{"site_id":"<SITE_ID>","body":{"title":"intentional ship","branch":"master"}}'
+curl -X POST -d '{}' 'https://api.netlify.com/build_hooks/<HOOK_ID>'
+```
 
-### Build settings (UI vs toml)
+`<SITE_ID>` comes from `netlify status` after `netlify link`. Do not add a `workflow_dispatch` that needs a new secret. Optional later: store `NETLIFY_BUILD_HOOK` and POST that URL from Actions.
 
-**`netlify.toml` is the source of truth** (Site UI Build settings still override this file — leave those fields empty or match):
+### Build settings (`netlify.toml`)
+
+**`netlify.toml` is the source of truth** for remote (git/hook) builds:
 
 1. Base directory `web`
 2. Command `npm ci && npm run build` (or `npm run build` if install is separate)
 3. Publish `dist` (that is `web/dist` in the repo)
 4. `NODE_VERSION` 24
 
-**If the Netlify UI still has Build command `ember build -e production` and Publish directory `dist/`**, those fields win and the live site stays on a repo-root Ember app that no longer exists. Clear them so the toml applies, **or** set the UI to match: Base `web`, command `npm ci && npm run build`, publish `dist`.
-
-A deploy can fail at “preparing repo” with `git@github.com Permission denied (publickey)`. That is a stale Netlify SSH deploy key, not Ember vs Vite. Unlink and relink `givanse/mvc-tree` in the site’s Git/GitHub settings.
+If Site UI Build settings are filled, they override this file. Match them via `netlify api getSite` / `updateSite` if a hook build still uses `ember build`. The primary CLI upload path does not use those fields.
 
 No extra Netlify secrets are required for a static build. Do not add a GitHub Pages CNAME or publish via `gh-pages`.
 
@@ -85,7 +91,7 @@ No extra Netlify secrets are required for a static build. Do not add a GitHub Pa
 Ignore commands that reference a file must start with `./`. Ignore runs **from the base directory** (`web/`), so paths are relative to `web/`, not the repo root. `./ignore-build.sh` is set on `[build]`.
 
 - Deploy Preview / branch-deploy: skip.
-- Hook (`INCOMING_HOOK_URL`) or Clear-cache UI (`CACHED_COMMIT_REF` == `COMMIT_REF`): build.
+- Hook (`INCOMING_HOOK_URL`): proceed (hooks also bypass ignore).
 - Production git auto: always skip.
 - Any other leftover auto context: `git diff` the Vite app plus the repo-root sources it imports (`../app/jsons`, `../app/lib/svg-layout`, `../app/templates`) and `../netlify.toml`. Quiet → skip.
 

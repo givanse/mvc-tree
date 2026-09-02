@@ -1,18 +1,19 @@
-# Site UI Build settings override this file — leave those fields empty or match these values.
-# Do not set stop_builds (that also blocks manual / hook deploys). Leave Builds enabled.
+# Site UI Build settings override this file if set — keep them empty or matching.
+# Do not set stop_builds (that also blocks hooks and CLI-triggered remote builds).
 [build]
   base = "web"
   command = "npm ci && npm run build"
   publish = "dist"
-  # Ignore runs from web/ (base). Script skips previews, branch deploys, and
-  # git-push production; proceeds for Clear-cache UI deploys. Build hooks bypass ignore.
+  # Ignore runs from web/ (base). Skips previews, branch deploys, and git-push
+  # production. Intentional ship is `netlify deploy --prod` (does not run ignore)
+  # or a build hook (ignore does not cancel hooks).
   ignore = "./ignore-build.sh"
 
 [build.environment]
   NODE_VERSION = "24"
 
-# Belt-and-suspenders: skip_prs is already true on this site (Deploy Previews off).
-# Keep these even if that toggle is later flipped. exit 0 = skip the build.
+# skip_prs is already true (Deploy Previews off). Belt-and-suspenders if that
+# toggle is later flipped. exit 0 = skip the build.
 [context.deploy-preview]
   ignore = "exit 0"
 

@@ -1,5 +1,5 @@
 name: CI
-# Tests only — this workflow does not deploy. Production ships via Netlify UI or build hook.
+# Tests only — this workflow does not deploy. Production ships via `netlify deploy --prod` or a build hook.
 
 on:
   push:

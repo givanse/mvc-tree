@@ -1,10 +1,15 @@
 #!/bin/sh
 # Netlify ignore command. Runs from the base directory (web/).
 # Exit 0 = skip the build (save credits). Exit 1 = proceed.
-# Official: ignore does not cancel a build triggered by a build hook, regardless
-# of exit code. INCOMING_HOOK_URL is still checked if that ever changes.
-# UI "Trigger deploy" / "Deploy site" still run ignore. "Clear cache and deploy
-# site" typically has CACHED_COMMIT_REF == COMMIT_REF (treat as intentional).
+#
+# Intentional ship is not this script:
+#   - `netlify deploy --prod --dir=dist` from web/ after `npm run build`
+#     (CLI file upload; ignore does not run)
+#   - a build hook (official: ignore does not cancel hooks, regardless of
+#     exit code). INCOMING_HOOK_URL is still checked if that ever changes.
+#
+# Git auto-builds: skip deploy-preview and branch-deploy; skip production
+# git-push. Path ignore is a leftover-context safety net (honors base=web).
 
 if [ "$CONTEXT" = "deploy-preview" ] || [ "$CONTEXT" = "branch-deploy" ]; then
   exit 0
