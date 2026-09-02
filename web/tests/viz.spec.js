@@ -56,6 +56,19 @@ test('definitions compare-to populates the list', async function({ page }) {
   await expect(compare.locator('li')).not.toHaveCount(0);
 });
 
+test('hash deep-link opens MVP and compare-to MVVM', async function({ page }) {
+  await page.goto('/#mvp?c=mvvm');
+
+  var panel = page.locator('#mvp');
+  await expect(panel).toBeVisible();
+  await expect(panel.locator('.panel-title')).toContainText('MVP');
+  await expect(panel.locator('.c-select').first()).toHaveValue('mvvm');
+
+  var compare = panel.locator('.compare_to');
+  await expect(compare.locator('li')).not.toHaveCount(0);
+  await expect(compare).toContainText('View Model');
+});
+
 test('Java overlay hides .tech_java', async function({ page }) {
   await page.goto('/');
 

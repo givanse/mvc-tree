@@ -1,9 +1,24 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
+import { parseDeepLink } from 'mvc-tree/utils/deep-link';
+
+function compareToFor(nodeId) {
+  let link = parseDeepLink(window.location);
+  if (link.id === nodeId && link.compareTo) {
+    return link.compareTo;
+  }
+  return null;
+}
 
 export default class DefinitionsShowcase extends Component {
-  @tracked selectedPatternId = null;
+  @tracked selectedPatternId = compareToFor(this.args.node.id);
+
+  get placeholderSelected() {
+    return !this.selectedPatternId;
+  }
+
+  isPatternSelected = (pattern) => pattern.id === this.selectedPatternId;
 
   get availablePatterns() {
     let currentId = this.args.node.id;
@@ -48,9 +63,12 @@ export default class DefinitionsShowcase extends Component {
         <div class="col-xs-12 col-md-6"></div>
         <div class="hidden-sm col-md-6">
           <select class="form-control c-select" {{on "change" this.onSelect}}>
-            <option selected hidden>compare to:</option>
+            <option hidden selected={{this.placeholderSelected}}>compare to:</option>
             {{#each this.availablePatterns as |pattern|}}
-              <option value={{pattern.id}}>{{pattern.name}}</option>
+              <option
+                value={{pattern.id}}
+                selected={{this.isPatternSelected pattern}}
+              >{{pattern.name}}</option>
             {{/each}}
           </select>
         </div>
@@ -69,9 +87,12 @@ export default class DefinitionsShowcase extends Component {
       <div class="col-md-6">
         <div class="visible-sm-block">
           <select class="form-control c-select" {{on "change" this.onSelect}}>
-            <option selected hidden>compare to:</option>
+            <option hidden selected={{this.placeholderSelected}}>compare to:</option>
             {{#each this.availablePatterns as |pattern|}}
-              <option value={{pattern.id}}>{{pattern.name}}</option>
+              <option
+                value={{pattern.id}}
+                selected={{this.isPatternSelected pattern}}
+              >{{pattern.name}}</option>
             {{/each}}
           </select>
         </div>

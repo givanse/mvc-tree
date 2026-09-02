@@ -3,8 +3,9 @@ import './styles.css';
 import { renderNavbar, renderDrawer } from './chrome.js';
 import { loadTreeData } from './data.js';
 import { renderSvg } from './render-svg.js';
-import { renderArticles } from './render-articles.js';
+import { renderArticles, applyCompareTo } from './render-articles.js';
 import { renderOverlayCheckboxes } from './overlays.js';
+import { parseDeepLink } from '../../app/lib/deep-link.js';
 
 renderNavbar(document.getElementById('site-nav'), { page: 'index' });
 
@@ -24,9 +25,13 @@ var svg = renderSvg(document.getElementById('tree-mount'), data);
 renderArticles(document.getElementById('articles'), data);
 renderOverlayCheckboxes(document.getElementById('overlays'), svg);
 
-if (window.location.hash) {
-  var panel = document.getElementById(window.location.hash.slice(1));
+var deepLink = parseDeepLink(window.location);
+if (deepLink.id) {
+  var panel = document.getElementById(deepLink.id);
   if (panel && typeof panel.scrollIntoView === 'function') {
     panel.scrollIntoView();
+  }
+  if (deepLink.compareTo) {
+    applyCompareTo(panel, deepLink.compareTo);
   }
 }
