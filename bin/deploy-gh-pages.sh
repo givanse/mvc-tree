@@ -1,26 +1,36 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
-ember build --environment='production'
+# Local fallback for the GitHub Action that publishes web/dist to gh-pages.
+# CI (push to master) is the supported deploy path.
 
-ghPagesFolderPath='../mvc-tree-gh-pages'
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT/web"
 
-# create folder
-rm -rf $ghPagesFolderPath;
-mkdir -v $ghPagesFolderPath;
+if ! command -v npm >/dev/null; then
+  echo "npm is required. Use Node 20 or 22 (see DEV_SETUP.md)." >&2
+  exit 1
+fi
 
-# init folder
-cd $ghPagesFolderPath
+npm ci
+npm run build
+
+ghPagesFolderPath="$ROOT/../mvc-tree-gh-pages"
+
+rm -rf "$ghPagesFolderPath"
+mkdir -v "$ghPagesFolderPath"
+
+cd "$ghPagesFolderPath"
 git init
-git remote add origin git@github.com:givanse/mvc-tree.git 
+git remote add origin git@github.com:givanse/mvc-tree.git
 git checkout -b gh-pages
 
-# add files
-cd -
+cd "$ROOT"
 echo -e '\n>> copy new'
-cp -Rv dist/* $ghPagesFolderPath 
-cd -
+cp -Rv web/dist/. "$ghPagesFolderPath"
+# Vite copies web/public/CNAME into dist/; keep it at the branch root.
+cd "$ghPagesFolderPath"
 
 git add -A .
 

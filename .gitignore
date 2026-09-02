@@ -3,10 +3,18 @@
 # compiled output
 /dist
 /tmp
+/web/dist
 
 # dependencies
 /node_modules
 /bower_components
+/web/node_modules
+
+# Playwright
+/web/test-results
+/web/playwright-report
+/web/blob-report
+/web/playwright/.cache
 
 # misc
 /.sass-cache
