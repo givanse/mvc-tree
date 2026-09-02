@@ -5,7 +5,7 @@ General design of the application.
 Encyclopedia content and SVG layout math live at the repo root in `app/` and are imported by both shells:
 
 * `web/` — static Vite app (production / Netlify)
-* `ember/` — Ember 6.12 LTS Octane/Glimmer companion
+* `ember/` — Ember 7.1 Octane/Glimmer companion
 
 ## Layout
 
@@ -13,7 +13,7 @@ Encyclopedia content and SVG layout math live at the repo root in `app/` and are
 
 `app/jsons` holds JSON:API fixtures (patterns, technologies, headers, columns). Both shells hydrate them into plain objects and call `computeNodeGeometry`.
 
-## Ember 6.12 shell
+## Ember 7.1 shell
 
 * `ember/app/utils/tree-data.js` — fixture hydration (same algorithm as `web/src/data.js`)
 * `ember/app/components/root-svg.gjs` — SVG tree (Glimmer, not `tagName: 'svg'`)

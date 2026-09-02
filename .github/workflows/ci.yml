@@ -39,7 +39,7 @@ jobs:
           if-no-files-found: error
 
   ember:
-    name: Ember 6.12
+    name: Ember 7.1
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
