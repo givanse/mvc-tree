@@ -52,15 +52,16 @@ export default class RootSvg extends Component {
 
     this.args.data.gridNodes.forEach((node) => {
       (node.related || []).forEach((related) => {
-        let classNames =
+        let overlayClasses =
           related.classNames && related.classNames.length
-            ? related.classNames.filter(Boolean).join(' ')
-            : '';
+            ? related.classNames.filter(Boolean)
+            : [];
         let d = generateBindingPath(this.svgenv, node, related);
         if (d) {
           paths.push({
             path: d,
-            classNames: ('line line-dashed ' + classNames).trim(),
+            classNames: ('line line-dashed ' + overlayClasses.join(' ')).trim(),
+            overlayClasses,
           });
         }
       });
@@ -71,6 +72,12 @@ export default class RootSvg extends Component {
 
   isTechHidden = (classNameTech) => {
     return !this.overlays.isVisible(classNameTech);
+  };
+
+  isBoundPathHidden = (overlayClasses) => {
+    return (overlayClasses || []).some(
+      (name) => name.indexOf('tech_') === 0 && !this.overlays.isVisible(name),
+    );
   };
 
   onTreeClick = (event) => {
@@ -128,7 +135,10 @@ export default class RootSvg extends Component {
       {{/each}}
 
       {{#each this.pathsBoundNodes as |pathObj|}}
-        <path d={{pathObj.path}} class={{pathObj.classNames}}></path>
+        <path
+          d={{pathObj.path}}
+          class="{{pathObj.classNames}}{{if (this.isBoundPathHidden pathObj.overlayClasses) ' hidden'}}"
+        ></path>
       {{/each}}
 
       {{#each @data.dpatterns as |node|}}

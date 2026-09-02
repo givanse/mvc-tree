@@ -91,6 +91,51 @@ module('Acceptance | index viz', function (hooks) {
     assert.dom('#mvc_tree path.line-dashed').exists();
   });
 
+  test('dashed tech_js binding path stays dashed and follows the JS overlay', async function (assert) {
+    await visit('/');
+
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .exists('dashed tech_js binding path exists');
+
+    let dashedJs = document.querySelector('#mvc_tree path.line-dashed.tech_js');
+    let computed = getComputedStyle(dashedJs);
+    assert.ok(
+      computed.fill === 'none' || computed.fill === 'rgba(0, 0, 0, 0)',
+      `dashed tech_js fill is none (got ${computed.fill})`,
+    );
+    assert.ok(
+      computed.strokeDasharray &&
+        computed.strokeDasharray !== 'none' &&
+        computed.strokeDasharray !== '0px',
+      `dashed tech_js has a dash array (got ${computed.strokeDasharray})`,
+    );
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .doesNotHaveClass('hidden', 'JS overlay on: binding path visible');
+
+    await click('.overlay_checkbox[data-overlay="tech_js"]');
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .hasClass('hidden', 'JS overlay off: binding path hidden');
+
+    await click('.overlay_checkbox[data-overlay="tech_js"]');
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .doesNotHaveClass('hidden', 'JS overlay on again: binding path visible');
+
+    dashedJs = document.querySelector('#mvc_tree path.line-dashed.tech_js');
+    computed = getComputedStyle(dashedJs);
+    assert.ok(
+      computed.fill === 'none' || computed.fill === 'rgba(0, 0, 0, 0)',
+      'fill stays none after overlay toggle',
+    );
+    assert.ok(
+      computed.strokeDasharray && computed.strokeDasharray !== 'none',
+      'dash array stays after overlay toggle',
+    );
+  });
+
   test('pages have no Universal Analytics', async function (assert) {
     await visit('/');
     let indexHtml = document.documentElement.innerHTML;
