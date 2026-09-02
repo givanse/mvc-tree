@@ -36,16 +36,23 @@ Universal Analytics (`ember-cli-google-analytics` / `UA-47511141-2`) is not incl
 
 ## Deploy
 
-GitHub Actions (`.github/workflows/ci.yml`) on **push to `master`**:
+The live host is **https://mvc.givan.se** on Netlify.
+
+`netlify.toml` at the repo root tells Netlify to build the Vite app:
+
+1. Base `web/`
+2. `npm ci && npm run build`
+3. Publish `dist` (that is `web/dist` in the repo)
+
+No extra Netlify secrets are required for a static build. Do not add a GitHub Pages CNAME or publish via `gh-pages`.
+
+GitHub Actions (`.github/workflows/ci.yml`) still runs tests on push and pull request:
 
 1. Node 22, `cd web && npm ci`
-2. Playwright Chromium + `npm test`
-3. `npm run build`
-4. Publish `web/dist` to `gh-pages` with CNAME `mvc.givan.se`
+2. Playwright Chromium + `npm test` (this also builds `web/dist`)
+3. Uploads the `site` artifact (`web/dist`)
 
-The Action uses `GITHUB_TOKEN` (no extra secrets). The repo’s GitHub Pages source should be the `gh-pages` branch.
-
-Local fallback: `./bin/deploy-gh-pages.sh` (builds `web/`, force-pushes `gh-pages`). Prefer the Action.
+CI does **not** deploy. The Ember job is legacy-only and does not publish.
 
 ## Ember 2.11 (legacy only)
 
