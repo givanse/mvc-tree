@@ -719,6 +719,47 @@ test('generateBindingPath 3x2 simple', function(assert) {
   assert.equal(result, expected, '(1,2) (0,0)');
 });
 
+/*
+  Stage 0 freeze snapshots. These expected `d` strings pin the path-factory
+  algorithm (generatePathToChild / generateBindingPath). Do not change the
+  mixin to make a snapshot pass; change the snapshot only if the fixtures
+  or svg-environment constants change on purpose.
+*/
+
+test('generatePathToChild TMVE -> MVC79 (fixture snapshot)', function(assert) {
+  // Production constants from app/services/svg-environment.js
+  // TMVE: col 0 (classic-mvc), row 1
+  // MVC79: col 0 (classic-mvc), row 2
+  // x/y match grid-node._addNodeValues: x = col * colW, y = row * rowH
+  var PathFactoryObject = Ember.Object.extend(PathFactoryMixin, {
+    svgenv: Ember.Object.create({
+      paddingT: 8,
+      paddingR: 12,
+      paddingB: 8,
+      paddingL: 12,
+      colW: 170 + 12,
+      rowH: 64 + 18
+    })
+  });
+  var subject = PathFactoryObject.create();
+
+  var a = Ember.Object.create({
+    col: 0,
+    row: 1,
+    x: 0,
+    y: 82
+  });
+  var b = Ember.Object.create({
+    col: 0,
+    row: 2
+  });
+
+  assert.equal(
+    subject.generatePathToChild(a, b),
+    'M91 156 v8 h-4 l4 8 l4 -8 h-4'
+  );
+});
+
 test('generateBindingPath MVVM - Data Binding', function(assert) {
   var PathFactoryObject = Ember.Object.extend(PathFactoryMixin, {
     svgenv: Ember.Object.create({

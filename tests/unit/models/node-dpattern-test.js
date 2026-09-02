@@ -7,7 +7,7 @@ import {
 
 moduleForModel('node-dpattern', {
   // Specify the other units that are required for this test.
-  needs: ['model:grid-node', 'model:column']
+  needs: ['model:grid-node', 'model:column', 'service:svg-environment']
 });
 
 test('it exists', function(assert) {

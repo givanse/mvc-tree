@@ -19,6 +19,10 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+  // ember-cli 2.11 expects ember-source.paths.shims; ember-source 2.18
+  // does not export that path. vendor/ember-shims.js registers `ember`.
+  app.import('vendor/ember-shims.js');
+
   if (app.env !== 'production') {
     app.import('bower_components/jquery.isinview/dist/jquery.isinview.js');
   }

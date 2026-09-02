@@ -7,7 +7,7 @@ import {
 
 moduleForModel('node-header', {
   // Specify the other units that are required for this test.
-  needs: ['model:column']
+  needs: ['model:column', 'service:svg-environment']
 });
 
 test('it exists', function(assert) {
