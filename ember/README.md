@@ -1,4 +1,4 @@
-# Ember 6.12 shell
+# Ember 7.1 shell
 
 Octane/Glimmer rewrite of the historical Ember 2.11 app. Encyclopedia fixtures and SVG layout math stay in `../app/` and are imported as the source of truth — the same files the Vite app in `../web/` uses.
 
@@ -6,7 +6,7 @@ This app is **not** what Netlify deploys. Production is `web/` (see repo-root `n
 
 ## Prerequisites
 
-Node.js 20.19+ (ember-cli 6.12 engines). npm 10+.
+Node.js 20.19+ (ember-cli 7.1 engines). npm 10+.
 
 ## Commands
 

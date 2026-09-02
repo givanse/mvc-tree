@@ -2,7 +2,7 @@
 
 The published site is the **static Vite app** in `web/`. Use this file for versions and commands.
 
-An Ember 6.12 LTS companion lives in `ember/`. It imports the same `app/jsons` and `app/lib/svg-layout`. It does **not** deploy.
+An Ember 7.1 companion lives in `ember/`. It imports the same `app/jsons` and `app/lib/svg-layout`. It does **not** deploy.
 
 ## Static app (primary)
 
@@ -60,17 +60,17 @@ GitHub Actions (`.github/workflows/ci.yml`) still runs tests on push and pull re
 
 CI does **not** deploy.
 
-## Ember 6.12 (companion)
+## Ember 7.1 (companion)
 
-Octane/Glimmer app generated with ember-cli 6.12 (Embroider + Vite). Not a hop from the old 2.11 classic stack.
+Octane/Glimmer app on ember-cli 7.1 (Embroider + Vite). Hopped 6.12 LTS → 7.0 (deprecation-removal major) → 7.1 stable.
 
 | Tool | Version |
 | --- | --- |
 | Node | 20.19+ (see `ember/.nvmrc` / repo `.nvmrc`) |
 | npm | 10+ |
-| ember-source | ~6.12.0 |
-| ember-cli | ~6.12.0 |
-| ember-data | WarpDrive `@warp-drive/*` ~5.8.1 (blueprint default; the tree uses plain objects) |
+| ember-source | ~7.1.0 |
+| ember-cli | ~7.1.0 |
+| ember-data | WarpDrive `@warp-drive/*` ~5.8.2 (7.1 blueprint default; the tree uses plain objects) |
 
 ```bash
 cd ember
