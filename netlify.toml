@@ -1,3 +1,4 @@
+# Site UI Build settings override this file — leave those fields empty or match these values.
 [build]
   base = "web"
   command = "npm ci && npm run build"

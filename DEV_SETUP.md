@@ -38,11 +38,16 @@ Universal Analytics (`ember-cli-google-analytics` / `UA-47511141-2`) is not incl
 
 The live host is **https://mvc.givan.se** on Netlify.
 
-`netlify.toml` at the repo root tells Netlify to build the Vite app:
+**`netlify.toml` is the source of truth** (Site UI Build settings override this file):
 
-1. Base `web/`
-2. `npm ci && npm run build`
+1. Base directory `web`
+2. Command `npm ci && npm run build` (or `npm run build` if install is separate)
 3. Publish `dist` (that is `web/dist` in the repo)
+4. `NODE_VERSION` 24
+
+**If the Netlify UI still has Build command `ember build -e production` and Publish directory `dist/`**, those fields win and the live site stays on the repo-root Ember app. Clear them so the toml applies, **or** set the UI to match: Base `web`, command `npm run build`, publish `dist`.
+
+A deploy can fail at “preparing repo” with `git@github.com Permission denied (publickey)`. That is a stale Netlify SSH deploy key, not Ember vs Vite. Unlink and relink `givanse/mvc-tree` in the site’s Git/GitHub settings. The live site stays Ember until clone works.
 
 No extra Netlify secrets are required for a static build. Do not add a GitHub Pages CNAME or publish via `gh-pages`.
 
