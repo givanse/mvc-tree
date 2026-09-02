@@ -37,7 +37,7 @@ jobs:
         run: ./node_modules/.bin/ember build
 
       - name: Ember test (Chrome headless)
-        run: ./node_modules/.bin/ember test
+        run: PATH="/usr/bin:/opt/google/chrome:$PATH" ./node_modules/.bin/ember test
         env:
           CI: true
 

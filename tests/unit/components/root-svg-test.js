@@ -5,6 +5,7 @@ import {
 
 moduleForComponent('root-svg', 'Unit | Component | root-svg', {
   unit: true,
+  needs: ['service:svg-environment'],
   setup: function() {
   }
 });

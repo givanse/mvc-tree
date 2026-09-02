@@ -60,6 +60,14 @@ Visit **http://localhost:4200**. Live reload uses port **49153**. No env vars.
 
 Tests launch **Chrome** (testem 1.18.5 has no `ChromeHeadless` launcher). In CI, Chrome is started with `--headless --no-sandbox --disable-gpu --disable-dev-shm-usage`. Locally, `ember test` also uses the CI Testem mode, so the same flags apply. You need Google Chrome or `google-chrome-stable` on `PATH`.
 
+If `google-chrome` on `PATH` is a wrapper that forces `--user-data-dir` / `--remote-debugging-port` (some cloud VMs do this), Testem can hang. Prefer the real binary:
+
+```bash
+PATH="/usr/bin:$PATH" ./node_modules/.bin/ember test
+```
+
+`ember-cli-build.js` imports `vendor/ember-shims.js`, which registers the AMD `ember` module. ember-cli 2.11 expects `ember-source.paths.shims`; ember-source 2.18 (what `^2.11` resolves to) does not export it. Without the shim, Chrome fails with `Could not find module ember`.
+
 PhantomJS is not supported. Do not re-add it; it hangs on this stack.
 
 ## Watchman
