@@ -248,12 +248,23 @@ a sup {
 }
 
 .line-dashed {
+  fill: none;
   stroke: #464646;
   stroke-dasharray: 2, 2;
 }
 
 .line-dashed:hover {
   stroke-dasharray: none;
+}
+
+/*
+  Binding paths also carry tech_* overlay classes so checkboxes can
+  hide them. Those classes set fill for node shapes; on a <path> that
+  fill paints the interior and the dash disappears (issue #9).
+*/
+#mvc_tree path.line.line-dashed {
+  fill: none;
+  stroke-dasharray: 2, 2;
 }
 
 .year_line_path {

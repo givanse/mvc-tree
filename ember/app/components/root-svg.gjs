@@ -52,15 +52,22 @@ export default class RootSvg extends Component {
 
     this.args.data.gridNodes.forEach((node) => {
       (node.related || []).forEach((related) => {
-        let classNames =
+        let overlayClasses =
           related.classNames && related.classNames.length
-            ? related.classNames.filter(Boolean).join(' ')
-            : '';
+            ? related.classNames.filter(Boolean)
+            : [];
         let d = generateBindingPath(this.svgenv, node, related);
         if (d) {
+          let hidden = overlayClasses.some(
+            (name) => name.indexOf('tech_') === 0 && !this.overlays.isVisible(name),
+          );
           paths.push({
             path: d,
-            classNames: ('line line-dashed ' + classNames).trim(),
+            classNames: (
+              'line line-dashed ' +
+              overlayClasses.join(' ') +
+              (hidden ? ' hidden' : '')
+            ).trim(),
           });
         }
       });

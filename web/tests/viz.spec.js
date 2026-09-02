@@ -95,6 +95,49 @@ test('path d attrs include Stage 0/1 TMVE snapshot and a dashed binding path', a
   await expect(page.locator('#mvc_tree path.line-dashed')).not.toHaveCount(0);
 });
 
+test('dashed tech_js binding path stays dashed and follows the JS overlay', async function({ page }) {
+  await page.goto('/');
+
+  var dashedJs = page.locator('#mvc_tree path.line-dashed.tech_js');
+  await expect(dashedJs).not.toHaveCount(0);
+
+  var style = await dashedJs.first().evaluate(function(el) {
+    var computed = getComputedStyle(el);
+    return {
+      fill: computed.fill,
+      strokeDasharray: computed.strokeDasharray
+    };
+  });
+  expect(style.fill === 'none' || style.fill === 'rgba(0, 0, 0, 0)').toBe(true);
+  expect(style.strokeDasharray).not.toBe('none');
+  expect(style.strokeDasharray).not.toBe('');
+  expect(style.strokeDasharray).not.toBe('0px');
+
+  expect(await dashedJs.first().evaluate(function(el) {
+    return el.classList.contains('hidden');
+  })).toBe(false);
+
+  await page.locator('.overlay_checkbox[data-overlay="tech_js"]').click();
+  expect(await dashedJs.first().evaluate(function(el) {
+    return el.classList.contains('hidden');
+  })).toBe(true);
+
+  await page.locator('.overlay_checkbox[data-overlay="tech_js"]').click();
+  expect(await dashedJs.first().evaluate(function(el) {
+    return el.classList.contains('hidden');
+  })).toBe(false);
+
+  var styleAfter = await dashedJs.first().evaluate(function(el) {
+    var computed = getComputedStyle(el);
+    return {
+      fill: computed.fill,
+      strokeDasharray: computed.strokeDasharray
+    };
+  });
+  expect(styleAfter.fill === 'none' || styleAfter.fill === 'rgba(0, 0, 0, 0)').toBe(true);
+  expect(styleAfter.strokeDasharray).not.toBe('none');
+});
+
 test('pages have no Universal Analytics', async function({ page }) {
   await page.goto('/');
   var indexHtml = await page.content();
