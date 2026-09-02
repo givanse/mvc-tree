@@ -65,11 +65,13 @@ Both shells import the same `app/jsons` and `app/lib/svg-layout`. Do not make `w
 
 ## Deploy
 
-The live site is [https://mvc.givan.se](https://mvc.givan.se) on **Netlify**.
+The live site is [https://mvc.givan.se](https://mvc.givan.se) on **Netlify**. CI does not deploy. PRs do not get Deploy Previews. **Merging to `master` does not publish.**
+
+To ship: Netlify UI → Deploys → Trigger deploy → **Clear cache and deploy site** (plain “Deploy site” may still be skipped by ignore), or a Netlify **build hook** (hooks bypass ignore). Do not set `stop_builds`. See [DEV_SETUP.md](DEV_SETUP.md#deploy) for the full policy (`skip_prs` vs toml ignore, path ignore under `base = "web"`, leftover UI toggles).
 
 **[`netlify.toml`](netlify.toml) is the source of truth:** Base directory `web`, command `npm ci && npm run build` (or `npm run build` if install is separate), publish `dist` (i.e. `web/dist`), `NODE_VERSION` 24.
 
-**Netlify Site UI Build settings override the file.** If the UI still has Build command `ember build -e production` and Publish directory `dist/` (repo-root Ember), the live site never leaves Ember. Clear those fields so the toml applies, **or** set the UI to match: Base `web`, command `npm run build`, publish `dist`.
+**Netlify Site UI Build settings override the file.** If the UI still has Build command `ember build -e production` and Publish directory `dist/` (repo-root Ember), the live site never leaves Ember. Clear those fields so the toml applies, **or** set the UI to match: Base `web`, command `npm ci && npm run build`, publish `dist`.
 
 A deploy can fail at “preparing repo” with `git@github.com Permission denied (publickey)`. That is a stale Netlify SSH deploy key, not Ember vs Vite. Unlink and relink `givanse/mvc-tree` in the site’s Git/GitHub settings. The live site stays Ember until clone works.
 

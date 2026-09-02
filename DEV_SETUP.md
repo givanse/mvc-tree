@@ -36,20 +36,44 @@ Universal Analytics (`ember-cli-google-analytics` / `UA-47511141-2`) is not incl
 
 ## Deploy
 
-The live host is **https://mvc.givan.se** on Netlify.
+The live host is **https://mvc.givan.se** on Netlify. GitHub Actions does **not** deploy.
 
-**`netlify.toml` is the source of truth** (Site UI Build settings override this file):
+**Merging to `master` does not publish.** PRs do not get Deploy Previews (`[context.deploy-preview] ignore = "exit 0"` in `netlify.toml`, plus account-level `skip_prs`). Branch deploys are skipped the same way. Account `skip_prs` is a team toggle; this site’s toml ignore is the per-site safety net if that toggle is off.
+
+**Do not set `stop_builds`.** That flag blocks manual deploys and hooks too. Leave Builds enabled.
+
+### How to ship
+
+Netlify ignore **does** run for UI “Trigger deploy” / “Deploy site”. Plain **Deploy site** may still be skipped. Use:
+
+1. Netlify UI → Deploys → Trigger deploy → **Clear cache and deploy site** (`CACHED_COMMIT_REF` equals `COMMIT_REF`, treated as intentional), or
+2. A **Netlify build hook**. Official docs: ignore will **not** cancel a hook-triggered build, regardless of exit code.
+
+Do not add a `workflow_dispatch` that needs a new secret. Optional later: store `NETLIFY_BUILD_HOOK` and trigger the hook from Actions.
+
+### Build settings (UI vs toml)
+
+**`netlify.toml` is the source of truth** (Site UI Build settings still override this file — leave those fields empty or match):
 
 1. Base directory `web`
 2. Command `npm ci && npm run build` (or `npm run build` if install is separate)
 3. Publish `dist` (that is `web/dist` in the repo)
 4. `NODE_VERSION` 24
 
-**If the Netlify UI still has Build command `ember build -e production` and Publish directory `dist/`**, those fields win and the live site stays on a repo-root Ember app that no longer exists. Clear them so the toml applies, **or** set the UI to match: Base `web`, command `npm run build`, publish `dist`.
+**If the Netlify UI still has Build command `ember build -e production` and Publish directory `dist/`**, those fields win and the live site stays on a repo-root Ember app that no longer exists. Clear them so the toml applies, **or** set the UI to match: Base `web`, command `npm ci && npm run build`, publish `dist`.
 
 A deploy can fail at “preparing repo” with `git@github.com Permission denied (publickey)`. That is a stale Netlify SSH deploy key, not Ember vs Vite. Unlink and relink `givanse/mvc-tree` in the site’s Git/GitHub settings.
 
 No extra Netlify secrets are required for a static build. Do not add a GitHub Pages CNAME or publish via `gh-pages`.
+
+### Ignore script (`web/ignore-build.sh`)
+
+Ignore commands that reference a file must start with `./`. Ignore runs **from the base directory** (`web/`), so paths are relative to `web/`, not the repo root. `./ignore-build.sh` is set on `[build]`.
+
+- Deploy Preview / branch-deploy: skip.
+- Hook (`INCOMING_HOOK_URL`) or Clear-cache UI (`CACHED_COMMIT_REF` == `COMMIT_REF`): build.
+- Production git auto: always skip.
+- Any other leftover auto context: `git diff` the Vite app plus the repo-root sources it imports (`../app/jsons`, `../app/lib/svg-layout`, `../app/templates`) and `../netlify.toml`. Quiet → skip.
 
 GitHub Actions (`.github/workflows/ci.yml`) still runs tests on push and pull request:
 
