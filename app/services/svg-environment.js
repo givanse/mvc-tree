@@ -1,34 +1,39 @@
 import Ember from 'ember';
 import ENV from '../config/environment';
+import { DEFAULT_SVG_ENV, calcViewBox } from '../lib/svg-layout/environment';
 
 export default Ember.Service.extend({
 
   showGrid: ENV.APP.showGrid,
 
-  paddingT: 8,
-  paddingR: 12,
-  paddingB: 8,
-  paddingL: 12,
+  paddingT: DEFAULT_SVG_ENV.paddingT,
+  paddingR: DEFAULT_SVG_ENV.paddingR,
+  paddingB: DEFAULT_SVG_ENV.paddingB,
+  paddingL: DEFAULT_SVG_ENV.paddingL,
 
-  colW: 170 + 12,
-  rowH: 64 + 18,
+  colW: DEFAULT_SVG_ENV.colW,
+  rowH: DEFAULT_SVG_ENV.rowH,
 
-  maxCols: 6,
-  maxRows: 29,
+  maxCols: DEFAULT_SVG_ENV.maxCols,
+  maxRows: DEFAULT_SVG_ENV.maxRows,
 
   viewBoxW: null,
   viewBoxH: null,
   viewBox: null,
 
-  yearLineFontSize: 12, // from CSS rule .year_line_txt
+  yearLineFontSize: DEFAULT_SVG_ENV.yearLineFontSize,
 
   _calcViewBox: Ember.on('init', function() {
-    var viewBoxW = this.get('colW') * this.get('maxCols'),
-        viewBoxH = this.get('rowH') * this.get('maxRows');
+    var box = calcViewBox(
+      this.get('colW'),
+      this.get('rowH'),
+      this.get('maxCols'),
+      this.get('maxRows')
+    );
 
-    this.set('viewBoxW', viewBoxW);
-    this.set('viewBoxH', viewBoxH);
-    this.set('viewBox', '0 0 ' + viewBoxW + ' ' + viewBoxH);
+    this.set('viewBoxW', box.viewBoxW);
+    this.set('viewBoxH', box.viewBoxH);
+    this.set('viewBox', box.viewBox);
   })
 
 });

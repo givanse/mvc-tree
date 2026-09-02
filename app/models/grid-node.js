@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import { computeNodeGeometry } from '../lib/svg-layout/grid-node';
 
 export default DS.Model.extend({
 
@@ -42,21 +43,7 @@ export default DS.Model.extend({
       throw new Ember.Error('svgenv has not been injected yet');
     }
 
-    // TODO: use uppercase names for absolute values
-
-    // x
-    this.set('x', this.get('col') * svgenv.get('colW'));
-    this.set('x_padded', svgenv.get('paddingL') + this.get('x'));
-    this.set('cx', this.get('x') + (svgenv.get('colW') / 2));
-    this.set('width', svgenv.get('colW') - svgenv.get('paddingL') - svgenv.get('paddingR'));
-    this.set('rx', this.get('width') / 2);
-
-    // y
-    this.set('y', this.get('row') * svgenv.get('rowH'));
-    this.set('y_padded', svgenv.get('paddingT') + this.get('y'));
-    this.set('cy', this.get('y') + (svgenv.get('rowH') / 2));
-    this.set('height', svgenv.get('rowH') - svgenv.get('paddingT') - svgenv.get('paddingB'));
-    this.set('ry', this.get('height') / 2);
+    this.setProperties(computeNodeGeometry(svgenv, this.get('col'), this.get('row')));
   })
 
 });
