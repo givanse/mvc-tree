@@ -94,10 +94,12 @@ module('Acceptance | index viz', function (hooks) {
   test('dashed tech_js binding path stays dashed and follows the JS overlay', async function (assert) {
     await visit('/');
 
-    let dashedJs = document.querySelectorAll('#mvc_tree path.line-dashed.tech_js');
-    assert.ok(dashedJs.length > 0, 'dashed tech_js binding path exists');
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .exists('dashed tech_js binding path exists');
 
-    let computed = getComputedStyle(dashedJs[0]);
+    let dashedJs = document.querySelector('#mvc_tree path.line-dashed.tech_js');
+    let computed = getComputedStyle(dashedJs);
     assert.ok(
       computed.fill === 'none' || computed.fill === 'rgba(0, 0, 0, 0)',
       `dashed tech_js fill is none (got ${computed.fill})`,
@@ -108,24 +110,22 @@ module('Acceptance | index viz', function (hooks) {
         computed.strokeDasharray !== '0px',
       `dashed tech_js has a dash array (got ${computed.strokeDasharray})`,
     );
-    assert.false(
-      dashedJs[0].classList.contains('hidden'),
-      'JS overlay on: binding path visible',
-    );
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .doesNotHaveClass('hidden', 'JS overlay on: binding path visible');
 
     await click('.overlay_checkbox[data-overlay="tech_js"]');
-    assert.true(
-      dashedJs[0].classList.contains('hidden'),
-      'JS overlay off: binding path hidden',
-    );
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .hasClass('hidden', 'JS overlay off: binding path hidden');
 
     await click('.overlay_checkbox[data-overlay="tech_js"]');
-    assert.false(
-      dashedJs[0].classList.contains('hidden'),
-      'JS overlay on again: binding path visible',
-    );
+    assert
+      .dom('#mvc_tree path.line-dashed.tech_js')
+      .doesNotHaveClass('hidden', 'JS overlay on again: binding path visible');
 
-    computed = getComputedStyle(dashedJs[0]);
+    dashedJs = document.querySelector('#mvc_tree path.line-dashed.tech_js');
+    computed = getComputedStyle(dashedJs);
     assert.ok(
       computed.fill === 'none' || computed.fill === 'rgba(0, 0, 0, 0)',
       'fill stays none after overlay toggle',
