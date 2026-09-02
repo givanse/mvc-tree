@@ -54,8 +54,12 @@ From `web/`:
 
 ### Deploy
 
-The live site is [https://mvc.givan.se](https://mvc.givan.se) on Netlify.
+The live site is [https://mvc.givan.se](https://mvc.givan.se) on **Netlify**.
 
-Netlify builds the Vite app in `web/` (`npm ci && npm run build`) and publishes `web/dist` (`dist` when the build base is `web`). Repo config is [`netlify.toml`](netlify.toml). GitHub Actions still runs tests and may upload a `site` artifact; it does not publish.
+**[`netlify.toml`](netlify.toml) is the source of truth:** Base directory `web`, command `npm ci && npm run build` (or `npm run build` if install is separate), publish `dist` (i.e. `web/dist`), `NODE_VERSION` 24.
+
+**Netlify Site UI Build settings override the file.** If the UI still has Build command `ember build -e production` and Publish directory `dist/` (repo-root Ember), the live site never leaves Ember. Clear those fields so the toml applies, **or** set the UI to match: Base `web`, command `npm run build`, publish `dist`.
+
+GitHub Actions still runs tests and may upload a `site` artifact; it does not publish.
 
 See [DEV_SETUP.md](DEV_SETUP.md) for the Node versions, the Ember legacy path, and CI details.
