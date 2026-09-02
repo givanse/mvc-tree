@@ -54,6 +54,7 @@ export default defineConfig({
     alias: {
       '@svg-layout': resolve(repoRoot, 'app/lib/svg-layout'),
       '@jsons': resolve(repoRoot, 'app/jsons'),
+      '@deep-link': resolve(repoRoot, 'app/lib/deep-link.js'),
     },
   },
   server: {

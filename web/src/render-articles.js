@@ -71,29 +71,52 @@ function definitionsShowcase(node, dpatterns) {
   );
 }
 
-function bindCompareSelects(panel, node, dpatterns) {
-  var options = compareOptions(node, dpatterns);
+var compareById = new WeakMap();
+
+function compareLookup(node, dpatterns) {
   var byId = {};
-  options.forEach(function(pattern) {
+  compareOptions(node, dpatterns).forEach(function(pattern) {
     byId[pattern.id] = pattern;
   });
+  return byId;
+}
 
+function populateCompare(panel, selectedId, byId) {
   var selects = panel.querySelectorAll('select.c-select');
   var compareList = panel.querySelector('.compare_to');
   if (!compareList) {
-    return;
+    return false;
+  }
+
+  var pattern = byId && byId[selectedId];
+  if (!pattern) {
+    return false;
   }
 
   Array.prototype.forEach.call(selects, function(select) {
+    select.value = selectedId;
+  });
+  compareList.innerHTML = definitionItems(pattern.definitions);
+  return true;
+}
+
+function bindCompareSelects(panel, node, dpatterns) {
+  var byId = compareLookup(node, dpatterns);
+  compareById.set(panel, byId);
+
+  var selects = panel.querySelectorAll('select.c-select');
+  Array.prototype.forEach.call(selects, function(select) {
     select.addEventListener('change', function() {
-      var selectedId = select.value;
-      Array.prototype.forEach.call(selects, function(other) {
-        other.value = selectedId;
-      });
-      var pattern = byId[selectedId];
-      compareList.innerHTML = pattern ? definitionItems(pattern.definitions) : '';
+      populateCompare(panel, select.value, byId);
     });
   });
+}
+
+export function applyCompareTo(panel, selectedId) {
+  if (!panel || !selectedId) {
+    return false;
+  }
+  return populateCompare(panel, selectedId, compareById.get(panel));
 }
 
 export function renderArticles(container, data) {

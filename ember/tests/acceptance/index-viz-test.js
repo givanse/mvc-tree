@@ -57,6 +57,17 @@ module('Acceptance | index viz', function (hooks) {
     assert.dom('#tmve .compare_to li').exists();
   });
 
+  test('hash deep-link opens MVP and compare-to MVVM', async function (assert) {
+    window.location.hash = 'mvp?c=mvvm';
+    await visit('/');
+
+    assert.dom('#mvp').exists();
+    assert.dom('#mvp .panel-title').includesText('MVP');
+    assert.dom('#mvp .hidden-sm .c-select').hasValue('mvvm');
+    assert.dom('#mvp .compare_to li').exists();
+    assert.dom('#mvp .compare_to').includesText('View Model');
+  });
+
   test('Java overlay hides .tech_java', async function (assert) {
     await visit('/');
 
