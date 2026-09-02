@@ -53,4 +53,32 @@ describe('Stage 0/1 path snapshots', function() {
       'M91 156 v8 h-4 l4 8 l4 -8 h-4'
     );
   });
+
+  it('keeps 13 pattern groups and places React 2013 and Ember 2.0 2015', function() {
+    var data = loadTreeData({ showGrid: false });
+    var react = data.byId.react;
+    var ember2 = data.byId['ember-2'];
+    var ember = data.byId.ember;
+
+    expect(data.dpatterns).toHaveLength(13);
+    expect(data.technologies).toHaveLength(24);
+    expect(data.svgenv.maxRows).toBe(31);
+
+    expect(react.name).toBe('React');
+    expect(react.year).toBe('2013');
+    expect(react.row).toBe(28);
+    expect(react.col).toBe(5);
+    expect(react.kind).toBe('technology');
+    expect(react.classNames).toContain('tech_js');
+
+    expect(ember2.name).toBe('Ember 2.0');
+    expect(ember2.year).toBe('2015');
+    expect(ember2.row).toBe(29);
+    expect(ember2.col).toBe(4);
+    expect(ember2.kind).toBe('technology');
+    expect(ember2.classNames).toContain('tech_js');
+
+    expect(ember.relatedIds).toContain('ember-2');
+    expect(react.relatedIds).toContain('mvw');
+  });
 });

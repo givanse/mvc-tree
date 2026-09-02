@@ -10,7 +10,7 @@ module('Unit | svg-layout environment', function () {
     assert.strictEqual(DEFAULT_SVG_ENV.colW, 170 + 12);
     assert.strictEqual(DEFAULT_SVG_ENV.rowH, 64 + 18);
     assert.strictEqual(DEFAULT_SVG_ENV.maxCols, 6);
-    assert.strictEqual(DEFAULT_SVG_ENV.maxRows, 29);
+    assert.strictEqual(DEFAULT_SVG_ENV.maxRows, 31);
     assert.strictEqual(DEFAULT_SVG_ENV.yearLineFontSize, 12);
   });
 

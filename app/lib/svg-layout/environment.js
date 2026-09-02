@@ -11,7 +11,7 @@ export var DEFAULT_SVG_ENV = {
   rowH: 64 + 18,
 
   maxCols: 6,
-  maxRows: 29,
+  maxRows: 31,
 
   yearLineFontSize: 12 // from CSS rule .year_line_txt
 };
