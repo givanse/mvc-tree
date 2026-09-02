@@ -6,7 +6,70 @@ on:
   pull_request:
 
 jobs:
-  test:
+  static:
+    name: Static app (Vite + Playwright)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+
+      - name: Unit tests and viz CI
+        working-directory: web
+        run: npm test
+
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: site
+          path: web/dist/
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy gh-pages
+    needs: static
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install and build
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: web/dist
+          cname: mvc.givan.se
+          force_orphan: true
+
+  ember:
+    name: Ember (legacy)
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -40,10 +103,3 @@ jobs:
         run: PATH="/usr/bin:/opt/google/chrome:$PATH" ./node_modules/.bin/ember test
         env:
           CI: true
-
-      - uses: actions/upload-artifact@v4
-        if: success()
-        with:
-          name: dist
-          path: dist/
-          if-no-files-found: error

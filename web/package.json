@@ -1,0 +1,24 @@
+{
+  "name": "mvc-tree-web",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Static Vite shell for the MVC family tree. Layout math and encyclopedia fixtures stay in app/.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run && playwright test",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "bootstrap": "^3.4.1",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}
