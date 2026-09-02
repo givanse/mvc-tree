@@ -1,9 +1,0 @@
-{
-  "name": "mvc-tree",
-  "dependencies": {
-    "bootstrap": "^3.3.7"
-  },
-  "devDependencies": {
-    "jquery.isinview": "^1.0.4"
-  }
-}

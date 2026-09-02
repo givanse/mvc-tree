@@ -2,27 +2,20 @@
 
 General design of the application.
 
-## Services
+Encyclopedia content and SVG layout math live at the repo root in `app/` and are imported by both shells:
 
-   svg-environment
-     Has all the values used to configure the SVG root and
-     the grid design being used to place each node.
+* `web/` — static Vite app (production / Netlify)
+* `ember/` — Ember 6.12 LTS Octane/Glimmer companion
 
-## Models
+## Layout
 
-    grid-node
-        node-dpattern
-            definition
-        node-technology
+`app/lib/svg-layout` is Ember-free. Path-factory and grid geometry must not be rewritten.
 
-## Views
+`app/jsons` holds JSON:API fixtures (patterns, technologies, headers, columns). Both shells hydrate them into plain objects and call `computeNodeGeometry`.
 
- * svg
-   * svg-g
-     Every node in the grid uses this view and the content changes by setting
-     its `templateName` property.
+## Ember 6.12 shell
 
-## Mixins
-
- * tree-node
-   Currently used only by svg-g, provides 
+* `ember/app/utils/tree-data.js` — fixture hydration (same algorithm as `web/src/data.js`)
+* `ember/app/components/root-svg.gjs` — SVG tree (Glimmer, not `tagName: 'svg'`)
+* `ember/app/services/overlays.js` — overlay checkbox state
+* Article copy is rendered from Handlebars strings (`link-to-blank` → `<a target="_blank">`)
