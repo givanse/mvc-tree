@@ -35,7 +35,7 @@ npm run dev
 
 Visit [http://localhost:5173](http://localhost:5173).
 
-Production-mode preview (what CI and gh-pages serve):
+Production-mode preview (what CI tests and Netlify serve):
 
 ```
 npm run build
@@ -54,12 +54,8 @@ From `web/`:
 
 ### Deploy
 
-Push to `master`. GitHub Actions builds `web/` and publishes `web/dist` to the `gh-pages` branch with CNAME `mvc.givan.se`.
+The live site is [https://mvc.givan.se](https://mvc.givan.se) on Netlify.
 
-Local fallback (same output, force-pushes `gh-pages`):
-
-```
-./bin/deploy-gh-pages.sh
-```
+Netlify builds the Vite app in `web/` (`npm ci && npm run build`) and publishes `web/dist` (`dist` when the build base is `web`). Repo config is [`netlify.toml`](netlify.toml). GitHub Actions still runs tests and may upload a `site` artifact; it does not publish.
 
 See [DEV_SETUP.md](DEV_SETUP.md) for the Node versions, the Ember legacy path, and CI details.
