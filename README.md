@@ -12,12 +12,12 @@ The **site** is a static Vite app in `web/`. Encyclopedia content and SVG layout
 * `app/templates/dpatterns` and `app/templates/technologies` — article copy
 * `app/lib/svg-layout` — path-factory and grid geometry (do not rewrite the path algorithm)
 
-An Ember 6.12 LTS shell lives in `ember/`. It is a development/historical companion, **not** what you deploy.
+An Ember 7.1 shell lives in `ember/`. It is a development/historical companion, **not** what you deploy.
 
 ## Prerequisites
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) 20 or 22 (with npm). Ember CLI 6.12 requires Node **20.19+**.
+* [Node.js](http://nodejs.org/) 20 or 22 (with npm). Ember CLI 7.1 requires Node **20.19+**.
 
 ## Vite app (production)
 
@@ -47,7 +47,7 @@ From `web/`:
 * `npm run test:unit` — path `d` snapshots and Handlebars port
 * `npm run test:e2e` — Playwright (builds and serves `web/dist`)
 
-## Ember 6.12 app (companion)
+## Ember 7.1 app (companion)
 
 ```
 cd mvc-tree/ember

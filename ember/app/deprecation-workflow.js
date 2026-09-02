@@ -5,20 +5,11 @@ import setupDeprecationWorkflow from 'ember-cli-deprecation-workflow';
  */
 setupDeprecationWorkflow({
   /**
-    false by default, but if a developer / team wants to be more aggressive about being proactive with
-    handling their deprecations, this should be set to "true"
+    6.12 suite was green with throwOnUnhandled before the 7.x hop.
+    Keep this true so new deprecations fail tests instead of being silenced.
   */
-  throwOnUnhandled: false,
+  throwOnUnhandled: true,
   workflow: [
-    /* ... handlers ... */
-    /* to generate this list, run your app for a while (or run the test suite),
-     * and then run in the browser console:
-     *
-     *    deprecationWorkflow.flushDeprecations()
-     *
-     * And copy the handlers here
-     */
-    /* example: */
-    /* { handler: 'silence', matchId: 'template-action' }, */
+    /* empty: no 6.12 deprecations to silence before Ember 7 */
   ],
 });
