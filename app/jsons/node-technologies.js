@@ -334,6 +334,42 @@ export default {
       relationships: {
         column: {
           data: {type: 'column', id: 'mvvm'}
+        },
+        related: {
+          data: [{'id': 'ember-2', 'type': 'node-technology'}]
+        }
+      }
+    },
+    {
+      type: 'node-technology',
+      id: 'react',
+      attributes: {
+        name: 'React',
+        year: '2013',
+        row: 28,
+        classNames: ['tech_js']
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'miscellaneous'}
+        },
+        related: {
+          data: [{'id': 'mvw', 'type': 'node-dpattern'}]
+        }
+      }
+    },
+    {
+      type: 'node-technology',
+      id: 'ember-2',
+      attributes: {
+        name: 'Ember 2.0',
+        year: '2015',
+        row: 29,
+        classNames: ['tech_js']
+      },
+      relationships: {
+        column: {
+          data: {type: 'column', id: 'mvvm'}
         }
       }
     }

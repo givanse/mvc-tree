@@ -29,14 +29,35 @@ module('Acceptance | index viz', function (hooks) {
     assert.dom('#mvc_tree').exists();
     assert.dom('#mvc_tree').hasTagName('svg');
 
+    assert.strictEqual(PATTERN_GROUP_IDS.length, 13);
+
     PATTERN_GROUP_IDS.forEach((id) => {
       assert.dom(`.g_${id}`).exists(`pattern group .g_${id}`);
     });
+
+    assert.dom('.g_react').exists('tech node .g_react');
+    assert.dom('.g_ember-2').exists('tech node .g_ember-2');
+    assert.dom('#react .panel-title').includesText('2013 React');
+    assert.dom('#ember-2 .panel-title').includesText('2015 Ember 2.0');
 
     let years = Array.from(document.querySelectorAll('.year_line_txt')).map(
       (el) => el.textContent.trim(),
     );
     assert.deepEqual(years, ['1980', '1990', '2000', '2010']);
+  });
+
+  test('click React and Ember 2.0 opens their encyclopedia panels', async function (assert) {
+    await visit('/');
+
+    await click('svg .g_react');
+    assert.strictEqual(window.location.hash, '#react');
+    assert.dom('#react').exists();
+    assert.dom('#react [itemprop="text"]').includesText('Facebook');
+
+    await click('svg .g_ember-2');
+    assert.strictEqual(window.location.hash, '#ember-2');
+    assert.dom('#ember-2').exists();
+    assert.dom('#ember-2 [itemprop="text"]').includesText('Road to Ember 2.0 RFC');
   });
 
   test('click .g_tmve sets #tmve and the panel exists', async function (assert) {

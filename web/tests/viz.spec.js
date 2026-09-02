@@ -27,15 +27,36 @@ test('svg tree, pattern groups, and year lines', async function({ page }) {
     return el.tagName.toLowerCase();
   })).toBe('svg');
 
+  expect(PATTERN_GROUP_IDS.length).toBe(13);
+
   for (var i = 0; i < PATTERN_GROUP_IDS.length; i++) {
     var id = PATTERN_GROUP_IDS[i];
     await expect(page.locator('.g_' + id), 'pattern group .g_' + id).toHaveCount(1);
   }
 
+  await expect(page.locator('.g_react'), 'tech node .g_react').toHaveCount(1);
+  await expect(page.locator('.g_ember-2'), 'tech node .g_ember-2').toHaveCount(1);
+  await expect(page.locator('#react .panel-title')).toContainText('2013 React');
+  await expect(page.locator('#ember-2 .panel-title')).toContainText('2015 Ember 2.0');
+
   await expect(page.locator('.year_line_txt').filter({ hasText: '1980' })).toHaveCount(1);
   await expect(page.locator('.year_line_txt').filter({ hasText: '1990' })).toHaveCount(1);
   await expect(page.locator('.year_line_txt').filter({ hasText: '2000' })).toHaveCount(1);
   await expect(page.locator('.year_line_txt').filter({ hasText: '2010' })).toHaveCount(1);
+});
+
+test('click React and Ember 2.0 opens their encyclopedia panels', async function({ page }) {
+  await page.goto('/');
+
+  await page.locator('svg .g_react').click();
+  await expect(page).toHaveURL(/#react/);
+  await expect(page.locator('#react')).toBeVisible();
+  await expect(page.locator('#react [itemprop="text"]')).toContainText('Facebook');
+
+  await page.locator('svg .g_ember-2').click();
+  await expect(page).toHaveURL(/#ember-2/);
+  await expect(page.locator('#ember-2')).toBeVisible();
+  await expect(page.locator('#ember-2 [itemprop="text"]')).toContainText('Road to Ember 2.0 RFC');
 });
 
 test('click .g_tmve sets #tmve and the panel exists', async function({ page }) {

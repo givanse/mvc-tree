@@ -59,4 +59,32 @@ module('Unit | svg-layout path snapshots', function () {
       'M91 156 v8 h-4 l4 8 l4 -8 h-4',
     );
   });
+
+  test('keeps 13 pattern groups and places React 2013 and Ember 2.0 2015', function (assert) {
+    let data = loadTreeData({ showGrid: false });
+    let react = data.byId.react;
+    let ember2 = data.byId['ember-2'];
+    let ember = data.byId.ember;
+
+    assert.strictEqual(data.dpatterns.length, 13);
+    assert.strictEqual(data.technologies.length, 24);
+    assert.strictEqual(data.svgenv.maxRows, 31);
+
+    assert.strictEqual(react.name, 'React');
+    assert.strictEqual(react.year, '2013');
+    assert.strictEqual(react.row, 28);
+    assert.strictEqual(react.col, 5);
+    assert.strictEqual(react.kind, 'technology');
+    assert.true(react.classNames.includes('tech_js'));
+
+    assert.strictEqual(ember2.name, 'Ember 2.0');
+    assert.strictEqual(ember2.year, '2015');
+    assert.strictEqual(ember2.row, 29);
+    assert.strictEqual(ember2.col, 4);
+    assert.strictEqual(ember2.kind, 'technology');
+    assert.true(ember2.classNames.includes('tech_js'));
+
+    assert.true(ember.relatedIds.includes('ember-2'));
+    assert.true(react.relatedIds.includes('mvw'));
+  });
 });
