@@ -12,24 +12,19 @@ The **site** is a static Vite app in `web/`. Encyclopedia content and SVG layout
 * `app/templates/dpatterns` and `app/templates/technologies` — article copy
 * `app/lib/svg-layout` — path-factory and grid geometry (do not rewrite the path algorithm)
 
-The Ember 2.11 app remains in-tree as a historical shell. It is **not** what you run or deploy.
+An Ember 6.12 LTS shell lives in `ember/`. It is a development/historical companion, **not** what you deploy.
 
 ## Prerequisites
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) 20 or 22 (with npm)
+* [Node.js](http://nodejs.org/) 20 or 22 (with npm). Ember CLI 6.12 requires Node **20.19+**.
 
-## Installation
+## Vite app (production)
 
 ```
 git clone <repository-url>
 cd mvc-tree/web
 npm install
-```
-
-## Running / Development
-
-```
 npm run dev
 ```
 
@@ -52,7 +47,23 @@ From `web/`:
 * `npm run test:unit` — path `d` snapshots and Handlebars port
 * `npm run test:e2e` — Playwright (builds and serves `web/dist`)
 
-### Deploy
+## Ember 6.12 app (companion)
+
+```
+cd mvc-tree/ember
+npm install
+npm start
+```
+
+Visit [http://localhost:4200](http://localhost:4200).
+
+```
+npm test             # vite build --mode development && ember test --path dist
+```
+
+Both shells import the same `app/jsons` and `app/lib/svg-layout`. Do not make `web/` a subpackage of the Ember app.
+
+## Deploy
 
 The live site is [https://mvc.givan.se](https://mvc.givan.se) on **Netlify**.
 
@@ -64,4 +75,4 @@ A deploy can fail at “preparing repo” with `git@github.com Permission denied
 
 GitHub Actions still runs tests and may upload a `site` artifact; it does not publish.
 
-See [DEV_SETUP.md](DEV_SETUP.md) for the Node versions, the Ember legacy path, and CI details.
+See [DEV_SETUP.md](DEV_SETUP.md) for the Node versions, both apps, and CI details.

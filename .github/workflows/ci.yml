@@ -39,7 +39,7 @@ jobs:
           if-no-files-found: error
 
   ember:
-    name: Ember (legacy)
+    name: Ember 6.12
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -47,29 +47,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 14.21.3
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ember/package-lock.json
 
-      - name: Pin npm 8 and Bower
-        run: |
-          npm install -g npm@8.19.4
-          npm install -g bower@1.8.8
-          node -v
-          npm -v
-          bower -v
-
-      - name: Rewrite git:// to https://
-        run: git config --global url."https://github.com/".insteadOf git://github.com/
-
-      - name: Install npm dependencies
+      - name: Install Ember dependencies
+        working-directory: ember
         run: npm ci
 
-      - name: Install Bower dependencies
-        run: bower install
-
-      - name: Ember build
-        run: ./node_modules/.bin/ember build
-
-      - name: Ember test (Chrome headless)
-        run: PATH="/usr/bin:/opt/google/chrome:$PATH" ./node_modules/.bin/ember test
+      - name: Ember test
+        working-directory: ember
+        run: npm test
         env:
           CI: true
