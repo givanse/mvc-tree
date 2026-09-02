@@ -47,6 +47,8 @@ The live host is **https://mvc.givan.se** on Netlify.
 
 **If the Netlify UI still has Build command `ember build -e production` and Publish directory `dist/`**, those fields win and the live site stays on the repo-root Ember app. Clear them so the toml applies, **or** set the UI to match: Base `web`, command `npm run build`, publish `dist`.
 
+A deploy can fail at “preparing repo” with `git@github.com Permission denied (publickey)`. That is a stale Netlify SSH deploy key, not Ember vs Vite. Unlink and relink `givanse/mvc-tree` in the site’s Git/GitHub settings. The live site stays Ember until clone works.
+
 No extra Netlify secrets are required for a static build. Do not add a GitHub Pages CNAME or publish via `gh-pages`.
 
 GitHub Actions (`.github/workflows/ci.yml`) still runs tests on push and pull request:
