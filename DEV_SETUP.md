@@ -38,9 +38,23 @@ Universal Analytics (`ember-cli-google-analytics` / `UA-47511141-2`) is not incl
 
 The live host is **https://mvc.givan.se** on Netlify. GitHub Actions does **not** deploy.
 
-**Merging to `master` does not publish.** PRs do not get Deploy Previews (`[context.deploy-preview] ignore = "exit 0"` in `netlify.toml`, plus account-level `skip_prs`). Branch deploys are skipped the same way. Account `skip_prs` is a team toggle; this site’s toml ignore is the per-site safety net if that toggle is off.
+**Merging to `master` does not publish.** Production ships only on an intentional trigger (policy below).
 
-**Do not set `stop_builds`.** That flag blocks manual deploys and hooks too. Leave Builds enabled.
+**Deploy Previews are already off.** Web Dev confirmed this site has `skip_prs=true`. `[context.deploy-preview] ignore = "exit 0"` in `netlify.toml` (and the same for branch deploys) is belt-and-suspenders if that toggle is later flipped—not the only control. `web/ignore-build.sh` skips those contexts too.
+
+### Leftover Netlify UI clicks (Gastón)
+
+`skip_prs` is done. **Do not click anything to “lock” or stop auto builds.**
+
+| Setting | Action |
+| --- | --- |
+| `skip_prs` / Deploy Previews | **None.** Already `true` (off). |
+| `stop_builds` | **Do not touch.** Already false. Turning it on blocks Clear-cache UI deploys and hooks too. Leave Builds enabled. |
+| Auto publishing on `master` git push | **Leave it on.** Ignore skips those production builds (`exit 0`). Do not lock deploys. |
+| Site UI **Build settings** | **Stay empty or match toml** (UI still overrides the file): Base `web`, command `npm ci && npm run build`, publish `dist`, Node 24. If the UI still has `ember build -e production` / Publish `dist/`, clear those fields **or** set them to match. That is the only leftover settings check. |
+| This merge | **None.** Ignore will skip; do not Trigger deploy just to land toml. |
+
+**To actually publish** (not this merge): Deploys → Trigger deploy → **Clear cache and deploy site**, or a **build hook**. Plain “Deploy site” may still be skipped by ignore.
 
 ### How to ship
 

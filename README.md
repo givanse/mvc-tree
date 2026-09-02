@@ -65,9 +65,11 @@ Both shells import the same `app/jsons` and `app/lib/svg-layout`. Do not make `w
 
 ## Deploy
 
-The live site is [https://mvc.givan.se](https://mvc.givan.se) on **Netlify**. CI does not deploy. PRs do not get Deploy Previews. **Merging to `master` does not publish.**
+The live site is [https://mvc.givan.se](https://mvc.givan.se) on **Netlify**. CI does not deploy. **Merging to `master` does not publish.**
 
-To ship: Netlify UI → Deploys → Trigger deploy → **Clear cache and deploy site** (plain “Deploy site” may still be skipped by ignore), or a Netlify **build hook** (hooks bypass ignore). Do not set `stop_builds`. See [DEV_SETUP.md](DEV_SETUP.md#deploy) for the full policy (`skip_prs` vs toml ignore, path ignore under `base = "web"`, leftover UI toggles).
+Deploy Previews are already off (`skip_prs=true`; toml `[context.deploy-preview] ignore` is belt-and-suspenders). **Leave auto git publishing on** — ignore skips those production builds. **Do not set `stop_builds`.**
+
+Leftover UI: none for `skip_prs` / `stop_builds`. Site UI Build settings must stay empty or match toml. To ship: Deploys → Trigger deploy → **Clear cache and deploy site** (plain “Deploy site” may still be skipped), or a **build hook** (hooks bypass ignore). Full list: [DEV_SETUP.md](DEV_SETUP.md#deploy).
 
 **[`netlify.toml`](netlify.toml) is the source of truth:** Base directory `web`, command `npm ci && npm run build` (or `npm run build` if install is separate), publish `dist` (i.e. `web/dist`), `NODE_VERSION` 24.
 

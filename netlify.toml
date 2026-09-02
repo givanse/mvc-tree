@@ -11,7 +11,8 @@
 [build.environment]
   NODE_VERSION = "24"
 
-# Per-site safety net if account-level skip_prs is off. exit 0 = skip the build.
+# Belt-and-suspenders: skip_prs is already true on this site (Deploy Previews off).
+# Keep these even if that toggle is later flipped. exit 0 = skip the build.
 [context.deploy-preview]
   ignore = "exit 0"
 
